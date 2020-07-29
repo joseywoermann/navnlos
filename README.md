@@ -6,4 +6,4 @@
 This script might not work and I´m aware of that
 
 
-Report an issue: bit.ly/navnlos-issues
+Report an issue: https://bit.ly/navnlos-issues
