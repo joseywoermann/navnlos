@@ -60,7 +60,6 @@ async def modhelp(ctx):
     help_embed.add_field(name="$slomo", value="Setzt den entsprechenden Kanal in einen Slow-Modus. Anwendung: `$slomo 60` setzt den Slow-Modus auf 1 Minute. `$slomo 0`entfernt ihn.")
     help_embed.add_field(name="$channeledit/$edit", value="Aendert den Namen/dei Beschreibung des Channels. Anwendung: `$channeledit topic whatever /$channeledit name irgendwas`")
     help_embed.add_field(name="$nickedit/$nick", value="Aendert den Nickname eines Users, der eine niedrigere Rolle hat als der Bot. Anwendung: `$nickedit @hanspeter Dosenravioli`")
-    help_embed.add_field(name="$lock", value="Entzieht ALLEN Usern, ausser Moderatoren, die Berechtigung, nachrichten zu schreiben.")
 
     await ctx.channel.purge(limit=1)
     await author.send(content=None, embed=help_embed)
@@ -96,7 +95,6 @@ async def moddirhelp(ctx):
     help_embed.add_field(name="$slomo", value="Setzt den entsprechenden Kanal in einen Slow-Modus. Anwendung: `$slomo 60` setzt den Slow-Modus auf 1 Minute. `$slomo 0`entfernt ihn.")
     help_embed.add_field(name="$channeledit/$edit", value="Aendert den Namen/dei Beschreibung des Channels. Anwendung: `$channeledit topic whatever /$channeledit name irgendwas`")
     help_embed.add_field(name="$nickedit/$nick", value="Aendert den Nickname eines Users, der eine niedrigere Rolle hat als der Bot. Anwendung: `$nickedit @hanspeter Dosenravioli`")
-    help_embed.add_field(name="$lock", value="Entzieht ALLEN Usern, ausser Moderatoren, die Berechtigung, nachrichten zu schreiben.")
 
     await ctx.channel.purge(limit=1)
     await ctx.send(content=None, embed=help_embed)
