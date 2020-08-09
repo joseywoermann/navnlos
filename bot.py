@@ -295,7 +295,7 @@ async def channeledit(ctx, thing, *, newattribut):
                 pass#errormessage einfuegen
         else:
             pass
-            
+
     elif thing == "topic":
         if newattribut:
             try:
@@ -303,8 +303,8 @@ async def channeledit(ctx, thing, *, newattribut):
             except:
                 pass#errormessage einfuegen
         else:
-            pass       
-   
+            pass
+
     else:
         pass#errormessage einfuegen
 
@@ -347,7 +347,7 @@ async def removerole(ctx, person: discord.Member, role):
 
     except:
         return
-        
+
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 @client.command(aliases=['arep'])
