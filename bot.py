@@ -513,7 +513,7 @@ async def poll(ctx, question=None, response0=None, response1=None, response2=Non
 
                                             #await ctx.send(response0 + response1 + response2 + response3 + response4 + response5 + response6 + response7 + response8)
 
-                                            poll_embed = discord.Embed(title=str(question), description="\n\n :one: " + str(response0) + "\n :two: " + str(response1) + "\n :three: " + str(response2) + "\n :four: " + str(response3) + "\n :five: " + str(response4) + "\n :six: " + str(response5) + "\n :seven: " + str(response6) + "\n :eight: " + str(response7) + "\n :nine: " + str(response8), color=discord.Color.orange())
+                                            poll_embed = discord.Embed(title=str(question), description="\n\n  :one: " + str(response0) + "\n:two: " + str(response1) + "\n:three: " + str(response2) + "\n:four: " + str(response3) + "\n:five: " + str(response4) + "\n:six: " + str(response5) + "\n:seven: " + str(response6) + "\n:eight: " + str(response7) + "\n:nine: " + str(response8), color=discord.Color.orange())
                                             poll_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
                                             msg = await ctx.send(content=None, embed=poll_embed)
@@ -532,7 +532,7 @@ async def poll(ctx, question=None, response0=None, response1=None, response2=Non
 
                                             #await ctx.send(response0 + response1 + response2 + response3 + response4 + response5 + response6 + response7)
 
-                                            poll_embed = discord.Embed(title=str(question), description="\n\n :one: " + str(response0) + "\n :two: " + str(response1) + "\n :three: " + str(response2) + "\n :four: " + str(response3) + "\n :five: " + str(response4) + "\n :six: " + str(response5) + "\n :seven: " + str(response6) + "\n :eight: " + str(response7), color=discord.Color.orange())
+                                            poll_embed = discord.Embed(title=str(question), description="\n\n  :one: " + str(response0) + "\n:two: " + str(response1) + "\n:three: " + str(response2) + "\n:four: " + str(response3) + "\n:five: " + str(response4) + "\n:six: " + str(response5) + "\n:seven: " + str(response6) + "\n:eight: " + str(response7), color=discord.Color.orange())
                                             poll_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
                                             msg = await ctx.send(content=None, embed=poll_embed)
@@ -550,7 +550,7 @@ async def poll(ctx, question=None, response0=None, response1=None, response2=Non
 
                                         #await ctx.send(response0 + response1 + response2 + response3 + response4 + response5 + response6)
 
-                                        poll_embed = discord.Embed(title=str(question), description="\n\n :one: " + str(response0) + "\n :two: " + str(response1) + "\n :three: " + str(response2) + "\n :four: " + str(response3) + "\n :five: " + str(response4) + "\n :six: " + str(response5) + "\n :seven: " + str(response6), color=discord.Color.orange())
+                                        poll_embed = discord.Embed(title=str(question), description="\n\n  :one: " + str(response0) + "\n:two: " + str(response1) + "\n:three: " + str(response2) + "\n:four: " + str(response3) + "\n:five: " + str(response4) + "\n:six: " + str(response5) + "\n:seven: " + str(response6), color=discord.Color.orange())
                                         poll_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
                                         msg = await ctx.send(content=None, embed=poll_embed)
@@ -567,7 +567,7 @@ async def poll(ctx, question=None, response0=None, response1=None, response2=Non
 
                                     #await ctx.send(response0 + response1 + response2 + response3 + response4 + response5)
 
-                                    poll_embed = discord.Embed(title=str(question), description="\n\n :one: " + str(response0) + "\n :two: " + str(response1) + "\n :three: " + str(response2) + "\n :four: " + str(response3) + "\n :five: " + str(response4) + "\n :six: " + str(response5), color=discord.Color.orange())
+                                    poll_embed = discord.Embed(title=str(question), description="\n\n  :one: " + str(response0) + "\n:two: " + str(response1) + "\n:three: " + str(response2) + "\n:four: " + str(response3) + "\n:five: " + str(response4) + "\n:six: " + str(response5), color=discord.Color.orange())
                                     poll_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
                                     msg = await ctx.send(content=None, embed=poll_embed)
@@ -583,7 +583,7 @@ async def poll(ctx, question=None, response0=None, response1=None, response2=Non
 
                                 #await ctx.send(response0 + response1 + response2 + response3 + response4)
 
-                                poll_embed = discord.Embed(title=str(question), description="\n\n :one: " + str(response0) + "\n :two: " + str(response1) + "\n :three: " + str(response2) + "\n :four: " + str(response3) + "\n :five: " + str(response4), color=discord.Color.orange())
+                                poll_embed = discord.Embed(title=str(question), description="\n\n  :one: " + str(response0) + "\n:two: " + str(response1) + "\n:three: " + str(response2) + "\n:four: " + str(response3) + "\n:five: " + str(response4), color=discord.Color.orange())
                                 poll_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
                                 msg = await ctx.send(content=None, embed=poll_embed)
@@ -598,7 +598,7 @@ async def poll(ctx, question=None, response0=None, response1=None, response2=Non
 
                             #await ctx.send(response0 + response1 + response2 + response3)
 
-                            poll_embed = discord.Embed(title=str(question), description="\n\n :one: " + str(response0) + "\n :two: " + str(response1) + "\n :three: " + str(response2) + "\n :four: " + str(response3), color=discord.Color.orange())
+                            poll_embed = discord.Embed(title=str(question), description="\n\n  :one: " + str(response0) + "\n:two: " + str(response1) + "\n:three: " + str(response2) + "\n:four: " + str(response3), color=discord.Color.orange())
                             poll_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
                             msg = await ctx.send(content=None, embed=poll_embed)
@@ -613,7 +613,7 @@ async def poll(ctx, question=None, response0=None, response1=None, response2=Non
 
                         #await ctx.send(response0 + response1 + response2)
 
-                        poll_embed = discord.Embed(title=str(question), description="\n\n :one: " + str(response0) + "\n :two: " + str(response1) + "\n :three: " + str(response2), color=discord.Color.orange())
+                        poll_embed = discord.Embed(title=str(question), description="\n\n  :one: " + str(response0) + "\n:two: " + str(response1) + "\n:three: " + str(response2), color=discord.Color.orange())
                         poll_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
                         msg = await ctx.send(content=None, embed=poll_embed)
@@ -626,7 +626,7 @@ async def poll(ctx, question=None, response0=None, response1=None, response2=Non
 
                     #await ctx.send(response0 + response1)
 
-                    poll_embed = discord.Embed(title=str(question), description="\n\n :one: " + str(response0) + "\n :two: " + str(response1), color=discord.Color.orange())
+                    poll_embed = discord.Embed(title=str(question), description="\n\n  :one: " + str(response0) + "\n:two: " + str(response1), color=discord.Color.orange())
                     poll_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
                     msg = await ctx.send(content=None, embed=poll_embed)
@@ -648,6 +648,7 @@ async def poll(ctx, question=None, response0=None, response1=None, response2=Non
         poll_error_embed = discord.Embed(title="Error", description="Please specify at least 2 answers and a question", color=discord.Color.dark_purple())
         poll_error_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(content=None, embed=poll_error_embed)
+
 
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
