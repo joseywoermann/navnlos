@@ -189,7 +189,7 @@ async def modhelp(ctx, arg=None):
 @client.command(aliases=['i', 'about'])
 async def info(ctx):
 
-    info_embed = discord.Embed(title="Information", description="Version 1.4.0 by jcw05#1331\nhttps://bit.ly/navnlos", color=discord.Color.lighter_grey())
+    info_embed = discord.Embed(title="Information", description="Version 1.4.1 by jcw05#1331\nhttps://bit.ly/navnlos", color=discord.Color.lighter_grey())
     info_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.channel.purge(limit=1)
@@ -200,12 +200,8 @@ async def info(ctx):
 @client.command(aliases=['cl'])
 async def changelog(ctx):
 
-    changelog_embed = discord.Embed(title="Changelog for version 1.4.0", color=discord.Color.lighter_grey())
-    changelog_embed.add_field(name="Added:", value=" `$poll`, `$credits`, `$define`, `$wiki`, `$amazon`, `$maps`, `$duden`, `$price`, `$banid`")
-    changelog_embed.add_field(name="Removed:", value=" `$time` and `$lock` due to maintenance")
-    changelog_embed.add_field(name="Grammar:", value=" fixed spelling mistakes")
-    changelog_embed.add_field(name="Changes to commands:", value=" `$ping precise` returns the exact latency")
-    changelog_embed.add_field(name="Other stuff:", value="-improved performance\n-visual enhancements\n-changed the language to english")
+    changelog_embed = discord.Embed(title="Changelog for version 1.4.1", color=discord.Color.lighter_grey())
+    changelog_embed.add_field(name="Bugfixes:", value="Fixed a bug, that every answer, that is not the first one, was indented on mobile devices.")
 
 
 
