@@ -1,3 +1,4 @@
+import urllib.request
 import discord
 import random
 from discord.ext import commands
@@ -13,12 +14,14 @@ import datetime
 
 client = commands.Bot(command_prefix='$')
 client.remove_command('help')
-status = cycle(['bit.ly/navnlos', '$help'])
-
-TOKEN = 'YOUR TOKEN HERE'
 
 
-#test123
+statuss = ['bit.ly/navnlos', '$help']
+statusmsg = cycle(statuss)
+TOKEN = 'INSERT YOUR TOKEN'
+
+
+
 
 
 
@@ -41,13 +44,13 @@ emote_nine = '9️⃣'
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-
+"""
 @client.event
 async def on_guild_join(guild):
 
         if guild:
 
-            path = "logs_{}.txt".format(guild.id)
+            path = "logs/logs_{}.txt".format(guild.id)
 
             with open(path, 'a') as f:
 
@@ -58,29 +61,33 @@ async def on_guild_remove(guild):
 
         if guild:
 
-            path = "logs_{}.txt".format(guild.id)
+            path = "logs/logs_{}.txt".format(guild.id)
 
             with open(path, 'a') as f:
 
                 print(datetime.datetime.now().strftime("%d. %m. %Y; %H:%M") + " Left Server \"" + str(guild.name) + "\" Server-ID: " + str(guild.id), file=f)
-
+"""
 
 
 
 @client.event
 async def on_message(message):
 
+    if client.user.mentioned_in(message):
+        await message.channel.send("https://tenor.com/view/penguin-hello-hi-heythere-cutie-gif-3950966")
 
     if message.content.lower() == "hello":
         await message.channel.send("https://tenor.com/view/penguin-hello-hi-heythere-cutie-gif-3950966")
 
-    server = message.guild
+    if message.content.lower() == "hallo":
+        await message.channel.send("https://tenor.com/view/penguin-hello-hi-heythere-cutie-gif-3950966")
 
+    """
     if server:
 
 #        if message.content.startswith("-"):
 
-        path = "logs_{}.txt".format(server.id)
+        path = "logs/logs_{}.txt".format(server.id)
         #cmds = ['addrole', 'amazon', 'anonymrepeat', 'ban', 'changelog', 'channeledit', 'clear', 'createinvite', 'credits', 'day', 'dice', 'help', 'info', 'invite', 'kick', 'leave', 'maps', 'modhelp', 'nickedit', 'ping', 'poll', 'price', 'question', 'removerole', 'repeat', 'serverinfo', 'slomo', 'test', 'unban', 'userinfo', 'wiki']
 
             #if cmds in message.content.lower():
@@ -88,6 +95,44 @@ async def on_message(message):
         with open(path, 'a') as f:
 
             print("Date: {0.created_at}     Server: {0.channel.guild} Server-ID: [{0.guild.id}]     Channel: {0.channel.name} Channel-ID: [{0.channel.id}]     User: {0.author.name}#{0.author.discriminator} [ID: {0.author.id}]     Message: {0.content} [Message-ID: {0.id}]".format(message), file=f)
+    """
+    """
+    if message.channel.guild.id == 707243781946343425:
+
+        logchannel = client.get_channel(744644801823244430)
+
+        log_embed = discord.Embed(title=message.content, color = discord.Color.gold())
+        log_embed.set_author(name=str(message.author), icon_url=message.author.avatar_url)
+        log_embed.set_footer(text=message.guild.id)
+
+
+        await logchannel.send(content=None, embed=log_embed)
+    """
+
+    if message.content.startswith("-"):
+
+        if server.id == 304191437652623360:
+
+            log_channel = client.get_channel(751879355344617582)
+
+            log_embed = discord.Embed(title=message.content, description="Channel: **{0.channel.name}** Channel-ID: [{0.channel.id}]".format(message))
+            log_embed.set_author(name="User: " + message.author.name + "#" + str(message.author.discriminator) + " ID: " + str(message.author.id), icon_url=message.author.avatar_url)
+            log_embed.set_footer(text=message.created_at.strftime("%Y; %m. %d., %H:%M:%S") + " Server: " + str(message.channel.guild) + " / " + str(message.guild.id))
+
+            await log_channel.send(content=None, embed=log_embed)
+
+        else:
+
+            log_channel = client.get_channel(751879443810615487)
+
+            log_embed = discord.Embed(title=message.content, description=" Channel: **{0.channel.name}** Channel-ID: [{0.channel.id}]".format(message))
+            log_embed.set_author(name="User: " + message.author.name + "#" + str(message.author.discriminator) + " ID: " + str(message.author.id), icon_url=message.author.avatar_url)
+            log_embed.set_footer(text=message.created_at.strftime("%Y; %m. %d., %H:%M:%S") + " Server: " + str(message.channel.guild) + " / " + str(message.guild.id))
+
+            await log_channel.send(content=None, embed=log_embed)
+
+    else:
+        pass
 
     await client.process_commands(message)
 
@@ -112,84 +157,109 @@ async def on_ready():
 @tasks.loop(seconds=20)
 async def change_status():
 
-    await client.change_presence(status=discord.Status.online,activity=discord.Activity(type=discord.ActivityType.listening, name=next(status)))
+    await client.change_presence(status=discord.Status.online,activity=discord.Activity(type=discord.ActivityType.listening, name=next(statusmsg)))
 
 
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+@client.event
+async def on_member_join(ctx):
+
+    server = ctx.guild
+
+    if server.id == 304191437652623360:
+
+        member_count_channel = client.get_channel(732309561293275198)
+        member_count = server.member_count
+
+        await member_count_channel.edit(name="Member: " + str(member_count))
+
+    else:
+
+        pass
+
+
+
+@client.event
+async def on_member_remove(ctx):
+
+    server = ctx.guild
+
+    if server.id == 304191437652623360:
+
+        member_count_channel = client.get_channel(732309561293275198)
+        member_count = server.member_count
+
+        await member_count_channel.edit(name="Member: " + str(member_count))
+
+    else:
+
+        pass
+
+
+
 
 
 
 @client.command(aliases=['h'])
-async def help(ctx, arg=None):
+@commands.guild_only()
+async def help(ctx):
 
     help_embed = discord.Embed(title="Commands", colour=discord.Color.gold())
-    help_embed.add_field(name="$invite/$inv", value="Sends/creates an invite-links to this server")
-    help_embed.add_field(name="$question/$q", value="Answers your most crucial yes/no questions")
-    help_embed.add_field(name="$ping/$p", value="Shows the bots latency")
-    help_embed.add_field(name="$info/$i", value="Shows some information about navnlos")
-    help_embed.add_field(name="$changelog/$cl", value="Shows the changelog")
+    help_embed.add_field(name="$invite/$inv", value="Invitelink zum MisteriCraft-Communityserver")
+    help_embed.add_field(name="$question/$q", value="Beantwortet Ja/Nein-Fragen")
+    help_embed.add_field(name="$ping/$p", value="Latenz des Bots")
+    help_embed.add_field(name="$info/$i", value="Bot-Information")
+    help_embed.add_field(name="$changelog/$cl", value="Zeigt den Chnagelog")
 #    help_embed.add_field(name="$time/$z", value="Gibt die aktuelle Zeit aus.")
-    help_embed.add_field(name="$day/$t", value="Shows the date (point of reference: UTC)")
-    help_embed.add_field(name="$help/$h", value="so I really have to comment on that?")
-    help_embed.add_field(name="$repeat/$rep", value="makes an embed containing your message")
-    help_embed.add_field(name="$poll", value="creates a poll with up to 9 answers. Attention: if the question /an answer is made up of more than one word, you have to use `_`between those. example `$poll Hello_there! Hi Go_away`")
-    help_embed.add_field(name="$wiki", value="searches Wikipedia")
-    help_embed.add_field(name="$maps", value="shows the location you are searching for on google maps [For some reason, this only works on PC]")
-    help_embed.add_field(name="$amazon", value="searches àmazon.com`")
-    help_embed.add_field(name="$duden", value="searches the \"duden\"")
-    help_embed.add_field(name="$price", value="returns the best price for the thing you´re looking for (Only )")
-    help_embed.add_field(name="$define", value="defines a thing. Powered by https://urbandictionary.com")
-    help_embed.add_field(name="$credits", value="Shows the credits (incomplete)")
-    help_embed.add_field(name="$dummy", value="does absulutely nothing")
+    help_embed.add_field(name="$day/$t", value="Gibt das aktuelle Datum an")
+    help_embed.add_field(name="$help/$h", value="Selbsterklaerend")
+    help_embed.add_field(name="$repeat/$rep", value="Sendet deine Nachricht als Embed")
+    help_embed.add_field(name="$poll", value="Umfrage mit bis zu 9 Antworten. Woerter mit `_` trennen: `$poll Ja? Ja Definitiv_nicht`")
+    help_embed.add_field(name="$wiki", value="Wikipedia-Suche")
+    help_embed.add_field(name="$price", value="Preisvergleich fuer angegebenes Produkt")
+    help_embed.add_field(name="$define", value="Definiert ein Wort")
+    help_embed.add_field(name="$bpm", value="Tempo fuer einen angegebenen Song")
+    help_embed.add_field(name="$dummy", value="Tut absolut garnichts")
+    help_embed.add_field(name="$userinfo", value="Zeigt informationen ueber einen User")
     help_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
-    if arg == "dir":
-        author = ctx.message.author
-    else:
-        author = ctx
-
-
     await ctx.channel.purge(limit=1)
-    await author.send(content=None, embed=help_embed)
+    await ctx.send(content=None, embed=help_embed)
 
 
 
 @client.command(aliases=['mh'])
 @commands.has_permissions(manage_messages=True)
-async def modhelp(ctx, arg=None):
+@commands.guild_only()
+async def modhelp(ctx):
 
     help_embed = discord.Embed(title="Commands exklusiv fuer Moderatoren", colour=discord.Color.gold())
-    help_embed.add_field(name="$clear/$c", value="Deletes the specified amount of messages in the channel. with `pin`, you can also delete the pinned messages example:`$clear 100 pin`")
-    help_embed.add_field(name="$kick/$k", value="Kicks a user. Example: `$kick @jcw05`")
-    help_embed.add_field(name="$ban/$b", value="Bans a user")
-    help_embed.add_field(name="$unban/$ub", value="Unbans a user. Example: `$unban jcw05#1331`")
-    help_embed.add_field(name="$addrole/$ar", value="Adds a role to a user. Example: `$addrole @jcw05 rolexyz`")
-    help_embed.add_field(name="$removerole/$rr", value="Removes a role from a user. Example: `$removerole @jcw05 rolexyz`")
-    help_embed.add_field(name="$slomo", value="Sets the Slow-Mode. Example: `$slomo 60`- 1 minute; `$slomo 0`- no more slow-mode")
-    help_embed.add_field(name="$channeledit/$edit", value="Edits the name/topic of a channel. Example: `$edit name xyz`/`$edit topic xyz`")
-    help_embed.add_field(name="$nickedit/$nick", value="Changes the nickname of a user. Example: `$nickedit @jcw05 new-nickname-here`")
-    help_embed.add_field(name="$nbanid", value="Bans a user via his ID. Using this command, you can ban users who have never joined your server, or have left the server. Using this method, you can create a \"blacklist\" of users, that you don´t want on your server.")
-#    help_embed.add_field(name="$lock", value="Entzieht ALLEN Usern, ausser Moderatoren, die Berechtigung, nachrichten zu schreiben.")
+    help_embed.add_field(name="$clear/$c", value="Loescht die angegebene Anzahl an Nachrichten.")
+    help_embed.add_field(name="$kick/$k", value="Kickt einen User.")
+    help_embed.add_field(name="$ban/$b", value="Bannt einen User")
+    help_embed.add_field(name="$banid", value="Bannt einen User mithilfe der ID. User, die nicht auf dem Server sind, koennen so gebannt werden.")
+    help_embed.add_field(name="$unban/$ub", value="Entbannt einen User")
+    help_embed.add_field(name="$addrole/$ar", value="Fuegt einem User eine Rolle hinzu")
+    help_embed.add_field(name="$removerole/$rr", value="Entfernt einem User eine Rolle")
+    help_embed.add_field(name="$slomo", value="Setzt den Slowmode fuer den Kannal auf die angegebene Sekundenzahl")
+    help_embed.add_field(name="$channeledit/$edit", value="Aendert den Namen / Beschreibung eines CHannels")
+    help_embed.add_field(name="$nickedit/$nick", value="Aendert den Nickname eines Users")
     help_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
-    if arg == "dir":
-        author = ctx.message.author
-    else:
-        author = ctx
-
-
     await ctx.channel.purge(limit=1)
-    await author.send(content=None, embed=help_embed)
+    await ctx.send(content=None, embed=help_embed)
 
 
 
 @client.command(aliases=['i', 'about'])
+@commands.guild_only()
 async def info(ctx):
 
-    info_embed = discord.Embed(title="Information", description="Version 1.4.1 by jcw05#1331\nhttps://bit.ly/navnlos", color=discord.Color.lighter_grey())
+    info_embed = discord.Embed(title="Information", description="Version 1.5.0 by jcw05#1331\nhttps://bit.ly/navnlos", color=discord.Color.lighter_grey())
     info_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.channel.purge(limit=1)
@@ -198,10 +268,13 @@ async def info(ctx):
 
 
 @client.command(aliases=['cl'])
+@commands.guild_only()
 async def changelog(ctx):
 
-    changelog_embed = discord.Embed(title="Changelog for version 1.4.1", color=discord.Color.lighter_grey())
-    changelog_embed.add_field(name="Bugfixes:", value="Fixed a bug, that every answer, that is not the first one, was indented on mobile devices.")
+    changelog_embed = discord.Embed(title="Changelog for version 1.5.0", color=discord.Color.lighter_grey())
+    changelog_embed.add_field(name="Hinzugefuegt:", value=" `$bpm`, `$userinfo`")
+    changelog_embed.add_field(name="Allgemein:", value="raechdschraipfela behoben")
+    changelog_embed.add_field(name="Sonstiges:", value="Systemsprache auf Deutsch geaendert")
 
 
 
@@ -213,10 +286,11 @@ async def changelog(ctx):
 
 
 @client.command(aliases=['q'])
+@commands.guild_only()
 async def question(ctx, *, question):
 
-    response = ['yes', 'no', 'maybe', 'probably', 'probably not']
-    response_embed = discord.Embed(title="Your question: \"" + str(question) + "\" The answer: " + str(random.choice(response)), color=discord.Color.gold())
+    response = ['Ja', 'Nein', 'Vielleicht', 'Wahrscheinlich', 'Wahrscheinlich nicht']
+    response_embed = discord.Embed(title="Deine Frage: \"" + str(question) + "\" Die Antwort: " + str(random.choice(response)), color=discord.Color.gold())
     response_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.channel.purge(limit=1)
@@ -228,34 +302,13 @@ async def question(ctx, *, question):
 
 
 @client.command(aliases=['inv'])
-async def invite(ctx, temp=None):
+@commands.guild_only()
+async def invite(ctx):
 
+    invite = "https://discord.gg/KVbdvK8"
 
-    if ctx.guild.id != 304191437652623360:
-
-        if temp == "temp":
-
-            invite = await ctx.channel.create_invite(max_age=43200)
-
-            invite_embed = discord.Embed(title="12-hour-invite:\n" + str(invite), color=discord.Color.gold())
-            invite_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
-
-            await ctx.channel.purge(limit=1)
-            await ctx.send(content=None, embed=invite_embed)
-
-        else:
-
-            invite = await ctx.channel.create_invite(max_age=0)
-
-            invite_embed = discord.Embed(title="invite:\n" + str(invite), color=discord.Color.gold())
-            invite_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
-
-            await ctx.channel.purge(limit=1)
-            await ctx.send(content=None, embed=invite_embed)
-
-    else:
-
-        pass
+    invite_embed = discord.Embed(title="Invitelink zum MisteriCraft-Communityserver:\n" + str(invite), color=discord.Color.gold())
+    invite_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.channel.purge(limit=1)
     await ctx.send(content=None, embed=invite_embed)
@@ -264,6 +317,7 @@ async def invite(ctx, temp=None):
 
 
 @client.command(aliases=['rep'])
+@commands.guild_only()
 async def repeat(ctx, *, text):
 
     repeat_embed = discord.Embed(title=str(text), color=discord.Color.orange())
@@ -287,10 +341,11 @@ async def time(ctx):
 
 
 @client.command(aliases=['t'])
+@commands.guild_only()
 async def day(ctx):
 
-    current_day = datetime.datetime.now().strftime("%A, the %d. of %B %Y, which is the %jth day of the year")
-    message = f"It is {current_day}."
+    current_day = datetime.datetime.now().strftime("%A, der %d. %B %Y, der %jth Tag dieses Jahres")
+    message = f"Heute ist {current_day}."
     day_embed = discord.Embed(title=str(message), color=discord.Color.gold())
     day_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
@@ -300,10 +355,11 @@ async def day(ctx):
 
 
 @client.command(aliases=['d'])
+@commands.guild_only()
 async def dice(ctx, arg=6):
 
     dice_result = random.randint(1, arg)
-    dice_embed = discord.Embed(title=dice_result, color=discord.Color.gold())
+    dice_embed = discord.Embed(title="Zufaellige Zahl zwischen 1 und " + str(arg) + ":\n\nErgebnis: __" + str(dice_result) + "__", color=discord.Color.gold())
     dice_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.channel.purge(limit=1)
@@ -312,14 +368,15 @@ async def dice(ctx, arg=6):
 
 
 @client.command(aliases=['p'])
+@commands.guild_only()
 async def ping(ctx, r=None):
 
     if r == "precise":
-        ping_embed = discord.Embed(title=f"Pong! {(client.latency * 1000)} milliseconds", colour=discord.Color.gold())
+        ping_embed = discord.Embed(title=f"Pong! {(client.latency * 1000)} Millisekunden", colour=discord.Color.gold())
         ping_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
     else:
-        ping_embed = discord.Embed(title=f"Pong! {round(client.latency * 1000)} milliseconds", colour=discord.Color.gold())
+        ping_embed = discord.Embed(title=f"Pong! {round(client.latency * 1000)} Millisekunden", colour=discord.Color.gold())
         ping_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
 
@@ -329,6 +386,7 @@ async def ping(ctx, r=None):
 
 
 @client.command()
+@commands.guild_only()
 async def wiki(ctx, *, search_term):
 
     while ' ' in search_term:
@@ -338,17 +396,8 @@ async def wiki(ctx, *, search_term):
 
 
 
-@client.command(aliases = ['amzn'])
-async def amazon(ctx, *, search_term):
-
-    while ' ' in search_term:
-        search_term = search_term.replace(' ', '+')
-
-    await ctx.send("https://www.amazon.com/s?k=" + search_term)
-
-
-
 @client.command(aliases = ['preis'])
+@commands.guild_only()
 async def price(ctx, *, search_term):
 
     while ' ' in search_term:
@@ -358,17 +407,8 @@ async def price(ctx, *, search_term):
 
 
 
-@client.command(aliases = ['locate'])
-async def maps(ctx, *, search_term):
-
-    while ' ' in search_term:
-        search_term = search_term.replace(' ', '+')
-
-    await ctx.send("https://google.com/maps/search/" + search_term)
-
-
-
 @client.command(aliases = ['def'])
+@commands.guild_only()
 async def define(ctx, *, search_term):
 
     while ' ' in search_term:
@@ -379,46 +419,20 @@ async def define(ctx, *, search_term):
 
 
 @client.command()
-async def duden(ctx, *, search_term):
+@commands.guild_only()
+async def bpm(ctx, *, search_term):
 
     while ' ' in search_term:
-        search_term = search_term.replace(' ', '+')
+        search_term = search_term.replace(' ', '-')
 
-    await ctx.send("https://www.duden.de/suchen/dudenonline/" + search_term)
-
-
-
-
-@client.command()
-async def credits(ctx):
-    credits_embed = discord.Embed(title="Credits")
-    credits_embed.add_field(name="General help:", value="https://discordpy.readthedocs.io/en/latest/api.html")
-    credits_embed.add_field(name="Reference for `$time`und `$date`:", value="https://strftime.org/")
-    credits_embed.add_field(name="Get the ID of a mention:", value="https://stackoverflow.com/questions/53026087/how-to-get-id-of-a-mentioned-user-discord-py")
-    credits_embed.add_field(name="Command-Reference:", value="https://discordpy.readthedocs.io/en/latest/ext/commands/api.html")
-    credits_embed.add_field(name="Specific channel:", value="https://discordpy.readthedocs.io/en/latest/faq.html#how-do-i-send-a-message-to-a-specific-channel")
-    credits_embed.add_field(name="Some commands:", value="https://www.youtube.com/playlist?list=PLW3GfRiBCHOhfVoiDZpSz8SM_HybXRPzZ")
-    credits_embed.add_field(name="Embeds:", value="https://youtu.be/RwAqp26s9aE")
-    credits_embed.add_field(name="Embed-generator:", value="https://cog-creators.github.io/discord-embed-sandbox/")
-    credits_embed.add_field(name="Rolemenus:", value="https://youtu.be/MgCJG8kkq50")
-    credits_embed.add_field(name="*Actually being able to use them:*:", value="https://discordpy.readthedocs.io/en/latest/faq.html#why-does-on-message-make-my-commands-stop-working")
-#    credits_embed.add_field(name="reference for `$userinfo`und `$clear`:", value="https://www.youtube.com/watch?v=Ml0mzupoHuU")
-    credits_embed.add_field(name="Hoster:", value="https://www.heroku.com/")
-#    credits_embed.add_field(name="", value="")
-#    credits_embed.add_field(name="", value="")
-    credits_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
-
-
-
-    await ctx.send(content=None, embed=credits_embed)
-
-
+    await ctx.send("https://songbpm.com/searches/" + search_term)
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 @client.command(aliases=['arep'])
 @commands.has_permissions(manage_messages=True)
+@commands.guild_only()
 async def anonymrepeat(ctx, *, text):
 
     repeat_embed = discord.Embed(title=str(text), color=discord.Color.orange())
@@ -430,14 +444,12 @@ async def anonymrepeat(ctx, *, text):
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 @client.command()
+@commands.guild_only()
 async def poll(ctx, question=None, response0=None, response1=None, response2=None, response3=None, response4=None, response5=None, response6=None, response7=None, response8=None):
 
     await ctx.channel.purge(limit=1)
 
-
-
-
-    if question:#
+    if question:
 
         while '_' in question:
             question = question.replace('_',' ')
@@ -632,27 +644,36 @@ async def poll(ctx, question=None, response0=None, response1=None, response2=Non
 
 
             else:
-                poll_error_embed = discord.Embed(title="Error", description="Please specify at least 2 answers", color=discord.Color.dark_purple())
+                poll_error_embed = discord.Embed(title="Error", description="Umfrage muss mindestens 2 Antwortmoeglichkeiten haben.", color=discord.Color.dark_purple())
                 poll_error_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
                 await ctx.send(content=None, embed=poll_error_embed)
 
         else:
-            poll_error_embed = discord.Embed(title="Error", description="Please specify at least 2 answers", color=discord.Color.dark_purple())
+            poll_error_embed = discord.Embed(title="Error", description="Umfrage muss mindestens 2 Antwortmoeglichkeiten haben.", color=discord.Color.dark_purple())
             poll_error_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
             await ctx.send(content=None, embed=poll_error_embed)
     else:
-        poll_error_embed = discord.Embed(title="Error", description="Please specify at least 2 answers and a question", color=discord.Color.dark_purple())
+        poll_error_embed = discord.Embed(title="Error", description="Umfrage muss mindestens 2 Antwortmoeglichkeiten und eine Frage haben.", color=discord.Color.dark_purple())
         poll_error_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(content=None, embed=poll_error_embed)
 
 
-
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+@client.command()
+@commands.is_owner()
+async def setstatus(ctx, *, newstatus):
+
+    await ctx.channel.purge(limit=1)
+    statuss.append(newstatus)
+    setstatus_embed = discord.Embed(title=str(newstatus) + " zu Botstatus hinzugefuegt.")
+    await ctx.send(embed=setstatus_embed)
 
 
 
 @client.command()
 @commands.is_owner()
+@commands.guild_only()
 async def leave(ctx, id=None):
 
     owner = ctx.message.author
@@ -668,11 +689,31 @@ async def leave(ctx, id=None):
 
     await owner.send("Left ***" + str(server.name) + "***. Server-ID: " + str(server.id))
 
+#
+
+@client.command()
+@commands.is_owner()
+async def stop(ctx):
+
+    stop_embed = discord.Embed(title="Bot gestoppt", color = discord.Color.green())
+
+    try:
+        shuttingdowngif = await ctx.send("https://tenor.com/view/pc-computer-shutting-down-off-windows-computer-gif-17192330")
+        sleep(5)
+        await shuttingdowngif.delete()
+        await ctx.send(content=None, embed=stop_embed)
+        await client.logout()
+
+    except:
+
+        print("nope")
+
+
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-"""
+
 @client.command(aliases=['ui'])
 async def userinfo(ctx, person: discord.Member):
 
@@ -681,18 +722,26 @@ async def userinfo(ctx, person: discord.Member):
         if not role.is_default():
             rollen += '{} \r\n'.format(role.mention)
 
+    doing = person.activities
+    print(doing)
+    #while '(<Activity type=<ActivityType.listening: 2> name=\'' in doing:
+    #    doing = doing.replace('(<Activity type=<ActivityType.listening: 2> name='', ' ')
+
+
     userinfo_embed = discord.Embed(title=str(person))
-    userinfo_embed.add_field(name="Standart-Avatar", value=str(person.default_avatar))
-    userinfo_embed.add_field(name="Aktivitaet", value=person.activities)
+    #userinfo_embed.add_field(name="Standart-Avatar", value=str(person.default_avatar))
+    #userinfo_embed.add_field(name="Aktivitaet", value=doing)
     userinfo_embed.add_field(name="Joined am", value=person.joined_at.strftime("%d.%m.%Y um %H:%M:%S"))
-    userinfo_embed.add_field(name="Joined Discord at:", value=person.created_at.strftime("%d.%m.%Y um %H:%M:%S"))
+    userinfo_embed.add_field(name="Joined Discord am:", value=person.created_at.strftime("%d.%m.%Y um %H:%M:%S"))
     userinfo_embed.add_field(name="Status", value=str(person.status))
     userinfo_embed.add_field(name="Rollen", value=rollen)
+    userinfo_embed.add_field(name="ID", value=str(person.id))
     userinfo_embed.set_thumbnail(url=person.avatar_url)
 
+    await ctx.channel.purge(limit=1)
     await ctx.send(content=None, embed=userinfo_embed)
 
-
+"""
 @client.command()
 async def serverinfo(ctx):
 
@@ -716,12 +765,12 @@ async def serverinfo(ctx):
 
 
 
-
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 @client.command(aliases=['c'])
 @commands.has_permissions(manage_messages=True)
+@commands.guild_only()
 async def clear(ctx, amount_typed=1, arg=' '):
 
 
@@ -765,6 +814,7 @@ async def clear(ctx, amount_typed=1, arg=' '):
 
 @client.command(aliases=['k'])
 @commands.has_permissions(kick_members=True)
+@commands.guild_only()
 async def kick(ctx, person: discord.Member, *, reason=None):
 
     kick_embed = discord.Embed(title=str(person) + " wurde gekickt.", colour=discord.Color.dark_red())
@@ -791,6 +841,7 @@ async def kick(ctx, person: discord.Member, *, reason=None):
 
 @client.command(aliases=['b'])
 @commands.has_permissions(ban_members=True)
+@commands.guild_only()
 async def ban(ctx, person: discord.Member, *, reason=None):
 
     ban_embed = discord.Embed(title=str(person) + " wurde gebannt.", color=discord.Color.dark_red())
@@ -817,15 +868,41 @@ async def ban(ctx, person: discord.Member, *, reason=None):
 
 @client.command()
 @commands.has_permissions(ban_members=True)
+@commands.guild_only()
 async def banid(ctx, user_id, *, reason=None):
-    await ctx.channel.purge(limit=1)
     user = await client.fetch_user(user_id)
-    await ctx.guild.ban(user, reason=reason)
+    ban_embed = discord.Embed(title=str(user.name) + " wurde gebannt.", color=discord.Color.dark_red())
+    ban_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
+
+    ban_error_embed = discord.Embed(title="User konnte nicht gebannt werden", color=discord.Color.dark_purple())
+    ban_error_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
+
+
+
+    await ctx.channel.purge(limit=1)
+    try:
+
+        await ctx.guild.ban(user, reason=reason)
+        await ctx.send(content=None, embed=ban_embed)
+
+
+    except:
+
+        await ctx.send(content=None, embed=ban_error_embed)
+        sleep(5)
+        await ctx.channel.purge(limit=1)
+
+
+
+
+    user = await client.fetch_user(user_id)
+
 
 
 
 @client.command(aliases=['ub'])
 @commands.has_permissions(ban_members=True)
+@commands.guild_only()
 async def unban(ctx, *, member):
 
     banned_users = await ctx.guild.bans()
@@ -855,6 +932,7 @@ async def unban(ctx, *, member):
 
 @client.command(aliases=['nick'])
 @commands.has_permissions(manage_nicknames=True)
+@commands.guild_only()
 async def nickedit(ctx, mensch: discord.Member, newname):
 
     await ctx.channel.purge(limit=1)
@@ -876,6 +954,7 @@ async def nickedit(ctx, mensch: discord.Member, newname):
 
 @client.command(aliases=['edit'])
 @commands.has_permissions(manage_channels=True)
+@commands.guild_only()
 async def channeledit(ctx, thing, *, newattribut):
 
     await ctx.channel.purge(limit=1)
@@ -919,6 +998,7 @@ async def channeledit(ctx, thing, *, newattribut):
 
 @client.command()
 @commands.has_permissions(manage_channels=True)
+@commands.guild_only()
 async def slomo(ctx, delay):
 
     slomo_embed = discord.Embed(title="Slowmode auf " + str(delay) + " Sekunden gesetzt.", color=discord.Color.dark_red())
@@ -957,11 +1037,12 @@ async def lock(ctx, *, args=None):
 
 @client.command(aliases=['ar'])
 @commands.has_permissions(manage_roles=True)
+@commands.guild_only()
 async def addrole(ctx, person: discord.Member, *, role):
 
     guild = ctx.message.guild
     roles = discord.utils.get(guild.roles, name=role)
-    addrole_embed = discord.Embed(title="Rolle " + str(roles) + " zu " + str(person) + " hinzugefuegt")
+    addrole_embed = discord.Embed(title="Rolle __" + str(roles) + "__ zu " + str(person) + " hinzugefuegt")
     addrole_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.channel.purge(limit=1)
@@ -978,11 +1059,12 @@ async def addrole(ctx, person: discord.Member, *, role):
 
 @client.command(aliases=['rr'])
 @commands.has_permissions(manage_roles=True)
+@commands.guild_only()
 async def removerole(ctx, person: discord.Member, *, role):
 
     guild = ctx.message.guild
     roles = discord.utils.get(guild.roles, name=role)
-    removerole_embed = discord.Embed(title="Rolle " + str(roles) + " von " + str(person) + " entfernt")
+    removerole_embed = discord.Embed(title="Rolle __" + str(roles) + "__ von " + str(person) + " entfernt")
     removerole_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.channel.purge(limit=1)
@@ -996,9 +1078,60 @@ async def removerole(ctx, person: discord.Member, *, role):
 
         return
 
+
+
 @client.command()
+@commands.guild_only()
 async def dummy(ctx):
     await ctx.channel.purge(limit=1)
 
+
+@client.command()
+@commands.guild_only()
+async def members(ctx):
+    await ctx.channel.purge(limit=1)
+    server = ctx.guild
+#    for guild in client.guilds:
+    for member in server.members:
+        print(member)
+
+
+"""
+@client.command()
+async def listmembers(ctx, role_name):
+    role = discord.utils.find(lambda r: r.name == role_name, ctx.guild.roles)
+
+
+    for user in ctx.guild.members:
+        if role in user.roles:
+            await ctx.send(str(user.name) + "#" + str(user.discriminator)+ " hat die Rolle " + str(role.name))
+
+
+    users = []
+
+    for user in ctx.guild.members:
+        if role in user.roles:
+            users.append(str(user).format(user.mention))
+
+
+    listmembers_embed = discord.Embed(title=users)
+    await ctx.send(embed=listmembers_embed)
+"""
+
+"""
+@client.command()
+async def html(ctx, url):
+
+
+    fp = urllib.request.urlopen(url)
+    mybytes = fp.read()
+
+    mystr = mybytes.decode("utf-8")
+    fp.close()
+
+    await ctx.send(mystr)
+    print(mystr)
+"""
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 client.run(TOKEN)
