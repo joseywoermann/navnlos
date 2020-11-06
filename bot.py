@@ -259,7 +259,7 @@ async def modhelp(ctx):
 @commands.guild_only()
 async def info(ctx):
 
-    info_embed = discord.Embed(title="Information", description="Version 1.5.0 by jcw05#1331\nhttps://bit.ly/navnlos", color=discord.Color.lighter_grey())
+    info_embed = discord.Embed(title="Information", description="Version 1.5.1 by jcw05#1331\nhttps://bit.ly/navnlos", color=discord.Color.lighter_grey())
     info_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.channel.purge(limit=1)
@@ -271,17 +271,8 @@ async def info(ctx):
 @commands.guild_only()
 async def changelog(ctx):
 
-    changelog_embed = discord.Embed(title="Changelog for version 1.5.0", color=discord.Color.lighter_grey())
-    changelog_embed.add_field(name="Hinzugefuegt:", value=" `$bpm`, `$userinfo`")
+    changelog_embed = discord.Embed(title="Changelog for version 1.5.1", color=discord.Color.lighter_grey())
     changelog_embed.add_field(name="Allgemein:", value="raechdschraipfela behoben")
-    changelog_embed.add_field(name="Sonstiges:", value="Systemsprache auf Deutsch geaendert")
-
-
-
-    changelog_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
-
-    await ctx.channel.purge(limit=1)
-    await ctx.send(embed=changelog_embed)
 
 
 
@@ -344,7 +335,7 @@ async def time(ctx):
 @commands.guild_only()
 async def day(ctx):
 
-    current_day = datetime.datetime.now().strftime("%A, der %d. %B %Y, der %jth Tag dieses Jahres")
+    current_day = datetime.datetime.now().strftime("%A, der %d. %B %Y, der %j. Tag dieses Jahres")
     message = f"Heute ist {current_day}."
     day_embed = discord.Embed(title=str(message), color=discord.Color.gold())
     day_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
