@@ -402,11 +402,24 @@ async def price(ctx, *, search_term):
 @commands.guild_only()
 async def define(ctx, *, search_term):
 
-    while ' ' in search_term:
-        search_term = search_term.replace(' ', '+')
+    URL = "https://www.urbandictionary.com/define.php?term=" + str(search_term)
+    page = requests.get(URL)
+    fetched_page = BeautifulSoup(page.content, 'html.parser')
 
-    await ctx.send("https://www.urbandictionary.com/define.php?term=" + search_term)
+    searched_word = fetched_page.find('a', attrs={'class': 'word'})
+    meaning = fetched_page.find('div', attrs={'class': 'meaning'})
 
+    if searched_word:
+        name_output = str(searched_word.text)
+    else:
+        name_output = "No results."
+    if meaning:
+        meaning_output = str(meaning.text)
+    else:
+        meaning_output = "No results."
+
+    define_embed = discord.Embed(title=name_output, description=meaning_output)
+    await ctx.send(content=None, embed=define_embed)
 
 
 @client.command()
