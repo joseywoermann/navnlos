@@ -73,8 +73,10 @@ async def on_guild_remove(guild):
 @client.event
 async def on_message(message):
 
+    """
     if client.user.mentioned_in(message):
         await message.channel.send("https://tenor.com/view/penguin-hello-hi-heythere-cutie-gif-3950966")
+    """
 
     if message.content.lower() == "hello":
         await message.channel.send("https://tenor.com/view/penguin-hello-hi-heythere-cutie-gif-3950966")
