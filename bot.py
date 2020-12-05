@@ -19,7 +19,7 @@ client = commands.Bot(command_prefix='$', intents = intents)
 client.remove_command('help')
 
 
-statuss = ['bit.ly/navnlos', '$help']
+statuss = ['navnlos.tk', '$help']
 statusmsg = cycle(statuss)
 TOKEN = 'YOU TOKEN HERE'
 
