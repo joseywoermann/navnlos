@@ -135,32 +135,6 @@ async def on_message(message):
     else:
         pass
 
-    """
-    if server:
-
-#        if message.content.startswith("-"):
-
-        path = "logs/logs_{}.txt".format(server.id)
-        #cmds = ['addrole', 'amazon', 'anonymrepeat', 'ban', 'changelog', 'channeledit', 'clear', 'createinvite', 'credits', 'day', 'dice', 'help', 'info', 'invite', 'kick', 'leave', 'maps', 'modhelp', 'nickedit', 'ping', 'poll', 'price', 'question', 'removerole', 'repeat', 'serverinfo', 'slomo', 'test', 'unban', 'userinfo', 'wiki']
-
-            #if cmds in message.content.lower():
-
-        with open(path, 'a') as f:
-
-            print("Date: {0.created_at}     Server: {0.channel.guild} Server-ID: [{0.guild.id}]     Channel: {0.channel.name} Channel-ID: [{0.channel.id}]     User: {0.author.name}#{0.author.discriminator} [ID: {0.author.id}]     Message: {0.content} [Message-ID: {0.id}]".format(message), file=f)
-    """
-    """
-    if message.channel.guild.id == 707243781946343425:
-
-        logchannel = client.get_channel(744644801823244430)
-
-        log_embed = discord.Embed(title=message.content, color = discord.Color.gold())
-        log_embed.set_author(name=str(message.author), icon_url=message.author.avatar_url)
-        log_embed.set_footer(text=message.guild.id)
-
-
-        await logchannel.send(content=None, embed=log_embed)
-    """
 
     if message.content.startswith("$"):
 
