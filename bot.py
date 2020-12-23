@@ -1227,7 +1227,7 @@ async def nickedit(ctx, mensch: discord.Member, newname):
 
         except:
 
-            pass#errormessage einfuegen
+            pass #errormessage einfuegen
 
     else:
         pass
