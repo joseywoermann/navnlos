@@ -37,7 +37,6 @@ emote_nine = '9️⃣'
 
 
 
-
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -68,10 +67,107 @@ async def on_guild_remove(guild):
                 print(datetime.datetime.now().strftime("%d. %m. %Y; %H:%M") + " Left Server \"" + str(guild.name) + "\" Server-ID: " + str(guild.id), file=f)
 """
 
-
+async def publisher(message):
+    sleep(10)
+    await message.publish()
 
 @client.event
 async def on_message(message):
+
+    server = message.guild
+
+    if message.channel.id == 654347445517549578:
+        """
+        publisher_thread = threading.Thread(target=publisher, args=(message))
+        publisher_thread.start()
+        """
+        await publisher(message)
+
+    elif message.channel.id == 656591472124231761:
+        """
+        publisher_thread = threading.Thread(target=publisher, args=(message))
+        publisher_thread.start()
+        """
+        await publisher(message)
+
+    elif message.channel.id == 737715494198706286:
+        """
+        publisher_thread = threading.Thread(target=publisher, args=(message))
+        publisher_thread.start()
+        """
+        await publisher(message)
+
+    elif message.channel.id == 741033879032430834:
+        """
+        publisher_thread = threading.Thread(target=publisher, args=(message))
+        publisher_thread.start()
+        """
+        await publisher(message)
+
+    elif message.channel.id == 720674929540071564:
+        """
+        publisher_thread = threading.Thread(target=publisher, args=(message))
+        publisher_thread.start()
+        """
+        await publisher(message)
+
+    elif message.channel.id == 724946319818489946:
+        """
+        publisher_thread = threading.Thread(target=publisher, args=(message))
+        publisher_thread.start()
+        """
+        await publisher(message)
+
+    elif message.channel.id == 685080746410639411:
+        """
+        publisher_thread = threading.Thread(target=publisher, args=(message))
+        publisher_thread.start()
+        """
+        await publisher(message)
+
+    elif message.channel.id == 700345472300089366:
+        """
+        publisher_thread = threading.Thread(target=publisher, args=(message))
+        publisher_thread.start()
+        """
+        await publisher(message)
+
+    elif message.channel.id == 739033895365771334:
+        """
+        publisher_thread = threading.Thread(target=publisher, args=(message))
+        publisher_thread.start()
+        """
+        await publisher(message)
+
+    elif message.channel.id == 738838305722073221:
+        """
+        publisher_thread = threading.Thread(target=publisher, args=(message))
+        publisher_thread.start()
+        """
+        await publisher(message)
+
+    elif message.channel.id == 738844667084406814:
+        """
+        publisher_thread = threading.Thread(target=publisher, args=(message))
+        publisher_thread.start()
+        """
+        await publisher(message)
+
+    elif message.channel.id == 738840347656060968:
+        """
+        publisher_thread = threading.Thread(target=publisher, args=(message))
+        publisher_thread.start()
+        """
+        await publisher(message)
+
+    # testchannel
+    elif message.channel.id == 731935585828339854:
+        """
+        publisher_thread = threading.Thread(target=publisher, args=(message))
+        publisher_thread.start()
+        """
+        await publisher(message)
+
     """
     if client.user.mentioned_in(message):
         await message.channel.send("https://tenor.com/view/penguin-hello-hi-heythere-cutie-gif-3950966")
@@ -82,58 +178,15 @@ async def on_message(message):
     if message.content.lower() == "hallo":
         await message.channel.send("https://tenor.com/view/penguin-hello-hi-heythere-cutie-gif-3950966")
 
-    server = message.guild
-
-    if message.channel.id == 654347445517549578:
-        sleep(10)
-        await message.publish()
-
-    elif message.channel.id == 656591472124231761:
-        sleep(10)
-        await message.publish()
-
-    elif message.channel.id == 737715494198706286:
-        sleep(10)
-        await message.publish()
-
-    elif message.channel.id == 741033879032430834:
-        sleep(10)
-        await message.publish()
-
-    elif message.channel.id == 720674929540071564:
-        sleep(10)
-        await message.publish()
-
-    elif message.channel.id == 724946319818489946:
-        sleep(10)
-        await message.publish()
-
-    elif message.channel.id == 685080746410639411:
-        sleep(10)
-        await message.publish()
-
-    elif message.channel.id == 700345472300089366:
-        sleep(10)
-        await message.publish()
-
-    elif message.channel.id == 739033895365771334:
-        sleep(10)
-        await message.publish()
-
-    elif message.channel.id == 738838305722073221:
-        sleep(10)
-        await message.publish()
-
-    elif message.channel.id == 738844667084406814:
-        sleep(10)
-        await message.publish()
-
-    elif message.channel.id == 738840347656060968:
-        sleep(10)
-        await message.publish()
-
     else:
         pass
+
+    with open('banned_words.txt') as myfile:
+        if message.content.lower() in myfile.read():
+            await message.channel.purge(limit=1)
+            await message.channel.send("Dieses Wort ist auf diesem Server verboten.")
+
+    await client.process_commands(message)
 
 
     if message.content.startswith("$"):
