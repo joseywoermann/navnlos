@@ -181,10 +181,12 @@ async def on_message(message):
     else:
         pass
 
+    """
     with open('banned_words.txt') as myfile:
         if message.content.lower() in myfile.read():
             await message.channel.purge(limit=1)
             await message.channel.send("Dieses Wort ist auf diesem Server verboten.")
+    """
 
     await client.process_commands(message)
 
@@ -1287,7 +1289,7 @@ async def nickedit(ctx, mensch: discord.Member, newname):
 
 
 
-@client.command(aliases=['edit'])
+@client.command()
 @commands.has_permissions(manage_channels=True)
 @commands.guild_only()
 async def channeledit(ctx, thing, *, newattribut):
