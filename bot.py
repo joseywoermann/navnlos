@@ -1,4 +1,3 @@
-import schedule
 import discord
 import random
 from discord.ext import commands
@@ -8,16 +7,13 @@ from itertools import cycle
 import datetime
 import requests
 from bs4 import BeautifulSoup
-import logging
+import schedule
 import threading
-
-
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-
 intents = discord.Intents.all()
+
 
 client = commands.Bot(command_prefix='$', intents = intents)
 client.remove_command('help')
@@ -184,41 +180,12 @@ async def on_message(message):
 
     else:
         pass
-
     """
     with open('banned_words.txt') as myfile:
         if message.content.lower() in myfile.read():
             await message.channel.purge(limit=1)
             await message.channel.send("Dieses Wort ist auf diesem Server verboten.")
     """
-    await client.process_commands(message)
-
-
-    if message.content.startswith("$"):
-
-        if server.id == 304191437652623360:
-
-            log_channel = client.get_channel(751879355344617582)
-
-            log_embed = discord.Embed(title=message.content, description="Channel: **{0.channel.name}** Channel-ID: [{0.channel.id}]".format(message))
-            log_embed.set_author(name="User: " + message.author.name + "#" + str(message.author.discriminator) + " ID: " + str(message.author.id), icon_url=message.author.avatar_url)
-            log_embed.set_footer(text=message.created_at.strftime("%Y; %m. %d., %H:%M:%S") + " Server: " + str(message.channel.guild) + " / " + str(message.guild.id))
-
-            await log_channel.send(content=None, embed=log_embed)
-
-        else:
-
-            log_channel = client.get_channel(751879443810615487)
-
-            log_embed = discord.Embed(title=message.content, description=" Channel: **{0.channel.name}** Channel-ID: [{0.channel.id}]".format(message))
-            log_embed.set_author(name="User: " + message.author.name + "#" + str(message.author.discriminator) + " ID: " + str(message.author.id), icon_url=message.author.avatar_url)
-            log_embed.set_footer(text=message.created_at.strftime("%Y; %m. %d., %H:%M:%S") + " Server: " + str(message.channel.guild) + " / " + str(message.guild.id))
-
-            await log_channel.send(content=None, embed=log_embed)
-
-    else:
-        pass
-
     await client.process_commands(message)
 
 
@@ -243,6 +210,7 @@ async def on_ready():
 async def change_status():
 
     await client.change_presence(status=discord.Status.online,activity=discord.Activity(type=discord.ActivityType.listening, name=next(statusmsg)))
+
 
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -492,7 +460,7 @@ async def on_raw_reaction_remove(payload):
 
 
 
-@client.command(aliases=['h'])
+@client.command()
 @commands.guild_only()
 async def help(ctx, arg = None):
 
@@ -501,15 +469,15 @@ async def help(ctx, arg = None):
     if arg == None:
 
         help_embed = discord.Embed(title="Commands", colour=discord.Color.gold())
-        help_embed.add_field(name="$invite/$inv", value="Invitelink zum MisteriCraft-Communityserver")
-        help_embed.add_field(name="$question/$q", value="Beantwortet Ja/Nein-Fragen")
-        help_embed.add_field(name="$ping/$p", value="Latenz des Bots")
-        help_embed.add_field(name="$info/$i", value="Bot-Information")
-        help_embed.add_field(name="$changelog/$cl", value="Zeigt den Changelog")
+        help_embed.add_field(name="$invite", value="Invitelink zum MisteriCraft-Communityserver")
+        help_embed.add_field(name="$question", value="Beantwortet Ja/Nein-Fragen")
+        help_embed.add_field(name="$ping", value="Latenz des Bots")
+        help_embed.add_field(name="$info", value="Bot-Information")
+        help_embed.add_field(name="$changelog", value="Zeigt den Changelog")
     #    help_embed.add_field(name="$time/$z", value="Gibt die aktuelle Zeit aus.")
-        help_embed.add_field(name="$day/$t", value="Gibt das aktuelle Datum an")
-        help_embed.add_field(name="$help/$h", value="Selbsterklaerend")
-        help_embed.add_field(name="$repeat/$rep", value="Sendet deine Nachricht als Embed")
+        help_embed.add_field(name="$day", value="Gibt das aktuelle Datum an")
+        help_embed.add_field(name="$help", value="Selbsterklaerend")
+        help_embed.add_field(name="$repea", value="Sendet deine Nachricht als Embed")
         help_embed.add_field(name="$poll", value="Umfrage mit bis zu 9 Antworten. Woerter mit `_` trennen: `$poll Ja? Ja Definitiv_nicht`")
         help_embed.add_field(name="$wiki", value="Wikipedia-Suche")
         help_embed.add_field(name="$price", value="Preisvergleich für angegebenes Produkt")
@@ -517,6 +485,7 @@ async def help(ctx, arg = None):
         help_embed.add_field(name="$bpm", value="Tempo fuer einen angegebenen Song")
         help_embed.add_field(name="$dummy", value="Tut absolut garnichts")
         help_embed.add_field(name="$userinfo", value="Zeigt informationen ueber einen User")
+        help_embed.add_field(name="$developer", value="Informationen ueber den Entwickler dieses Bots.")
         help_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
         await ctx.send(content=None, embed=help_embed)
@@ -572,22 +541,22 @@ async def help(ctx, arg = None):
 
 
 
-@client.command(aliases=['mh'])
+@client.command()
 @commands.has_permissions(manage_messages=True)
 @commands.guild_only()
 async def modhelp(ctx):
 
     help_embed = discord.Embed(title="Commands exklusiv fuer Moderatoren", colour=discord.Color.gold())
-    help_embed.add_field(name="$clear/$c", value="Loescht die angegebene Anzahl an Nachrichten.")
-    help_embed.add_field(name="$kick/$k", value="Kickt einen User.")
-    help_embed.add_field(name="$ban/$b", value="Bannt einen User")
+    help_embed.add_field(name="$clear", value="Loescht die angegebene Anzahl an Nachrichten.")
+    help_embed.add_field(name="$kick", value="Kickt einen User.")
+    help_embed.add_field(name="$ban", value="Bannt einen User")
     help_embed.add_field(name="$banid", value="Bannt einen User mithilfe der ID. User, die nicht auf dem Server sind, koennen so gebannt werden.")
-    help_embed.add_field(name="$unban/$ub", value="Entbannt einen User")
+    help_embed.add_field(name="$unban", value="Entbannt einen User")
     help_embed.add_field(name="$addrole/$ar", value="Fuegt einem User eine Rolle hinzu")
     help_embed.add_field(name="$removerole/$rr", value="Entfernt einem User eine Rolle")
     help_embed.add_field(name="$slomo", value="Setzt den Slowmode fuer den Kannal auf die angegebene Sekundenzahl")
-    help_embed.add_field(name="$channeledit/$edit", value="Aendert den Namen / Beschreibung eines Channels")
-    help_embed.add_field(name="$nickedit/$nick", value="Aendert den Nickname eines Users")
+    help_embed.add_field(name="$channeledit", value="Aendert den Namen / Beschreibung eines Channels")
+    help_embed.add_field(name="$nickedit", value="Aendert den Nickname eines Users")
     help_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.channel.purge(limit=1)
@@ -595,11 +564,11 @@ async def modhelp(ctx):
 
 
 
-@client.command(aliases=['i', 'about'])
+@client.command()
 @commands.guild_only()
 async def info(ctx):
 
-    info_embed = discord.Embed(title="Information", description="Version 1.5.2 by jcw05#1331\nhttp://navnlos.tk/", color=discord.Color.lighter_grey())
+    info_embed = discord.Embed(title="Information", description="Version 1.6.1 by jcw05#1331\nhttp://navnlos.tk/", color=discord.Color.lighter_grey())
     info_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.channel.purge(limit=1)
@@ -607,11 +576,13 @@ async def info(ctx):
 
 
 
-@client.command(aliases=['cl'])
+@client.command()
 @commands.guild_only()
 async def changelog(ctx):
 
-    changelog_embed = discord.Embed(title="Changelog for version 1.5.2", color=discord.Color.lighter_grey())
+    changelog_embed = discord.Embed(title="Changelog for version 1.6.1", color=discord.Color.lighter_grey())
+    changelog_embed.add_field(name="Commands:", value="Aliases entfernt um Bug zu fixen")
+    changelog_embed.add_field(name="Commands:", value="$developer hinzugefügt")
     changelog_embed.add_field(name="Allgemein:", value="Bugfixes")
 
 
@@ -624,7 +595,7 @@ async def changelog(ctx):
 
 
 
-@client.command(aliases=['q'])
+@client.command()
 @commands.guild_only()
 async def question(ctx, *, question):
 
@@ -640,7 +611,7 @@ async def question(ctx, *, question):
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-@client.command(aliases=['inv'])
+@client.command()
 @commands.guild_only()
 async def invite(ctx):
 
@@ -655,7 +626,7 @@ async def invite(ctx):
 
 
 
-@client.command(aliases=['rep'])
+@client.command()
 @commands.guild_only()
 async def repeat(ctx, *, text):
 
@@ -667,7 +638,7 @@ async def repeat(ctx, *, text):
 
 
 """
-@client.command(aliases=['z'])
+@client.command()
 async def time(ctx):
 
     current_time = datetime.datetime.now().strftime("%H:%M")
@@ -679,7 +650,7 @@ async def time(ctx):
 """
 
 
-@client.command(aliases=['t'])
+@client.command()
 @commands.guild_only()
 async def day(ctx):
 
@@ -693,7 +664,7 @@ async def day(ctx):
 
 
 
-@client.command(aliases=['d'])
+@client.command()
 @commands.guild_only()
 async def dice(ctx, arg=6):
 
@@ -706,7 +677,7 @@ async def dice(ctx, arg=6):
 
 
 
-@client.command(aliases=['p'])
+@client.command()
 @commands.guild_only()
 async def ping(ctx, r=None):
 
@@ -746,7 +717,7 @@ async def price(ctx, *, search_term):
 
 
 
-@client.command(aliases = ['def'])
+@client.command()
 @commands.guild_only()
 async def define(ctx, *, search_term):
 
@@ -783,7 +754,7 @@ async def bpm(ctx, *, search_term):
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-@client.command(aliases=['arep'])
+@client.command()
 @commands.has_permissions(manage_messages=True)
 @commands.guild_only()
 async def anonymrepeat(ctx, *, text):
@@ -1115,10 +1086,9 @@ async def serverinfo(ctx):
 @client.command()
 @commands.has_permissions(manage_messages=True)
 @commands.guild_only()
-async def clear(ctx): #, amount_typed=1, arg=' '
+async def clear(ctx, amount_typed=1, arg=' '):
 
-    await ctx.send("Dieser Command wurde temporär deaktiviert, um Fehler zu beheben.")
-    """
+
     clear_pin_embed = discord.Embed(title=str(amount_typed) + " Nachricht(en) wurden geloescht.", color=discord.Color.dark_red())
     clear_pin_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
@@ -1152,9 +1122,10 @@ async def clear(ctx): #, amount_typed=1, arg=' '
         await ctx.send(content=None, embed=clear_overflow_embed)
         sleep(1)
         await ctx.channel.purge(limit=2)
-    """
 
-@client.command(aliases=['k'])
+
+
+@client.command()
 @commands.has_permissions(kick_members=True)
 @commands.guild_only()
 async def kick(ctx, person: discord.Member, *, reason=None):
@@ -1181,7 +1152,7 @@ async def kick(ctx, person: discord.Member, *, reason=None):
 
 
 
-@client.command(aliases=['b'])
+@client.command()
 @commands.has_permissions(ban_members=True)
 @commands.guild_only()
 async def ban(ctx, person: discord.Member, *, reason=None):
@@ -1270,7 +1241,7 @@ async def unban(ctx, *, member):
 
 
 
-@client.command(aliases=['nick'])
+@client.command()
 @commands.has_permissions(manage_nicknames=True)
 @commands.guild_only()
 async def nickedit(ctx, mensch: discord.Member, newname):
@@ -1399,39 +1370,73 @@ async def removerole(ctx, person: discord.Member, *, role):
 async def dummy(ctx):
     await ctx.channel.purge(limit=1)
 
+"""
+@client.command()
+@commands.guild_only()
+async def members(ctx):
+    await ctx.channel.purge(limit=1)
+    server = ctx.guild
+#    for guild in client.guilds:
+    for member in server.members:
+        await ctx.send(str(member).format(member.mention))
+
+
+
+@client.command()
+async def listmembers(ctx, role_name):
+    role = discord.utils.find(lambda r: r.name == role_name, ctx.guild.roles)
+
+
+    for user in ctx.guild.members:
+        if role in user.roles:
+            await ctx.send(str(user.name) + "#" + str(user.discriminator)+ " hat die Rolle " + str(role.name))
+
+
+    users = []
+
+    for user in ctx.guild.members:
+        if role in user.roles:
+            users.append(str(user).format(user.mention))
+
+
+    listmembers_embed = discord.Embed(title=users)
+    await ctx.send(embed=listmembers_embed)
+
+
+
+@client.command()
+@commands.has_permissions(manage_channels=True)
+async def lock(ctx, *, args=None):
+
+    await ctx.channel.purge(limit=1)
+
+    guild = ctx.guild
+    members = guild.members
+    lock_embed = discord.Embed(title="Channel wurden gelockt", color=discord.Color.dark_red())
+
+    for member in members:
+
+        if member.top_role.id == 719486012182626315 or 713411213463388332:
+
+            roles = discord.utils.get(guild.roles, name="Muted")
+            await member.add_roles(roles)
+            await ctx.send(content=None, embed=lock_embed)
+
+        else:
+
+            pass
+"""
+
+@client.command()
+async def developer(ctx):
+    dev_embed = discord.Embed(description="[Twitter](https://twitter.com/joseywoermann/) - [Website](http://joseywoermann.tk/) - [GitHub](https://github.com/joseywoermann/)\n\n[Discord](https://discord.gg/SchJckc) - [Reddit](https://reddit.com/u/joseywoermann/) - [](https://github.com/joseywoermann/)", colour=discord.Colour.dark_grey())
+    """
+    dev_embed.add_field(name = "Twitter", value = "[Click here](https://twitter.com/joseywoermann/)")
+    dev_embed.add_field(name = "Instagram", value = "[Click here](https://instagram.com/joseywoermann/)")
+    """
+    dev_embed.set_author(name=ctx.message.author,icon_url=ctx.author.avatar_url)
+    await ctx.send(embed = dev_embed)
+
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 client.run(TOKEN)
-
-
-
-
-
-"""
-# KGH-notifier
-def notifier():
-    print("notifier active")
-
-    URL = "http://kreisgymnasium-halle.de/"
-    refresh_time = 60
-
-    logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%Y-%m-%d; %H:%M:%S')
-
-
-    while True:
-
-        page = requests.get(URL)
-        old_page = BeautifulSoup(page.content, 'html.parser')
-        old_content = old_page.find('div', attrs={'class': 'site-main'})
-
-        sleep(refresh_time)
-
-        page = requests.get(URL)
-        new_page = BeautifulSoup(page.content, 'html.parser')
-        new_content = new_page.find('div', attrs={'class': 'site-main'})
-
-        if old_content == new_content:
-            logging.warning(": nothing changed")
-        else:
-            logging.warning(": something changed")
-"""
