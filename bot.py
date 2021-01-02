@@ -1,3 +1,4 @@
+import schedule
 import discord
 import random
 from discord.ext import commands
@@ -7,10 +8,13 @@ from itertools import cycle
 import datetime
 import requests
 from bs4 import BeautifulSoup
+import logging
+import threading
 
 
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 intents = discord.Intents.all()
@@ -21,7 +25,7 @@ client.remove_command('help')
 
 statuss = ['navnlos.tk', '$help']
 statusmsg = cycle(statuss)
-TOKEN = 'YOU TOKEN HERE'
+TOKEN = 'YOUR TOKEN HERE'
 
 
 
@@ -187,7 +191,6 @@ async def on_message(message):
             await message.channel.purge(limit=1)
             await message.channel.send("Dieses Wort ist auf diesem Server verboten.")
     """
-
     await client.process_commands(message)
 
 
@@ -240,7 +243,6 @@ async def on_ready():
 async def change_status():
 
     await client.change_presence(status=discord.Status.online,activity=discord.Activity(type=discord.ActivityType.listening, name=next(statusmsg)))
-
 
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1110,12 +1112,13 @@ async def serverinfo(ctx):
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-@client.command(aliases=['c'])
+@client.command()
 @commands.has_permissions(manage_messages=True)
 @commands.guild_only()
-async def clear(ctx, amount_typed=1, arg=' '):
+async def clear(ctx): #, amount_typed=1, arg=' '
 
-
+    await ctx.send("Dieser Command wurde temporär deaktiviert, um Fehler zu beheben.")
+    """
     clear_pin_embed = discord.Embed(title=str(amount_typed) + " Nachricht(en) wurden geloescht.", color=discord.Color.dark_red())
     clear_pin_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
@@ -1149,8 +1152,7 @@ async def clear(ctx, amount_typed=1, arg=' '):
         await ctx.send(content=None, embed=clear_overflow_embed)
         sleep(1)
         await ctx.channel.purge(limit=2)
-
-
+    """
 
 @client.command(aliases=['k'])
 @commands.has_permissions(kick_members=True)
@@ -1282,7 +1284,7 @@ async def nickedit(ctx, mensch: discord.Member, newname):
 
         except:
 
-            pass #errormessage einfuegen
+            pass#errormessage einfuegen
 
     else:
         pass
@@ -1400,3 +1402,36 @@ async def dummy(ctx):
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 client.run(TOKEN)
+
+
+
+
+
+"""
+# KGH-notifier
+def notifier():
+    print("notifier active")
+
+    URL = "http://kreisgymnasium-halle.de/"
+    refresh_time = 60
+
+    logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%Y-%m-%d; %H:%M:%S')
+
+
+    while True:
+
+        page = requests.get(URL)
+        old_page = BeautifulSoup(page.content, 'html.parser')
+        old_content = old_page.find('div', attrs={'class': 'site-main'})
+
+        sleep(refresh_time)
+
+        page = requests.get(URL)
+        new_page = BeautifulSoup(page.content, 'html.parser')
+        new_content = new_page.find('div', attrs={'class': 'site-main'})
+
+        if old_content == new_content:
+            logging.warning(": nothing changed")
+        else:
+            logging.warning(": something changed")
+"""
