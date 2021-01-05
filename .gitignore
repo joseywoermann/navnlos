@@ -1,0 +1,7 @@
+__pycache__/
+core/__pycache__/
+events/__pycache__/
+commands/__pycache__/
+quarantine/__pycache__/
+presets/__pycache__/
+kgh_notifier/__pycache__/
