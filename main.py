@@ -11,8 +11,7 @@ import os.path
 logging.basicConfig(format='%(asctime)s: %(levelname)s: %(message)s', datefmt='%Y-%m-%d; %H:%M:%S', level=logging.INFO)
 
 intents = discord.Intents.all()
-#TOKEN = "NzEzMzU5MjYzMjU4NTA5Mzkz.Xse9lQ.DLcYv-Tf0w6mWvWo4L--2oFIeTA"
-TOKEN = 'NzA3MjY5MjIzMjgxNDU5Mjcx.XrGVyw.-OBzJZb9UBkN2K1OCqcaVizkU-U'
+TOKEN = 'YOUR TOKEN HERE'
 
 client = commands.Bot(command_prefix='$', intents = intents)
 client.remove_command('help')
