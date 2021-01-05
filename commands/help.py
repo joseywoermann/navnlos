@@ -24,7 +24,7 @@ class Help(commands.Cog):
         #    help_embed.add_field(name="$time/$z", value="Gibt die aktuelle Zeit aus.")
             help_embed.add_field(name="$day", value="Gibt das aktuelle Datum an")
             help_embed.add_field(name="$help", value="Selbsterklaerend")
-            help_embed.add_field(name="$repea", value="Sendet deine Nachricht als Embed")
+            help_embed.add_field(name="$repeat", value="Sendet deine Nachricht als Embed")
             help_embed.add_field(name="$poll", value="Umfrage mit bis zu 9 Antworten. Woerter mit `_` trennen: `$poll Ja? Ja Definitiv_nicht`")
             help_embed.add_field(name="$wiki", value="Wikipedia-Suche")
             help_embed.add_field(name="$price", value="Preisvergleich für angegebenes Produkt")
