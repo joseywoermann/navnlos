@@ -12,9 +12,8 @@ class Changelog(commands.Cog):
     @commands.guild_only()
     async def changelog(self, ctx):
 
-        changelog_embed = discord.Embed(title="Changelog for version 2.0.0", color=discord.Color.lighter_grey())
-        changelog_embed.add_field(name="Intern:", value="Cogs implementiert")
-        changelog_embed.add_field(name="Allgemein:", value="Bugfixes")
+        changelog_embed = discord.Embed(title="Changelog for version 2.0.1", color=discord.Color.lighter_grey())
+        changelog_embed.add_field(name="Allgemein:", value="Rechtschreibfehler behoben")
 
         changelog_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
