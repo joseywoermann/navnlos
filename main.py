@@ -34,6 +34,7 @@ async def change_status():
 
 # command to MANUALLY load a specific command / event (extension is a command / an event)
 @client.command()
+@commands.is_owner()
 async def load(ctx, extension):
 
     if os.path.isfile(f"commands/{extension}.py"):
@@ -55,6 +56,7 @@ async def load(ctx, extension):
 
 # command to MANUALLY unload a specific command / event (extension is a command / an event)
 @client.command()
+@commands.is_owner()
 async def unload(ctx, extension):
 
     if os.path.isfile(f"commands/{extension}.py"):
@@ -76,6 +78,7 @@ async def unload(ctx, extension):
 
 # command to MANUALLY reload a specific command / event (extension is a command / an event)
 @client.command()
+@commands.is_owner()
 async def reload(ctx, extension):
 
     if os.path.isfile(f"commands/{extension}.py"):
