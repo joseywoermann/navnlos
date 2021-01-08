@@ -6,14 +6,16 @@ from time import sleep
 import requests
 from bs4 import BeautifulSoup
 import datetime
+import threading
+
 
 class Notifier(commands.Cog):
 
     def __init__(self, client):
         self.client = client
 
-    @commands.Cog.listener()
-    async def on_ready(self):
+
+    def notifier():
         logging.info("KGH-Notifier active")
 
         URL = "http://kreisgymnasium-halle.de/"
@@ -37,7 +39,15 @@ class Notifier(commands.Cog):
             else:
                 logging.warning("KGH-Notifier: Something changed")
                 jcw05 = self.client.get_user(586206645592391711)
-                await jcw05.send("KGH-Notifier: Something changed (http://kreisgymnasium-halle.de/)")
+                jcw05.send("KGH-Notifier: Something changed (http://kreisgymnasium-halle.de/)")
+
+
+    @commands.Cog.listener()
+    async def on_ready(self):
+        #await Notifier.notifier()
+
+        notifierThread = threading.Thread(target = Notifier.notifier)
+        notifierThread.start()
 
 
 
