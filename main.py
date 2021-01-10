@@ -13,7 +13,7 @@ logging.basicConfig(format='%(asctime)s: %(levelname)s: %(message)s', datefmt='%
 intents = discord.Intents.all()
 TOKEN = 'YOUR TOKEN HERE'
 
-client = commands.Bot(command_prefix='-', intents = intents)
+client = commands.Bot(command_prefix='$', intents = intents)
 client.remove_command('help')
 
 statusmessages = ['navnlos.tk', '$help']
