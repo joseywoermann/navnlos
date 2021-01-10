@@ -114,8 +114,8 @@ for filename in os.listdir("./core"):
     if filename.endswith(".py"):
         client.load_extension(f"core.{filename[:-3]}")
 
-for filename in os.listdir("./kgh_notifier"):
+"""for filename in os.listdir("./kgh_notifier"):
     if filename.endswith(".py"):
-        client.load_extension(f"kgh_notifier.{filename[:-3]}")
+        client.load_extension(f"kgh_notifier.{filename[:-3]}")"""
 
 client.run(TOKEN)
