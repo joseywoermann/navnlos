@@ -13,7 +13,7 @@ logging.basicConfig(format='%(asctime)s: %(levelname)s: %(message)s', datefmt='%
 intents = discord.Intents.all()
 TOKEN = 'YOUR TOKEN HERE'
 
-client = commands.Bot(command_prefix='$', intents = intents)
+client = commands.Bot(command_prefix='-', intents = intents)
 client.remove_command('help')
 
 statusmessages = ['navnlos.tk', '$help']
@@ -40,14 +40,17 @@ async def load(ctx, extension):
     if os.path.isfile(f"commands/{extension}.py"):
         client.load_extension(f"commands.{extension}")
         logging.warning("Extension \"" + str(extension) + "\" loaded")
+        await ctx.send("Extension \"" + str(extension) + "\" loaded")
 
     elif os.path.isfile(f"events/{extension}.py"):
         client.load_extension(f"events.{extension}")
         logging.warning("Extension \"" + str(extension) + "\" loaded")
+        await ctx.send("Extension \"" + str(extension) + "\" loaded")
 
     elif os.path.isfile(f"core/{extension}.py"):
         client.load_extension(f"core.{extension}")
         logging.warning("Extension \"" + str(extension) + "\" loaded")
+        await ctx.send("Extension \"" + str(extension) + "\" loaded")
 
     else:
         logging.error("Extension \"" + str(extension) + "\" not found.")
@@ -62,14 +65,17 @@ async def unload(ctx, extension):
     if os.path.isfile(f"commands/{extension}.py"):
         client.unload_extension(f"commands.{extension}")
         logging.warning("Extension \"" + str(extension) + "\" unloaded")
+        await ctx.send("Extension \"" + str(extension) + "\" unloaded")
 
     elif os.path.isfile(f"events/{extension}.py"):
         client.unload_extension(f"events.{extension}")
         logging.warning("Extension \"" + str(extension) + "\" unloaded")
+        await ctx.send("Extension \"" + str(extension) + "\" unloaded")
 
     elif os.path.isfile(f"core/{extension}.py"):
         client.unload_extension(f"core.{extension}")
         logging.warning("Extension \"" + str(extension) + "\" unloaded")
+        await ctx.send("Extension \"" + str(extension) + "\" unloaded")
 
     else:
         logging.error("Extension \"" + str(extension) + "\" not found.")
@@ -85,16 +91,19 @@ async def reload(ctx, extension):
         client.unload_extension(f"commands.{extension}")
         client.load_extension(f"commands.{extension}")
         logging.warning("Extension \"" + str(extension) + "\" reloaded")
+        await ctx.send("Extension \"" + str(extension) + "\" reloaded")
 
     elif os.path.isfile(f"events/{extension}.py"):
         client.unload_extension(f"events.{extension}")
         client.load_extension(f"events.{extension}")
         logging.warning("Extension \"" + str(extension) + "\" reloaded")
+        await ctx.send("Extension \"" + str(extension) + "\" reloaded")
 
     elif os.path.isfile(f"core/{extension}.py"):
         client.unload_extension(f"core.{extension}")
         client.load_extension(f"core.{extension}")
         logging.warning("Extension \"" + str(extension) + "\" reloaded")
+        await ctx.send("Extension \"" + str(extension) + "\" reloaded")
 
     else:
         logging.error("Extension \"" + str(extension) + "\" not found.")
