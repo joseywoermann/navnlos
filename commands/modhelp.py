@@ -25,8 +25,7 @@ class ModHelp(commands.Cog):
         help_embed.add_field(name="$nickedit", value="Aendert den Nickname eines Users")
         help_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
-        await ctx.channel.purge(limit=1)
-        await ctx.send(content=None, embed=help_embed)
+        await ctx.reply(content=None, embed=help_embed)
 
 def setup(client):
     client.add_cog(ModHelp(client))

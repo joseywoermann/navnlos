@@ -11,8 +11,6 @@ class Help(commands.Cog):
     @commands.guild_only()
     async def help(self, ctx, arg = None):
 
-        await ctx.channel.purge(limit=1)
-
         if arg == None:
 
             help_embed = discord.Embed(title="Commands", colour=discord.Color.gold())
@@ -35,51 +33,51 @@ class Help(commands.Cog):
             help_embed.add_field(name="$developer", value="Informationen ueber den Entwickler dieses Bots.")
             help_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
-            await ctx.send(content=None, embed=help_embed)
+            await ctx.reply(content=None, embed=help_embed)
 
         else:
 
             if arg == "invite":
-                await ctx.send("```Invite: $invite```")
+                await ctx.reply("```Invite: $invite```")
 
             elif arg == "question":
-                await ctx.send("```Question: $question <DEINE FRAGE>```")
+                await ctx.reply("```Question: $question <DEINE FRAGE>```")
 
             elif arg == "ping":
-                await ctx.send("```Ping: $ping```")
+                await ctx.reply("```Ping: $ping```")
 
             elif arg == "info":
-                await ctx.send("```Info: $info```")
+                await ctx.reply("```Info: $info```")
 
             elif arg == "changelog":
-                await ctx.send("```Changelog: $changelog```")
+                await ctx.reply("```Changelog: $changelog```")
 
             elif arg == "day":
-                await ctx.send("```Day: $day```")
+                await ctx.reply("```Day: $day```")
 
             elif arg == "help":
-                await ctx.send("```Help: $help <COMMAND> | Command optional```")
+                await ctx.reply("```Help: $help <COMMAND> | Command optional```")
 
             elif arg == "repeat":
-                await ctx.send("```Repeat: $repeat <DEINE NACHRICHT```")
+                await ctx.reply("```Repeat: $repeat <DEINE NACHRICHT```")
 
             elif arg == "poll":
-                await ctx.send("```Poll: $poll <DEINE FRAGE> <ANTWORTMOEGLICHKEI 1> <ANTWORTMOEGLICHKEI 2> ... <ANTWORTMOEGLICHKEI 9> | Mindestens 2 Antwortmoeglichkeiten```")
+                await ctx.reply("```Poll: $poll <DEINE FRAGE> <ANTWORTMOEGLICHKEI 1> <ANTWORTMOEGLICHKEI 2> ... <ANTWORTMOEGLICHKEI 9> | Mindestens 2 Antwortmoeglichkeiten```")
 
             elif arg == "wiki":
-                await ctx.send("```Wiki: $wiki <SUCHBEGRIFF>```")
+                await ctx.reply("```Wiki: $wiki <SUCHBEGRIFF>```")
 
             elif arg == "price":
-                await ctx.send("```Price: $price <SUCHBEGRIFF>```")
+                await ctx.reply("```Price: $price <SUCHBEGRIFF>```")
 
             elif arg == "define":
-                await ctx.send("```Define: $define <SUCHBEGRIFF>```")
+                await ctx.reply("```Define: $define <SUCHBEGRIFF>```")
 
             elif arg == "bpm":
-                await ctx.send("```BPM: $bpm <SONG>```")
+                await ctx.reply("```BPM: $bpm <SONG>```")
 
             elif arg == "userinfo":
-                await ctx.send("```Userinfo: $userinfo <USERMENTION (@user)>```")
+                await ctx.reply("```Userinfo: $userinfo <USERMENTION (@user)>```")
 
             else:
                 pass

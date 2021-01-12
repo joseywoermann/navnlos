@@ -14,8 +14,7 @@ class Embed(commands.Cog):
         repeat_embed = discord.Embed(title=str(text), color=discord.Color.orange())
         repeat_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
-        await ctx.channel.purge(limit=1)
-        await ctx.send(content=None, embed=repeat_embed)
+        await ctx.reply(content=None, embed=repeat_embed)
 
 def setup(client):
     client.add_cog(Embed(client))

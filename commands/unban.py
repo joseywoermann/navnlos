@@ -17,9 +17,6 @@ class Unban(commands.Cog):
         unban_embed = discord.Embed(title=str(member) + " wurde entbannt.", color=discord.Color.dark_red())
         unban_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
-
-        await ctx.channel.purge(limit=1)
-
         for ban_entry in banned_users:
 
             user = ban_entry.user
@@ -27,12 +24,10 @@ class Unban(commands.Cog):
             if (user.name, user.discriminator) == (member_name, member_discriminator):
 
                 try:
-
                     await ctx.guild.unban(user)
-                    await ctx.send(content=None, embed=unban_embed)
+                    await ctx.reply(content=None, embed=unban_embed)
 
                 except:
-
                     return
 
 

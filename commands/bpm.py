@@ -13,7 +13,8 @@ class BPM(commands.Cog):
 
         while ' ' in search_term:
             search_term = search_term.replace(' ', '-')
+            
+        await ctx.reply("https://songbpm.com/searches/" + search_term)
 
-        await ctx.send("https://songbpm.com/searches/" + search_term)
 def setup(client):
     client.add_cog(BPM(client))

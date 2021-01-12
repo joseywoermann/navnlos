@@ -15,8 +15,7 @@ class Info(commands.Cog):
         info_embed = discord.Embed(title="Information", description="Version 2.0.2 by jcw05#1331\nhttp://navnlos.tk/", color=discord.Color.lighter_grey())
         info_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
-        await ctx.channel.purge(limit=1)
-        await ctx.send(embed=info_embed)
+        await ctx.reply(embed=info_embed)
 
 def setup(client):
     client.add_cog(Info(client))

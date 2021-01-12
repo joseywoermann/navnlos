@@ -13,7 +13,6 @@ class Clear(commands.Cog):
     @commands.guild_only()
     async def clear(self, ctx, amount_typed=1, arg=' '):
 
-
         clear_pin_embed = discord.Embed(title=str(amount_typed) + " Nachricht(en) wurden geloescht.", color=discord.Color.dark_red())
         clear_pin_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
@@ -25,14 +24,11 @@ class Clear(commands.Cog):
         if amount <= 1001:
 
             if arg == 'pin':
-
                 await ctx.channel.purge(limit=amount)
                 await ctx.send(embed=clear_pin_embed)
                 sleep(1)
-                await ctx.channel.purge(limit=1)
 
             else:
-
                 deleted = await ctx.channel.purge(limit=amount, check=lambda msg: not msg.pinned)
 
                 clear_embed = discord.Embed(title='{} Nachrichten geloescht.'.format(len(deleted)-1), color=discord.Color.dark_red())
@@ -40,13 +36,10 @@ class Clear(commands.Cog):
 
                 await ctx.send(embed=clear_embed)
                 sleep(1)
-                await ctx.channel.purge(limit=1)
 
         else:
-
-            await ctx.send(content=None, embed=clear_overflow_embed)
+            await ctx.reply(content=None, embed=clear_overflow_embed)
             sleep(1)
-            await ctx.channel.purge(limit=2)
 
 def setup(client):
     client.add_cog(Clear(client))

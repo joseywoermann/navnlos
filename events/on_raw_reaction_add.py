@@ -48,6 +48,10 @@ class On_raw_reaction_add(commands.Cog):
 
                 role = discord.utils.get(guild.roles, name='mistericraft')
 
+            elif payload.emoji.name == 'notifier':
+
+                role = discord.utils.get(guild.roles, name='kgh-updates')
+
             else:
 
                 role = discord.utils.get(guild.roles, name=payload.emoji.name)

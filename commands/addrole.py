@@ -17,11 +17,10 @@ class AddRole(commands.Cog):
         addrole_embed = discord.Embed(title="Rolle __" + str(roles) + "__ zu " + str(person) + " hinzugefuegt")
         addrole_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
-        await ctx.channel.purge(limit=1)
-
+        #await ctx.channel.purge(limit=1) 
         try:
             await person.add_roles(roles)
-            await ctx.send(content=None, embed=addrole_embed)
+            await ctx.reply(content=None, embed=addrole_embed)
         except:
             return
 

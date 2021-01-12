@@ -10,7 +10,7 @@ class Dummy(commands.Cog):
     @commands.command()
     @commands.guild_only()
     async def dummy(self, ctx):
-        await ctx.channel.purge(limit=1)
+        await ctx.reply("feedback")
 
 
 def setup(client):

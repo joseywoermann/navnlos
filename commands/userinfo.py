@@ -26,8 +26,7 @@ class UserInfo(commands.Cog):
         #userinfo_embed.add_field(name="Nitro", value=str(person.nitro))
         userinfo_embed.set_thumbnail(url=person.avatar_url)
 
-        await ctx.channel.purge(limit=1)
-        await ctx.send(content=None, embed=userinfo_embed)
+        await ctx.reply(content=None, embed=userinfo_embed)
 
 def setup(client):
     client.add_cog(UserInfo(client))

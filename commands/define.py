@@ -24,13 +24,14 @@ class Define(commands.Cog):
             name_output = str(searched_word.text)
         else:
             name_output = "No results."
+            
         if meaning:
             meaning_output = str(meaning.text)
         else:
             meaning_output = "No results."
 
         define_embed = discord.Embed(title=name_output, description=meaning_output)
-        await ctx.send(content=None, embed=define_embed)
+        await ctx.reply(content=None, embed=define_embed)
 
 def setup(client):
     client.add_cog(Define(client))

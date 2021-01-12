@@ -11,16 +11,15 @@ class RemoveRole(commands.Cog):
     @commands.has_permissions(manage_roles=True)
     @commands.guild_only()
     async def removerole(self, ctx, person: discord.Member, *, role):
+
         guild = ctx.message.guild
         roles = discord.utils.get(guild.roles, name=role)
         removerole_embed = discord.Embed(title="Rolle __" + str(roles) + "__ von " + str(person) + " entfernt")
         removerole_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
-        await ctx.channel.purge(limit=1)
-
         try:
             await person.remove_roles(roles)
-            await ctx.send(content=None, embed=removerole_embed)
+            await ctx.reply(content=None, embed=removerole_embed)
         except:
             return
 

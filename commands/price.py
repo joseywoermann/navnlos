@@ -14,7 +14,7 @@ class Price(commands.Cog):
         while ' ' in search_term:
             search_term = search_term.replace(' ', '+')
 
-        await ctx.send("https://geizhals.de/?fs=" + search_term)
+        await ctx.reply("https://geizhals.de/?fs=" + search_term)
 
 def setup(client):
     client.add_cog(Price(client))

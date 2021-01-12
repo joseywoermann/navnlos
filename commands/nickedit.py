@@ -12,16 +12,13 @@ class NickEdit(commands.Cog):
     @commands.guild_only()
     async def nickedit(self, ctx, mensch: discord.Member, newname):
 
-        await ctx.channel.purge(limit=1)
         if newname:
 
             try:
-
                 await mensch.edit(nick=newname)
 
             except:
-
-                pass#errormessage einfuegen
+                await ctx.reply("Nickname konnte nicht geändert werden.")
 
         else:
             pass

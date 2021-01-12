@@ -14,7 +14,7 @@ class Wiki(commands.Cog):
         while ' ' in search_term:
             search_term = search_term.replace(' ', '+')
 
-        await ctx.send("https://wikipedia.org/w/index.php?search=" + search_term)
+        await ctx.reply("https://wikipedia.org/w/index.php?search=" + search_term)
 
 def setup(client):
     client.add_cog(Wiki(client))

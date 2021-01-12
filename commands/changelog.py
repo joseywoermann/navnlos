@@ -18,8 +18,7 @@ class Changelog(commands.Cog):
 
         changelog_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
-        await ctx.channel.purge(limit=1)
-        await ctx.send(embed=changelog_embed)
+        await ctx.reply(embed=changelog_embed)
 
 def setup(client):
     client.add_cog(Changelog(client))

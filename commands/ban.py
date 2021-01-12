@@ -24,14 +24,13 @@ class Ban(commands.Cog):
         try:
 
             await person.ban(reason=reason)
-            await ctx.send(content=None, embed=ban_embed)
+            await ctx.reply(content=None, embed=ban_embed)
 
 
         except:
 
-            await ctx.send(content=None, embed=ban_error_embed)
+            await ctx.reply(content=None, embed=ban_error_embed)
             sleep(5)
-            await ctx.channel.purge(limit=1)
 
 
 def setup(client):
