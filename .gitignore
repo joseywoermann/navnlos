@@ -5,3 +5,9 @@ commands/__pycache__/
 quarantine/__pycache__/
 presets/__pycache__/
 kgh_notifier/__pycache__/
+
+events/on_raw_reaction_add.py
+events/on_raw_reaction_remove.py
+
+events/on_member_join.py
+events/on_member_remove.py
