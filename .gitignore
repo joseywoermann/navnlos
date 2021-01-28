@@ -11,3 +11,5 @@ events/on_raw_reaction_remove.py
 
 events/on_member_join.py
 events/on_member_remove.py
+
+.venv/
