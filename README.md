@@ -10,4 +10,4 @@ A multi-purpose Discord bot.
 
 [Download the source code!](https://github.com/joseywoermann/navnlos/releases)
 
-[Get navnløs onto your server!](https://discord.com/oauth2/authorize?client_id=707269223281459271&permissions=470285399&scope=bot%20applications.commands)
+[Get navnløs onto your server!](http://get-navnlos.tk)
