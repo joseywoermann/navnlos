@@ -8,7 +8,7 @@ A multi-purpose Discord bot.
 
 [Report an issue!](https://bit.ly/navnlos-issues)
 
-[Join the support-server!](discord.gg/52TbNHPBU9)
+[Join the support-server!](https://discord.gg/52TbNHPBU9)
 
 [Download the source code!](https://github.com/joseywoermann/navnlos/releases)
 
