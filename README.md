@@ -4,8 +4,7 @@
 A multi-purpose Discord bot.
 
 
-![](https://badgen.net/github/release/joseywoermann/navnlos/stable?color=black) ![](https://badgen.net/github/last-commit/joseywoermann/navnlos?color=black) ![](https://wakatime.com/badge/github/joseywoermann/Testbot.svg)
-
+![](https://badgen.net/github/release/joseywoermann/navnlos/stable?color=black) ![](https://badgen.net/github/last-commit/joseywoermann/navnlos?color=black) 
 [Report an issue!](https://bit.ly/navnlos-issues)
 
 [Join the support-server!](https://discord.gg/52TbNHPBU9)
