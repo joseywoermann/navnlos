@@ -2,6 +2,8 @@
 
 ![](https://badgen.net/github/release/joseywoermann/navnlos/stable?color=black) ![](https://badgen.net/github/last-commit/joseywoermann/navnlos?color=black) [![CodeFactor](https://www.codefactor.io/repository/github/joseywoermann/navnlos/badge)](https://www.codefactor.io/repository/github/joseywoermann/navnlos)
 
+[Join the support-server!](https://discord.gg/52TbNHPBU9)
+
 ## A multi purpose Discord bot.
 
 navnløs is a Discord bot designed to be modular and feature rich.
@@ -41,16 +43,3 @@ You need to...
 * execute the command `.venv\Scripts\activate.bat`
 * execute the command `python main.py`
 * Now the bot should be running!
-
-
-
-
-
-
-[Report an issue!](https://bit.ly/navnlos-issues)
-
-[Join the support-server!](https://discord.gg/52TbNHPBU9)
-
-[Download the source code!](https://github.com/joseywoermann/navnlos/releases)
-
-[Get navnløs onto your server!](http://get-navnlos.tk)
