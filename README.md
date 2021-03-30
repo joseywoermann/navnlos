@@ -30,14 +30,18 @@ You need to...
 * have Python 3.5.3 or newer installed
 * install all dependencies by doing `pip install -r requirements.txt` in the bot's root directory (you may want to do this in a virtual environment)
 * create a bot on [this website](https://discord.com/developers/applications/)
-* copy your token and paste it into `bot.TOKEN`
+* create a file called `bot.TOKEN` in the root directory of the bot and paste your token into it
+* If you want to use the `$bugreport` feature, you will need to create a GitHub "personal access token" and paste it into `github.TOKEN`
+* If you want to use the `$shorturl` feature, you will need to create a [short.io](https://short.io/) API-key and paste it into `shortio.TOKEN`
+* That should be it!
 
 ##### Basic setup and start
 
 * open a command line tool
 * execute the command `.venv\Scripts\activate.bat`
-* execute the command `python navnlos.py`
-* That should be it!
+* execute the command `python main.py`
+* Now the bot should be running!
+
 
 
 
