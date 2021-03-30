@@ -1,15 +1,22 @@
 __pycache__/
-core/__pycache__/
-events/__pycache__/
-commands/__pycache__/
-quarantine/__pycache__/
-presets/__pycache__/
+assets/__pycache__/
+auto_publisher/__pycache__/
+fun/__pycache__/
+help/__pycache__/
 kgh_notifier/__pycache__/
+member_actions/__pycache__/
+miscellaneous/__pycache__/
+moderation/__pycache__/
+quarantine/__pycache__/
+reaction_actions/__pycache__/
+system/__pycache__/
+tools/__pycache__/
+web_apps/__pycache__/
+word_filter/__pycache__/
 
-events/on_raw_reaction_add.py
-events/on_raw_reaction_remove.py
 
-events/on_member_join.py
-events/on_member_remove.py
+bot.TOKEN
+github.TOKEN
+shortio.TOKEN
 
 .venv/
