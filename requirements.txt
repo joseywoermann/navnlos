@@ -1,4 +1,4 @@
-git+https://github.com/Rapptz/discord.py
+discord.py==1.7.1
 dnspython
 PyNaCl
 async-timeout
