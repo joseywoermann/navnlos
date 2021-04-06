@@ -12,14 +12,14 @@ logging.basicConfig(format='%(asctime)s: %(levelname)s: %(message)s', datefmt='%
 
 intents = discord.Intents.all()
 
-secrets = {}
+settings = {}
 
-with open('secrets.json','r') as file:
-    secrets = json.load(file)
+with open('settings.json','r') as file:
+    settings = json.load(file)
 
 
 
-client = commands.Bot(command_prefix='$', intents = intents)
+client = commands.Bot(command_prefix=settings["prefix"], intents = intents)
 client.remove_command('help')
 
 statusmessages = ['navnlos.ml', '$help', 'nvnls.ml/support', '$info']
@@ -308,4 +308,4 @@ for filename in os.listdir("./log_system"):
         client.load_extension(f"log_system.{filename[:-3]}")
 
 
-client.run(secrets["discord"])
+client.run(settings["discord"])

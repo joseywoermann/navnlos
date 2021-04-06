@@ -15,16 +15,16 @@ class URLShort(commands.Cog):
     async def short(self, ctx, long_url):
 
         async with ctx.channel.typing():
-            secrets = {}
+            settings = {}
 
-            with open('secrets.json','r') as file:
-                secrets = json.load(file)
+            with open('settings.json','r') as file:
+                settings = json.load(file)
 
             res = requests.post('https://api.short.io/links', {
                   'domain': 'nvnls.ml',
                   'originalURL': long_url,
             }, headers = {
-                  'authorization': secrets["shortio"]
+                  'authorization': settings["shortio"]
             }, json=True)
 
             res.raise_for_status()

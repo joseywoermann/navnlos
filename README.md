@@ -33,9 +33,17 @@ You need to...
 * have Python 3.5.3 or newer installed
 * install all dependencies by doing `pip install -r requirements.txt` in the bot's root directory (you may want to do this in a virtual environment)
 * create a bot on [this website](https://discord.com/developers/applications/)
-* create a file called `bot.TOKEN` in the root directory of the bot and paste your token into it
-* If you want to use the `$bugreport` feature, you will need to create a GitHub "personal access token" and paste it into `github.TOKEN`
-* If you want to use the `$shorturl` feature, you will need to create a [short.io](https://short.io/) API-key and paste it into `shortio.TOKEN`
+* create a file called `settings.json` with the following structure in the root directory:
+```
+{
+	"discord": "YOUR DISCORD BOT TOKEN HERE",
+	"github": "YOUR GITHUB P-A-T HERE",
+	"shortio": "YOUR SHORT.IO TOKEN HERE",
+	"prefix": "$"
+}
+```
+* If you want to use the `$bugreport` feature, you will need to create a GitHub "personal access token"
+* If you want to use the `$shorturl` feature, you will need to create a [short.io](https://short.io/) API-key
 * That should be it!
 
 ##### Basic setup and start
