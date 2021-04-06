@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import logging
+import json
 
 from github import Github
 from pprint import pprint

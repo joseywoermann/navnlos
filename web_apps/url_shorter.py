@@ -3,6 +3,7 @@ from discord.ext import commands
 import requests
 from bs4 import BeautifulSoup
 import logging
+import json
 
 class URLShort(commands.Cog):
 
