@@ -46,66 +46,66 @@ async def load(ctx, extension):
 
     if os.path.isfile(f"auto_publisher/{extension}.py"):
         client.load_extension(f"auto_publisher.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" loaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" loaded")
+        logging.warning(f"Extension {str(extension)} loaded")
+        await ctx.reply(f"Extension {str(extension)} loaded")
 
     elif os.path.isfile(f"fun/{extension}.py"):
         client.load_extension(f"fun.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" loaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" loaded")
+        logging.warning(f"Extension {str(extension)} loaded")
+        await ctx.reply(f"Extension {str(extension)} loaded")
 
     elif os.path.isfile(f"help/{extension}.py"):
         client.load_extension(f"help.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" loaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" loaded")
+        logging.warning(f"Extension {str(extension)} loaded")
+        await ctx.reply(f"Extension {str(extension)} loaded")
 
     elif os.path.isfile(f"member_actions/{extension}.py"):
         client.load_extension(f"member_actions.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" loaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" loaded")
+        logging.warning(f"Extension {str(extension)} loaded")
+        await ctx.reply(f"Extension {str(extension)} loaded")
 
     elif os.path.isfile(f"moderation/{extension}.py"):
         client.load_extension(f"moderation.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" loaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" loaded")
+        logging.warning(f"Extension {str(extension)} loaded")
+        await ctx.reply(f"Extension {str(extension)} loaded")
 
     elif os.path.isfile(f"role_menu/{extension}.py"):
         client.load_extension(f"role_menu.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" loaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" loaded")
+        logging.warning(f"Extension {str(extension)} loaded")
+        await ctx.reply(f"Extension {str(extension)} loaded")
 
     elif os.path.isfile(f"system/{extension}.py"):
         client.load_extension(f"system.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" loaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" loaded")
+        logging.warning(f"Extension {str(extension)} loaded")
+        await ctx.reply(f"Extension {str(extension)} loaded")
 
     elif os.path.isfile(f"tools/{extension}.py"):
         client.load_extension(f"tools.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" loaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" loaded")
+        logging.warning(f"Extension {str(extension)} loaded")
+        await ctx.reply(f"Extension {str(extension)} loaded")
 
     elif os.path.isfile(f"web_apps/{extension}.py"):
         client.load_extension(f"web_apps.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" loaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" loaded")
+        logging.warning(f"Extension {str(extension)} loaded")
+        await ctx.reply(f"Extension {str(extension)} loaded")
 
     elif os.path.isfile(f"filter/{extension}.py"):
         client.load_extension(f"filter.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" loaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" loaded")
+        logging.warning(f"Extension {str(extension)} loaded")
+        await ctx.reply(f"Extension {str(extension)} loaded")
 
     elif os.path.isfile(f"vc_role/{extension}.py"):
         client.load_extension(f"vc_role.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" loaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" loaded")
+        logging.warning(f"Extension {str(extension)} loaded")
+        await ctx.reply(f"Extension {str(extension)} loaded")
 
     elif os.path.isfile(f"log_system/{extension}.py"):
         client.load_extension(f"log_system.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" loaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" loaded")
+        logging.warning(f"Extension {str(extension)} loaded")
+        await ctx.reply(f"Extension {str(extension)} loaded")
 
     else:
-        logging.error("Extension \"" + str(extension) + "\" not found.")
+        logging.error(f"Extension {str(extension)} not found.")
 
 
 
@@ -115,66 +115,66 @@ async def load(ctx, extension):
 async def unload(ctx, extension):
     if os.path.isfile(f"auto_publisher/{extension}.py"):
         client.unload_extension(f"auto_publisher.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" unloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" unloaded")
+        logging.warning(f"Extension {str(extension)} unloaded")
+        await ctx.reply(f"Extension {str(extension)} unloaded")
 
     elif os.path.isfile(f"fun/{extension}.py"):
         client.unload_extension(f"fun.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" unloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" unloaded")
+        logging.warning(f"Extension {str(extension)} unloaded")
+        await ctx.reply(f"Extension {str(extension)} unloaded")
 
     elif os.path.isfile(f"help/{extension}.py"):
         client.unload_extension(f"help.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" unloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" unloaded")
+        logging.warning(f"Extension {str(extension)} unloaded")
+        await ctx.reply(f"Extension {str(extension)} unloaded")
 
     elif os.path.isfile(f"member_actions/{extension}.py"):
         client.unload_extension(f"member_actions.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" unloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" unloaded")
+        logging.warning(f"Extension {str(extension)} unloaded")
+        await ctx.reply(f"Extension {str(extension)} unloaded")
 
     elif os.path.isfile(f"moderation/{extension}.py"):
         client.unload_extension(f"moderation.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" unloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" unloaded")
+        logging.warning(f"Extension {str(extension)} unloaded")
+        await ctx.reply(f"Extension {str(extension)} unloaded")
 
     elif os.path.isfile(f"role_menu/{extension}.py"):
         client.unload_extension(f"role_menu.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" unloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" unloaded")
+        logging.warning(f"Extension {str(extension)} unloaded")
+        await ctx.reply(f"Extension {str(extension)} unloaded")
 
     elif os.path.isfile(f"system/{extension}.py"):
         client.unload_extension(f"system.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" unloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" unloaded")
+        logging.warning(f"Extension {str(extension)} unloaded")
+        await ctx.reply(f"Extension {str(extension)} unloaded")
 
     elif os.path.isfile(f"tools/{extension}.py"):
         client.unload_extension(f"tools.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" unloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" unloaded")
+        logging.warning(f"Extension {str(extension)} unloaded")
+        await ctx.reply(f"Extension {str(extension)} unloaded")
 
     elif os.path.isfile(f"web_apps/{extension}.py"):
         client.unload_extension(f"web_apps.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" unloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" unloaded")
+        logging.warning(f"Extension {str(extension)} unloaded")
+        await ctx.reply(f"Extension {str(extension)} unloaded")
 
     elif os.path.isfile(f"filter/{extension}.py"):
         client.unload_extension(f"filter.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" unloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" unloaded")
+        logging.warning(f"Extension {str(extension)} unloaded")
+        await ctx.reply(f"Extension {str(extension)} unloaded")
 
     elif os.path.isfile(f"vc_role/{extension}.py"):
         client.unload_extension(f"vc_role.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" unloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" unloaded")
+        logging.warning(f"Extension {str(extension)} unloaded")
+        await ctx.reply(f"Extension {str(extension)} unloaded")
 
     elif os.path.isfile(f"log_system/{extension}.py"):
         client.unload_extension(f"log_system.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" unloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" unloaded")
+        logging.warning(f"Extension {str(extension)} unloaded")
+        await ctx.reply(f"Extension {str(extension)} unloaded")
 
     else:
-        logging.error("Extension \"" + str(extension) + "\" not found.")
+        logging.error(f"Extension {str(extension)} not found.")
 
 # command to MANUALLY reload a specific command / event (extension is a command / an event)
 @client.command()
@@ -184,77 +184,77 @@ async def reload(ctx, extension):
     if os.path.isfile(f"auto_publisher/{extension}.py"):
         client.unload_extension(f"auto_publisher.{extension}")
         client.load_extension(f"auto_publisher.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" reloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" reloaded")
+        logging.warning(f"Extension {str(extension)} reloaded")
+        await ctx.reply(f"Extension {str(extension)} reloaded")
 
     elif os.path.isfile(f"fun/{extension}.py"):
         client.unload_extension(f"fun.{extension}")
         client.load_extension(f"fun.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" reloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" reloaded")
+        logging.warning(f"Extension {str(extension)} reloaded")
+        await ctx.reply(f"Extension {str(extension)} reloaded")
 
     elif os.path.isfile(f"help/{extension}.py"):
         client.unload_extension(f"help.{extension}")
         client.load_extension(f"help.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" reloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" reloaded")
+        logging.warning(f"Extension {str(extension)} reloaded")
+        await ctx.reply(f"Extension {str(extension)} reloaded")
 
     elif os.path.isfile(f"member_actions/{extension}.py"):
         client.unload_extension(f"member_actions.{extension}")
         client.load_extension(f"member_actions.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" reloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" reloaded")
+        logging.warning(f"Extension {str(extension)} reloaded")
+        await ctx.reply(f"Extension {str(extension)} reloaded")
 
     elif os.path.isfile(f"moderation/{extension}.py"):
         client.unload_extension(f"moderation.{extension}")
         client.load_extension(f"moderation.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" reloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" reloaded")
+        logging.warning(f"Extension {str(extension)} reloaded")
+        await ctx.reply(f"Extension {str(extension)} reloaded")
 
     elif os.path.isfile(f"role_menu/{extension}.py"):
         client.unload_extension(f"role_menu.{extension}")
         client.load_extension(f"role_menu.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" reloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" reloaded")
+        logging.warning(f"Extension {str(extension)} reloaded")
+        await ctx.reply(f"Extension {str(extension)} reloaded")
 
     elif os.path.isfile(f"system/{extension}.py"):
         client.unload_extension(f"system.{extension}")
         client.load_extension(f"system.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" reloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" reloaded")
+        logging.warning(f"Extension {str(extension)} reloaded")
+        await ctx.reply(f"Extension {str(extension)} reloaded")
 
     elif os.path.isfile(f"tools/{extension}.py"):
         client.unload_extension(f"tools.{extension}")
         client.load_extension(f"tools.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" reloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" reloaded")
+        logging.warning(f"Extension {str(extension)} reloaded")
+        await ctx.reply(f"Extension {str(extension)} reloaded")
 
     elif os.path.isfile(f"web_apps/{extension}.py"):
         client.unload_extension(f"web_apps.{extension}")
         client.load_extension(f"web_apps.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" reloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" reloaded")
+        logging.warning(f"Extension {str(extension)} reloaded")
+        await ctx.reply(f"Extension {str(extension)} reloaded")
 
     elif os.path.isfile(f"filter/{extension}.py"):
         client.unload_extension(f"filter.{extension}")
         client.load_extension(f"filter.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" reloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" reloaded")
+        logging.warning(f"Extension {str(extension)} reloaded")
+        await ctx.reply(f"Extension {str(extension)} reloaded")
 
     elif os.path.isfile(f"vc_role/{extension}.py"):
         client.unload_extension(f"vc_role.{extension}")
         client.load_extension(f"vc_role.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" reloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" reloaded")
+        logging.warning(f"Extension {str(extension)} reloaded")
+        await ctx.reply(f"Extension {str(extension)} reloaded")
 
     elif os.path.isfile(f"log_system/{extension}.py"):
         client.unload_extension(f"log_system.{extension}")
         client.load_extension(f"log_system.{extension}")
-        logging.warning("Extension \"" + str(extension) + "\" reloaded")
-        await ctx.reply("Extension \"" + str(extension) + "\" reloaded")
+        logging.warning(f"Extension {str(extension)} reloaded")
+        await ctx.reply(f"Extension {str(extension)} reloaded")
 
     else:
-        logging.error("Extension \"" + str(extension) + "\" not found.")
+        logging.error(f"Extension {str(extension)} not found.")
 
 
 

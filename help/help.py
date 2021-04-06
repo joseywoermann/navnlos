@@ -34,7 +34,7 @@ class Help(commands.Cog):
             help_embed.add_field(name="$dummy", value="Does absolutely nothing.")
             help_embed.add_field(name="$whois <`@mention`>", value="Shows information about a specific user.")
             help_embed.add_field(name="$developer", value="Hey, that's me!")
-            help_embed.add_field(name="$bugreport <`\"title\"`> <`\"description\"`>", value="Creates a bug-report on [GitHub](https://github.com/joseywoermann/navnlos/issues/).")
+            help_embed.add_field(name="$bugreport <`title`> <`description`>", value="Creates a bug-report on [GitHub](https://github.com/joseywoermann/navnlos/issues/).")
             help_embed.set_footer(text = "$help | @navnløs")
 
             await ctx.reply(content=None, embed=help_embed)
