@@ -10,7 +10,7 @@ class NickEdit(commands.Cog):
     @commands.command()
     @commands.has_permissions(manage_nicknames=True)
     @commands.guild_only()
-    async def nickedit(self, ctx, mensch: discord.Member, newname):
+    async def nickedit(self, ctx, mensch: discord.Member, *, newname):
 
         if newname:
             try:

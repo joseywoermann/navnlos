@@ -33,7 +33,7 @@ class MakeIssue(commands.Cog):
                     assignee="joseywoermann",
                 )
 
-            issue_embed = discord.Embed(title = "Bugreport gesendet!", description = "[Alle Bugreports](https://github.com/joseywoermann/navnlos/issues)")
+            issue_embed = discord.Embed(title = "Bugreport created!", description = "[All bugreports](https://github.com/joseywoermann/navnlos/issues)")
             issue_embed.set_footer(text = "$bugreport | @navnløs")
             logging.info(str(ctx.author) + " created an issue.")
         await ctx.reply(content = None, embed = issue_embed)

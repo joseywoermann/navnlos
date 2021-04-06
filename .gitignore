@@ -1,22 +1,5 @@
-__pycache__/
-assets/__pycache__/
-auto_publisher/__pycache__/
-fun/__pycache__/
-help/__pycache__/
-kgh_notifier/__pycache__/
-member_actions/__pycache__/
-miscellaneous/__pycache__/
-moderation/__pycache__/
-quarantine/__pycache__/
-reaction_actions/__pycache__/
-system/__pycache__/
-tools/__pycache__/
-web_apps/__pycache__/
-word_filter/__pycache__/
+__pycache__
 
-
-bot.TOKEN
-github.TOKEN
-shortio.TOKEN
+secrets.json
 
 .venv/

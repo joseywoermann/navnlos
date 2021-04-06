@@ -20,7 +20,7 @@ class Invite(commands.Cog):
             if vc_role in member.roles:
                 vc_users.append('{}'.format(member.mention))
 
-        vc_embed = discord.Embed(title = "User in voice chats:", description = '\n'.join(vc_users))
+        vc_embed = discord.Embed(title = "Users in voice chats:", description = '\n'.join(vc_users))
         await ctx.reply(content = None, embed = vc_embed)
 
 def setup(client):

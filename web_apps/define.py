@@ -31,6 +31,7 @@ class Define(commands.Cog):
             meaning_output = "No results."
 
         define_embed = discord.Embed(title=name_output, description=meaning_output, color=0x75e8ee)
+        define_embed.set_footer(text = "$define | powered by urbandictionary.com | @navnløs")
         await ctx.reply(content=None, embed=define_embed)
 
 def setup(client):

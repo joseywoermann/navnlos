@@ -11,15 +11,17 @@ class Prefix(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
 
-        if message.content.lower() == "<@!707269223281459271>":
+        if message.content.lower() == "<@707269223281459271>":
             prefix_embed = discord.Embed(title = "The prefix is: `$`", color=0x75e8ee)
             prefix_embed.set_footer(text = "ping me! | @navnløs")
             await message.reply(embed = prefix_embed)
 
-        if message.content.lower() == "<@!713359263258509393>":
+        elif message.content.lower() == "<@!707269223281459271>":
             prefix_embed = discord.Embed(title = "The prefix is: `$`", color=0x75e8ee)
             prefix_embed.set_footer(text = "ping me! | @navnløs")
             await message.reply(embed = prefix_embed)
+        else:
+            pass
 
 def setup(client):
     client.add_cog(Prefix(client))

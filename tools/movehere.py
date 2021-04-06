@@ -12,6 +12,7 @@ class MoveHere(commands.Cog):
         self.client = client
 
     @commands.command(aliases = ["movehere"])
+    @commands.has_permissions(move_members = True)
     @commands.guild_only()
     async def move(self, ctx, target_member: discord.Member):
 

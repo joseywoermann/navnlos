@@ -16,10 +16,10 @@ with open('bot.TOKEN','r') as file:
 
 
 
-client = commands.Bot(command_prefix='-', intents = intents)
+client = commands.Bot(command_prefix='$', intents = intents)
 client.remove_command('help')
 
-statusmessages = ['navnlos.ml', '$help', 'discord.gg/52TbNHPBU9']
+statusmessages = ['navnlos.ml', '$help', 'nvnls.ml/support', '$info']
 statusmsg = cycle(statusmessages)
 
 
@@ -291,11 +291,11 @@ for filename in os.listdir("./tools"):
 for filename in os.listdir("./web_apps"):
     if filename.endswith(".py"):
         client.load_extension(f"web_apps.{filename[:-3]}")
-
+"""
 for filename in os.listdir("./filter"):
     if filename.endswith(".py"):
         client.load_extension(f"filter.{filename[:-3]}")
-
+"""
 for filename in os.listdir("./vc_role"):
     if filename.endswith(".py"):
         client.load_extension(f"vc_role.{filename[:-3]}")

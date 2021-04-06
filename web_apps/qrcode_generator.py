@@ -11,7 +11,7 @@ class URLShort(commands.Cog):
 
     @commands.command(aliases = ['qrcode', 'makeqrcode'])
     @commands.guild_only()
-    async def qr(self, ctx, url):
+    async def qr(self, ctx, *, url):
 
         async with ctx.channel.typing():
             img = qrcode.make(url)

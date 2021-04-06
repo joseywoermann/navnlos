@@ -9,7 +9,7 @@ class Invite(commands.Cog):
 
     @commands.command()
     @commands.guild_only()
-    async def hasrole(self, ctx, role_name_or_id):
+    async def hasrole(self, ctx, *, role_name_or_id):
 
         async with ctx.channel.typing():
             server = ctx.guild

@@ -17,15 +17,15 @@ class URLShort(commands.Cog):
             with open('shortio.TOKEN','r') as file:
                 shortio_token = file.read()
 
-            r = requests.post('https://api.short.io/links', {
+            res = requests.post('https://api.short.io/links', {
                   'domain': 'nvnls.ml',
                   'originalURL': long_url,
             }, headers = {
                   'authorization': shortio_token
             }, json=True)
 
-            r.raise_for_status()
-            data = r.json()
+            res.raise_for_status()
+            data = res.json()
 
             #print(data)
             shorted_url = data["shortURL"]
