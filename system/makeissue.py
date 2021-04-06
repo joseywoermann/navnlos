@@ -14,10 +14,12 @@ class MakeIssue(commands.Cog):
     @commands.guild_only()
     async def makeissue(self, ctx, pTitle, pBody = None):
         async with ctx.channel.typing():
-            with open('github.TOKEN','r') as file:
-                TOKEN = file.read()
+            secrets = {}
 
-            g = Github(TOKEN)
+            with open('secrets.json','r') as file:
+                secrets = json.load(file)
+
+            g = Github(secrets["github"])
             repo = g.get_repo("joseywoermann/navnlos")
 
             if pBody:

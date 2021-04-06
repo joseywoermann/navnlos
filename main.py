@@ -11,8 +11,10 @@ logging.basicConfig(format='%(asctime)s: %(levelname)s: %(message)s', datefmt='%
 
 intents = discord.Intents.all()
 
-with open('bot.TOKEN','r') as file:
-    TOKEN = file.read()
+secrets = {}
+
+with open('secrets.json','r') as file:
+    secrets = json.load(file)
 
 
 
@@ -305,4 +307,4 @@ for filename in os.listdir("./log_system"):
         client.load_extension(f"log_system.{filename[:-3]}")
 
 
-client.run(TOKEN)
+client.run(secrets["discord"])
