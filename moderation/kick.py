@@ -20,7 +20,6 @@ class Kick(commands.Cog):
             await person.kick(reason=reason)
             await ctx.reply(content=None, embed=kick_embed)
 
-
         except:
             await ctx.reply(content=None, embed=kick_error_embed)
 
