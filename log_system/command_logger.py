@@ -9,8 +9,6 @@ class CommandLogger(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
 
-        server = message.guild
-
         log_server = self.client.get_guild(737650747432501308)
 
         if message.content.startswith("$"):
