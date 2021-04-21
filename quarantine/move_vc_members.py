@@ -19,8 +19,6 @@ class MoveAll(commands.Cog):
             await member.move_to(target_channel)
 
     """
-
-
-
+    
 def setup(client):
     client.add_cog(MoveAll(client))
