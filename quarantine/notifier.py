@@ -1,12 +1,7 @@
-import discord
 from discord.ext import commands, tasks
 import logging
-
-from time import sleep
 import requests
 from bs4 import BeautifulSoup
-import datetime
-import threading
 import asyncio
 
 class Notifier(commands.Cog):

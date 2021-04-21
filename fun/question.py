@@ -1,7 +1,6 @@
 # Preset am Beispiel $ping
 import discord
 from discord.ext import commands
-import logging
 import random
 
 class Question(commands.Cog):

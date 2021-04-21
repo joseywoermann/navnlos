@@ -1,7 +1,4 @@
-import discord
 from discord.ext import commands
-import logging
-from time import sleep
 
 class InviteFilter(commands.Cog):
 

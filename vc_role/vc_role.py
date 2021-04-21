@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-import logging
 
 
 class VC_role(commands.Cog):
