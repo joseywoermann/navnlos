@@ -6,7 +6,6 @@ class AutoPublisher(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-
     async def publisher(message):
         sleep(1)
         await message.publish()
