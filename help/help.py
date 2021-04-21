@@ -11,7 +11,7 @@ class Help(commands.Cog):
     @commands.guild_only()
     async def help(self, ctx, arg = None):
 
-        if arg == None:
+        if arg is None:
 
             help_embed = discord.Embed(title="Commands accessible for everyone:", colour=0x75e8ee)
             help_embed.add_field(name="$shorturl <`link that you want to shorten`>", value="turns your long link into a short one.")
