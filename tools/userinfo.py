@@ -21,7 +21,6 @@ class UserInfo(commands.Cog):
                 if role == person.top_role:
                     toprole += '{} \r\n'.format(role.mention)
 
-
             # status
             if str(person.status) == "online":
                 person_status = "🟢 - ONLINE"
@@ -34,13 +33,11 @@ class UserInfo(commands.Cog):
             else:
                 person_status = "Could not get the user's status information.\nPlease inform `jcw05#1331` or make a bugreport using `$report`."
 
-
             # account-age
             now = datetime.datetime.now()
             join_date = person.created_at
             account_age = now - join_date
             account_age_final = str(account_age)[:-7]
-
 
             # server-age
             now = datetime.datetime.now()
