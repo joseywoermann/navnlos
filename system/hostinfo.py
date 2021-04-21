@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-import logging
 import psutil
 
 class HostInfo(commands.Cog):
