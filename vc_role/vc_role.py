@@ -13,10 +13,10 @@ class VC_role(commands.Cog):
 
         vc_role = discord.utils.get(member.guild.roles, name="in voicechat")
 
-        if before.channel == None:
+        if before.channel is None:
             await member.add_roles(vc_role)
 
-        if after.channel == None:
+        if after.channel is None:
             await member.remove_roles(vc_role)
 
 def setup(client):
