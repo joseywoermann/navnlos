@@ -6,7 +6,6 @@ class create_role(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-
     @commands.Cog.listener()
     async def on_guild_join(self, guild):
         if discord.utils.get(guild.roles, name="in voicechat"):
