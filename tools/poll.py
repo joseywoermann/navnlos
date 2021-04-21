@@ -6,7 +6,6 @@ class Poll(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-
     @commands.command()
     @commands.guild_only()
     async def poll(self, ctx, question=None, response0=None, response1=None, response2=None, response3=None, response4=None, response5=None, response6=None, response7=None, response8=None):
@@ -74,8 +73,6 @@ class Poll(commands.Cog):
                                                     while '_' in response8:
                                                         response8 = response8.replace('_',' ')
 
-                                                    #await ctx.send(response0 + response1 + response2 + response3 + response4 + response5 + response6 + response7 + response8)
-
                                                     poll_embed = discord.Embed(title=str(question), description="\n\n  :one: " + str(response0) + "\n:two: " + str(response1) + "\n:three: " + str(response2) + "\n:four: " + str(response3) + "\n:five: " + str(response4) + "\n:six: " + str(response5) + "\n:seven: " + str(response6) + "\n:eight: " + str(response7) + "\n:nine: " + str(response8), color=0x75e8ee)
                                                     poll_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
@@ -93,8 +90,6 @@ class Poll(commands.Cog):
 
                                                 else:
 
-                                                    #await ctx.send(response0 + response1 + response2 + response3 + response4 + response5 + response6 + response7)
-
                                                     poll_embed = discord.Embed(title=str(question), description="\n\n  :one: " + str(response0) + "\n:two: " + str(response1) + "\n:three: " + str(response2) + "\n:four: " + str(response3) + "\n:five: " + str(response4) + "\n:six: " + str(response5) + "\n:seven: " + str(response6) + "\n:eight: " + str(response7), color=0x75e8ee)
                                                     poll_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
@@ -111,8 +106,6 @@ class Poll(commands.Cog):
 
                                             else:
 
-                                                #await ctx.send(response0 + response1 + response2 + response3 + response4 + response5 + response6)
-
                                                 poll_embed = discord.Embed(title=str(question), description="\n\n  :one: " + str(response0) + "\n:two: " + str(response1) + "\n:three: " + str(response2) + "\n:four: " + str(response3) + "\n:five: " + str(response4) + "\n:six: " + str(response5) + "\n:seven: " + str(response6), color=0x75e8ee)
                                                 poll_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
@@ -128,8 +121,6 @@ class Poll(commands.Cog):
 
                                         else:
 
-                                            #await ctx.send(response0 + response1 + response2 + response3 + response4 + response5)
-
                                             poll_embed = discord.Embed(title=str(question), description="\n\n  :one: " + str(response0) + "\n:two: " + str(response1) + "\n:three: " + str(response2) + "\n:four: " + str(response3) + "\n:five: " + str(response4) + "\n:six: " + str(response5), color=0x75e8ee)
                                             poll_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
@@ -144,8 +135,6 @@ class Poll(commands.Cog):
 
                                     else:
 
-                                        #await ctx.send(response0 + response1 + response2 + response3 + response4)
-
                                         poll_embed = discord.Embed(title=str(question), description="\n\n  :one: " + str(response0) + "\n:two: " + str(response1) + "\n:three: " + str(response2) + "\n:four: " + str(response3) + "\n:five: " + str(response4), color=0x75e8ee)
                                         poll_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
@@ -158,8 +147,6 @@ class Poll(commands.Cog):
                                         await msg.add_reaction(emote_five)
 
                                 else:
-
-                                    #await ctx.send(response0 + response1 + response2 + response3)
 
                                     poll_embed = discord.Embed(title=str(question), description="\n\n  :one: " + str(response0) + "\n:two: " + str(response1) + "\n:three: " + str(response2) + "\n:four: " + str(response3), color=0x75e8ee)
                                     poll_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
@@ -174,8 +161,6 @@ class Poll(commands.Cog):
 
                             else:
 
-                                #await ctx.send(response0 + response1 + response2)
-
                                 poll_embed = discord.Embed(title=str(question), description="\n\n  :one: " + str(response0) + "\n:two: " + str(response1) + "\n:three: " + str(response2), color=0x75e8ee)
                                 poll_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
@@ -187,8 +172,6 @@ class Poll(commands.Cog):
 
                         else:
 
-                            #await ctx.send(response0 + response1)
-
                             poll_embed = discord.Embed(title=str(question), description="\n\n  :one: " + str(response0) + "\n:two: " + str(response1), color=0x75e8ee)
                             poll_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
@@ -196,7 +179,6 @@ class Poll(commands.Cog):
 
                             await msg.add_reaction(emote_one)
                             await msg.add_reaction(emote_two)
-
 
                     else:
                         poll_error_embed = discord.Embed(title="Error", description="Umfrage muss mindestens 2 Antwortmöglichkeiten haben.", color=discord.Color.dark_purple())
@@ -211,7 +193,6 @@ class Poll(commands.Cog):
                 poll_error_embed = discord.Embed(title="Error", description="Umfrage muss mindestens 2 Antwortmöglichkeiten und eine Frage haben.", color=discord.Color.dark_purple())
                 poll_error_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
                 await ctx.send(content=None, embed=poll_error_embed)
-
 
 def setup(client):
     client.add_cog(Poll(client))
