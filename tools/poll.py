@@ -28,47 +28,47 @@ class Poll(commands.Cog):
                 while '_' in question:
                     question = question.replace('_',' ')
 
-                if response0:#
+                if response0:
 
                     while '_' in response0:
                         response0 = response0.replace('_',' ')
 
-                    if response1:#
+                    if response1:
 
                         while '_' in response1:
                             response1 = response1.replace('_',' ')
 
-                        if response2:#
+                        if response2:
 
                             while '_' in response2:
                                 response2 = response2.replace('_',' ')
 
-                            if response3:#
+                            if response3:
 
                                 while '_' in response3:
                                     response3 = response3.replace('_',' ')
 
-                                if response4:#
+                                if response4:
 
                                     while '_' in response4:
                                         response4 = response4.replace('_',' ')
 
-                                    if response5:#
+                                    if response5:
 
                                         while '_' in response5:
                                             response5 = response5.replace('_',' ')
 
-                                        if response6:#
+                                        if response6:
 
                                             while '_' in response6:
                                                 response6 = response6.replace('_',' ')
 
-                                            if response7:#
+                                            if response7:
 
                                                 while '_' in response7:
                                                     response7 = response7.replace('_',' ')
 
-                                                if response8:#
+                                                if response8:
 
                                                     while '_' in response8:
                                                         response8 = response8.replace('_',' ')
