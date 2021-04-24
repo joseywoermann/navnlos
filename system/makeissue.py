@@ -4,7 +4,6 @@ import logging
 import json
 
 from github import Github
-from pprint import pprint
 
 class MakeIssue(commands.Cog):
 

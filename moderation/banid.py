@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands
 from time import sleep
-import logging
 
 class BanID(commands.Cog):
 

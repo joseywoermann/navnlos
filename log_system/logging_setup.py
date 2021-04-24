@@ -1,7 +1,5 @@
 import discord
 from discord.ext import commands
-import logging
-from asyncio import sleep
 
 class LoggingSetup(commands.Cog):
 

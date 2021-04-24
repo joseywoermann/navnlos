@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-import logging
 
 class Help(commands.Cog):
 
@@ -11,7 +10,7 @@ class Help(commands.Cog):
     @commands.guild_only()
     async def help(self, ctx, arg = None):
 
-        if arg == None:
+        if arg is None:
 
             help_embed = discord.Embed(
                 title="Commands accessible for everyone:",
