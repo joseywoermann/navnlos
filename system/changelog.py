@@ -32,7 +32,7 @@ class Changelog(commands.Cog):
             else:
                 version1_out = "No data."
 
-            changelog_embed = discord.Embed(title="Changelog for " + version1_out, color=0x75e8ee)
+            changelog_embed = discord.Embed(title=f"Changelog for {version1_out}", color=0x75e8ee)
             changelog_embed.add_field(name="Changes:", value=changelog1_out)
             changelog_embed.set_footer(text = "$changelog | @navnløs")
 

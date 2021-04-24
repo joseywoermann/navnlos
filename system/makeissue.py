@@ -10,7 +10,7 @@ class MakeIssue(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(aliases = ['issue', 'createissue', 'report', 'makebugreport', 'bugreport'])
+    @commands.command(aliases = ['bugreport'])
     @commands.guild_only()
     async def makeissue(self, ctx, pTitle, pBody = None):
         async with ctx.channel.typing():

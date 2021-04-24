@@ -12,7 +12,12 @@ class Ban(commands.Cog):
     @commands.guild_only()
     async def ban(self, ctx, person: discord.Member, *, reason=None):
 
-        ban_embed = discord.Embed(title="Banned the following user:", description = f"{person.mention}", color=discord.Color.dark_red())
+        ban_embed = discord.Embed(
+            title="Banned the following user:",
+            description = f"{person.mention}",
+            color=discord.Color.dark_red()
+        )
+
         ban_embed.set_footer(text = "$ban | @navnløs")
 
         ban_error_embed = discord.Embed(title="User couldn't be banned.", color=discord.Color.dark_purple())

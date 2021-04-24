@@ -13,7 +13,11 @@ class RemoveRole(commands.Cog):
 
         guild = ctx.message.guild
         role = discord.utils.get(guild.roles, name=role_name)
-        removerole_embed = discord.Embed(title=" ", description=f"The role {role.mention} has been removed from {person.mention}", color=discord.Color.dark_red())
+        removerole_embed = discord.Embed(
+            title=" ",
+            description=f"The role {role.mention} has been removed from {person.mention}",
+            color=discord.Color.dark_red()
+        )
         removerole_embed.set_footer(text = "$removerole | @navnløs")
 
         try:

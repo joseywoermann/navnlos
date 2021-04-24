@@ -19,55 +19,30 @@ class On_raw_reaction_remove(commands.Cog):
             guild = discord.utils.find(lambda g: g.id == guild_id, self.client.guilds)
 
             if payload.emoji.name == 'ls19':
-
                 role = discord.utils.get(guild.roles, name='farmingsimulator')
 
-            elif payload.emoji.name == 'minecraft':
-
-                role = discord.utils.get(guild.roles, name='minecraft')
-
-            elif payload.emoji.name == 'simunews':
-
-                role = discord.utils.get(guild.roles, name='simunews')
-
-            elif payload.emoji.name == 'funfacts':
-
-                role = discord.utils.get(guild.roles, name='funfacts')
-
-            elif payload.emoji.name == 'kaenguru':
-
-                role = discord.utils.get(guild.roles, name='kaenguru')
-
-            elif payload.emoji.name == 'epicgames':
-
+            elif payload.emoji.name == 'epicdealz':
                 role = discord.utils.get(guild.roles, name='epicgames')
 
             elif payload.emoji.name == 'redstonia':
-
                 role = discord.utils.get(guild.roles, name='mistericraft')
 
-            elif payload.emoji.name == 'kgh_updates':
-
-                role = discord.utils.get(guild.roles, name='kgh_updates')
+            elif payload.emoji.name == 'notifier':
+                role = discord.utils.get(guild.roles, name='kgh-updates')
 
             else:
-
                 role = discord.utils.get(guild.roles, name=payload.emoji.name)
 
             if role is not None:
-
                 member = discord.utils.find(lambda m: m.id == payload.user_id, guild.members)
 
                 if member is not None:
-
                     await  member.remove_roles(role)
 
                 else:
-
                     await error_channel.send("Rolemenu-Error: Member not found.")
 
             else:
-
                 await error_channel.send("Rolemenu-Error: Role not found.")
 
 
@@ -83,27 +58,21 @@ class On_raw_reaction_remove(commands.Cog):
             guild = discord.utils.find(lambda g: g.id == guild_id, self.client.guilds)
 
             if payload.emoji.name == 'check':
-
                 role = discord.utils.get(guild.roles, name='verifiziert')
 
             else:
-
                 role = discord.utils.get(guild.roles, name=payload.emoji.name)
 
             if role is not None:
-
                 member = discord.utils.find(lambda m: m.id == payload.user_id, guild.members)
 
                 if member is not None:
-
                     await  member.remove_roles(role)
 
                 else:
-
                     await error_channel.send("Rolemenu-Error: Member not found.")
 
             else:
-
                 await error_channel.send("Rolemenu-Error: Role not found.")
 
 def setup(client):
