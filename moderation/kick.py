@@ -10,12 +10,13 @@ class Kick(commands.Cog):
     @commands.has_permissions(kick_members=True)
     @commands.guild_only()
     async def kick(self, ctx, person: discord.Member, *, reason=None):
-
+      
         kick_embed = discord.Embed(
             title = "Kicked the following user:",
             description = f"{person.mention}",
             colour=discord.Color.dark_red()
         )
+
 
         kick_embed.set_footer(text = "$kick | @navnløs")
 
@@ -24,7 +25,6 @@ class Kick(commands.Cog):
         try:
             await person.kick(reason=reason)
             await ctx.reply(content=None, embed=kick_embed)
-
 
         except:
             await ctx.reply(content=None, embed=kick_error_embed)

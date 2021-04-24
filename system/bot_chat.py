@@ -11,9 +11,7 @@ class Bot_Chat(commands.Cog):
     async def sendto(self, ctx, server, channel, *, text):
         target = self.client.get_guild(int(server)).get_channel(int(channel))
         await target.send(str(text))
-        
-        
-        
+         
     @commands.command()
     @commands.is_owner()
     async def sendhere(self, ctx, *, text):

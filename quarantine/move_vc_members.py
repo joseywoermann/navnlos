@@ -1,4 +1,3 @@
-import discord
 from discord.ext import commands
 
 class MoveAll(commands.Cog):
@@ -18,7 +17,6 @@ class MoveAll(commands.Cog):
         vc_members = ctx.author.voice.channel.members
         for member in vc_members:
             await member.move_to(target_channel)
-
 
 def setup(client):
     client.add_cog(MoveAll(client))

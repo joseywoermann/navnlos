@@ -18,7 +18,6 @@ class BanID(commands.Cog):
             description = f"{user.mention}",
             color=discord.Color.dark_red()
         )
-
         ban_embed.set_footer(text = "$banid | @navnløs")
 
         ban_error_embed = discord.Embed(title="User couldn't be banned.", color=discord.Color.dark_purple())

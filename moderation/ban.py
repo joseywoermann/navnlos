@@ -17,7 +17,7 @@ class Ban(commands.Cog):
             description = f"{person.mention}",
             color=discord.Color.dark_red()
         )
-       
+
         ban_embed.set_footer(text = "$ban | @navnløs")
 
         ban_error_embed = discord.Embed(title="User couldn't be banned.", color=discord.Color.dark_purple())
