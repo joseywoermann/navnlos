@@ -17,7 +17,7 @@ class Clear(commands.Cog):
 
         amount = amount_typed + 1
 
-        if amount <= 2000:
+        if amount_typed <= 2000:
             deleted = await ctx.channel.purge(limit=amount, check=lambda msg: not msg.pinned)
 
             clear_embed = discord.Embed(title=f'Deleted {len(deleted)-1} messages.', color=discord.Color.dark_red())

@@ -14,7 +14,11 @@ class NickEdit(commands.Cog):
 
         if newname:
             try:
-                nickedit_embed = discord.Embed(title = " ", description = f"Changed nickname of {person.mention}.", colour=discord.Color.dark_red())
+                nickedit_embed = discord.Embed(
+                    title = " ",
+                    description = f"Changed nickname of {person.mention}.",
+                    colour=discord.Color.dark_red()
+                )
                 nickedit_embed.set_footer(text = "$nickedit | @navnløs")
 
                 await mensch.edit(nick=newname)

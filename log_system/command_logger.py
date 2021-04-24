@@ -17,11 +17,24 @@ class CommandLogger(commands.Cog):
 
         if message.content.startswith("$"):
 
-            log_channel = discord.utils.get(log_server.text_channels, name=str(message.guild.id))
+            log_channel = discord.utils.get(
+                log_server.text_channels,
+                name=str(message.guild.id)
+            )
 
-            log_embed = discord.Embed(title=message.content, description=f"Channel: **{message.channel.mention}** Channel-ID: [{message.channel.id}]")
-            log_embed.set_author(name=f"{message.author} | {message.author.id}", icon_url=message.author.avatar_url)
-            log_embed.set_footer(text=f"{message.created_at.strftime('%Y-%m-%d, %H:%M:%S')} UTC | Server: {str(message.channel.guild)}")
+            log_embed = discord.Embed(
+                title=message.content,
+                description=f"Channel: **{message.channel.mention}** Channel-ID: [{message.channel.id}]"
+            )
+
+            log_embed.set_author(
+                name=f"{message.author} | {message.author.id}",
+                icon_url=message.author.avatar_url
+            )
+
+            log_embed.set_footer(
+                text=f"{message.created_at.strftime('%Y-%m-%d, %H:%M:%S')} UTC | Server: {str(message.channel.guild)}"
+            )
 
             await log_channel.send(content=None, embed=log_embed)
 

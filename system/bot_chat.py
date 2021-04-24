@@ -18,7 +18,7 @@ class Bot_Chat(commands.Cog):
         
     @commands.command()
     @commands.is_owner()
-    async def sendhere(self, ctx, text):
+    async def sendhere(self, ctx, *, text):
         await ctx.channel.purge(limit=1)
         await ctx.send(str(text))
 
