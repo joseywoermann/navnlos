@@ -10,7 +10,7 @@ class Kick(commands.Cog):
     @commands.has_permissions(kick_members=True)
     @commands.guild_only()
     async def kick(self, ctx, person: discord.Member, *, reason=None):
-      
+
         kick_embed = discord.Embed(
             title = "Kicked the following user:",
             description = f"{person.mention}",
@@ -23,7 +23,7 @@ class Kick(commands.Cog):
         kick_error_embed = discord.Embed(title="User couldn't be kicked.", colour=discord.Color.dark_purple())
 
         try:
-            await person.kick(reason=reason)
+            await person.kick(reason=f"{reason} | kicked by {ctx.author}")
             await ctx.reply(content=None, embed=kick_embed)
 
         except:

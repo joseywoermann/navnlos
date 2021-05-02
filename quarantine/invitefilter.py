@@ -11,7 +11,7 @@ class InviteFilter(commands.Cog):
         if message.guild.id == 304191437652623360:
 
             banned_links = ["discord.gg/", "discord.com/invite/"]
-            server_invites = ["discord.gg/jM3JAKN", "discord.com/invite/jM3JAKN"]
+            server_invites = ["whitelisted invites here"]
 
             if any(word in message.content.lower() for word in banned_links):
                 msg = message.content.lower()

@@ -23,7 +23,7 @@ class Ban(commands.Cog):
         ban_error_embed = discord.Embed(title="User couldn't be banned.", color=discord.Color.dark_purple())
 
         try:
-            await person.ban(reason=reason)
+            await person.ban(reason=f"{reason} | banned by {ctx.author}")
             await ctx.reply(content=None, embed=ban_embed)
 
         except:
