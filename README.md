@@ -36,6 +36,6 @@ You need to...
 ##### Basic setup and start
 
 * open a command line tool
-* execute the command `.venv\Scripts\activate.bat`
-* execute the command `python main.py`
+* (execute `.venv\Scripts\activate.bat`)
+* execute `python main.py`
 * Now the bot should be running!
