@@ -9,6 +9,8 @@
 
 navnløs is a Discord bot designed to be modular and feature rich.
 
+## Better documentation coming soon-ish™
+
 # Features
 
 #### Moderation
