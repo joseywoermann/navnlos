@@ -5,14 +5,14 @@
 
 [Join the support-server!](https://discord.gg/52TbNHPBU9)
 
-## A multi purpose Discord bot.
+# A multi purpose Discord bot.
 
 navnløs is a Discord bot designed to be modular and feature rich.
 
 ## Better documentation coming soon-ish™
 
 
-# Hosting navnløs yourself
+## Hosting navnløs yourself
 
 ##### Requirements
 
@@ -23,10 +23,10 @@ You need to...
 * create a file called `settings.json` with the following structure in the root directory:
 ```
 {
-	"discord": "YOUR DISCORD BOT TOKEN HERE",
-	"github": "YOUR GITHUB P-A-T HERE",
-	"shortio": "YOUR SHORT.IO TOKEN HERE",
-	"prefix": "$"
+   "discord": "YOUR DISCORD BOT TOKEN HERE",
+   "github": "YOUR GITHUB P-A-T HERE",
+   "shortio": "YOUR SHORT.IO TOKEN HERE",
+   "prefix": "$"
 }
 ```
 * If you want to use the `$bugreport` feature, you will need to create a GitHub "personal access token"
