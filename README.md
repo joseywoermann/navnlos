@@ -11,21 +11,6 @@ navnløs is a Discord bot designed to be modular and feature rich.
 
 ## Better documentation coming soon-ish™
 
-# Features
-
-#### Moderation
-
-* User-management
-* Role-management
-* server management
-
-
-
-#### Automatic actions
-
-* member counter (requires a channel named `Members:` which the bot can modify)
-* automatically publish messages in announcement-channels (currently in development)
-
 
 # Hosting navnløs yourself
 
