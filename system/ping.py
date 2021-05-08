@@ -3,6 +3,7 @@ from discord.ext import commands
 from discord_slash import cog_ext, SlashContext
 from main import test_guilds
 
+
 class Ping(commands.Cog):
 
     def __init__(self, client):
