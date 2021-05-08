@@ -1,5 +1,7 @@
 import discord
 from discord.ext import commands
+from discord_slash import cog_ext, SlashContext
+from main import test_guilds
 
 class Ping(commands.Cog):
 
@@ -7,19 +9,25 @@ class Ping(commands.Cog):
         self.client = client
 
     @commands.command(aliases = ['p'])
-    async def ping(self, ctx, r=None):
+    async def ping(self, ctx, arg=None):
 
-        if r == "precise":
-            ping_embed = discord.Embed(title=f"Pong! {(self.client.latency * 1000)} milliseconds", colour=0x75e8ee)
-            ping_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
-            ping_embed.set_footer(text = "$ping | @navnløs")
+        embed = Ping.make(self, ctx, arg)
+        await ctx.reply(embed = embed)
 
-        else:
-            ping_embed = discord.Embed(title=f"Pong! {round(self.client.latency * 1000)} milliseconds", colour=0x75e8ee)
-            ping_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
-            ping_embed.set_footer(text = "$ping | @navnløs")
+    @cog_ext.cog_slash(name = "ping", description = "Shows the latency of the bot.", guild_ids = test_guilds)
+    async def _ping(self, ctx: SlashContext, arg = None):
 
-        await ctx.reply(content=None, embed=ping_embed)
+        embed = Ping.make(self, ctx, arg)
+        await ctx.send(embed = embed)
+
+    # make the content
+    def make(self, ctx, arg):
+
+        embed = discord.Embed(title=f"Pong! {round(self.client.latency * 1000)} milliseconds", colour=0x75e8ee)
+        embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
+        embed.set_footer(text = "$ping | @navnløs")
+        return embed
+
 
 def setup(client):
     client.add_cog(Ping(client))

@@ -5,7 +5,7 @@ from itertools import cycle
 import os
 import os.path
 import json
-
+from discord_slash import SlashCommand
 
 
 logging.basicConfig(
@@ -21,10 +21,12 @@ settings = {}
 with open('settings.json','r') as file:
     settings = json.load(file)
 
-
+test_guilds = settings["test_guilds"]
 
 client = commands.Bot(command_prefix=settings["prefix"], intents = intents)
 client.remove_command('help')
+# make new Slash Commands client
+slash = SlashCommand(client, sync_commands = True)
 
 statusmessages = ['navnlos.ml', '$help', 'nvnls.ml/support', '$info']
 statusmsg = cycle(statusmessages)
@@ -38,7 +40,7 @@ async def on_ready():
 
 @tasks.loop(seconds=20)
 async def change_status():
-    
+
     await client.change_presence(
         status=discord.Status.online,
         activity=discord.Activity(
@@ -47,12 +49,12 @@ async def change_status():
         )
     )
 
-
+"""
 @client.command()
 @commands.is_owner()
 async def load(ctx, extension):
 
-    try:  
+    try:
         client.load_extension(extension)
         await ctx.reply(f"Extension `{str(extension)}` loaded")
     except Exception as e:
@@ -62,7 +64,7 @@ async def load(ctx, extension):
 @commands.is_owner()
 async def unload(ctx, extension):
 
-    try:  
+    try:
         client.unload_extension(extension)
         await ctx.reply(f"Extension `{str(extension)}` unloaded")
     except Exception as e:
@@ -72,13 +74,13 @@ async def unload(ctx, extension):
 @commands.is_owner()
 async def reload(ctx, extension):
 
-    try:  
+    try:
         client.unload_extension(extension)
         client.load_extension(extension)
         await ctx.reply(f"Extension `{str(extension)}` reloaded")
     except Exception as e:
         await ctx.reply(f"```{e}```")
-
+"""
 
 # load all cogs
 for filename in os.listdir("./auto_publisher"):

@@ -8,3 +8,4 @@ schedule
 qrcode[pil]
 psutil
 PyGitHub
+discord-py-slash-command
