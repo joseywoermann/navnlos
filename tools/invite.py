@@ -10,7 +10,7 @@ class Invite(commands.Cog):
     @commands.guild_only()
     async def invite(self, ctx):
 
-        invite = "https://discord.com/oauth2/authorize?client_id=707269223281459271&permissions=470285399&scope=bot%20applications.commands"
+        invite = "https://nvnls.ml/add"
 
         invite_embed = discord.Embed(title="Get navnløs onto your server", url = invite, color=0x75e8ee)
         invite_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)

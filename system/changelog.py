@@ -23,7 +23,7 @@ class Changelog(commands.Cog):
             if changelog1:
                 changelog1_out = str(changelog1.text)
             else:
-                changelog1_out = "No dara."
+                changelog1_out = "No data."
 
             version1 = fetched_page.find('div', attrs={'class': 'f1 flex-auto min-width-0 text-normal'})
 

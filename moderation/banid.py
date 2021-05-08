@@ -25,7 +25,7 @@ class BanID(commands.Cog):
         user = await self.client.fetch_user(user_id)
 
         try:
-            await ctx.guild.ban(user, reason=reason)
+            await ctx.guild.ban(user, reason=f"{reason} | banned by {ctx.author}")
             await ctx.reply(content=None, embed=ban_embed)
 
         except:
