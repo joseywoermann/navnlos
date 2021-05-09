@@ -7,6 +7,7 @@ from discord_slash import cog_ext, SlashContext
 from main import test_guilds
 from discord_slash.utils.manage_commands import create_option
 
+
 options = [
     create_option(
         name="title",

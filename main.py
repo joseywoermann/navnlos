@@ -7,7 +7,7 @@ import os.path
 import json
 from discord_slash import SlashCommand
 
-
+# CONFIGURATION
 logging.basicConfig(
     format='%(asctime)s: %(levelname)s: %(message)s',
     datefmt='%Y-%m-%d; %H:%M:%S',
@@ -25,13 +25,20 @@ test_guilds = settings["test_guilds"]
 
 client = commands.Bot(command_prefix=settings["prefix"], intents = intents)
 client.remove_command('help')
-# make new Slash Commands client
 slash = SlashCommand(client, sync_commands = True)
 
 statusmessages = ['navnlos.ml', '$help', 'nvnls.ml/support', '$info']
 statusmsg = cycle(statusmessages)
 
-
+""" a universal embed used in all try...except blocks"""
+async def make_error_embed(exception):
+    embed = discord.Embed(
+        title = "Something really bad happened!",
+        description = f"```js\n{exception}```",
+        color = discord.Color.red()
+    )
+    return embed
+# END OF CONFIGURATION STUFF
 
 @client.event
 async def on_ready():
