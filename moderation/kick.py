@@ -29,12 +29,9 @@ class Kick(commands.Cog):
     @commands.guild_only()
     async def kick(self, ctx, person: discord.Member, *, reason=None):
         embed = await Kick.make(self, ctx, person, reason)
-        await ctx.send(embed = embed)
+        await ctx.reply(embed = embed)
 
-        """
 
-        TODO: THE BOT SAYS KICKED BUT IT DIDN'T?
-        """
     @cog_ext.cog_slash(name = "kick", description = "Kick a member", options = options, guild_ids = test_guilds)
     @commands.has_permissions(kick_members=True)
     @commands.guild_only()
@@ -53,9 +50,8 @@ class Kick(commands.Cog):
             embed.set_footer(text = "$kick | @navnløs")
             await member.kick(reason=f"{reason} | kicked by {ctx.author}")
 
-        except Exception as a:
+        except Exception as e:
             embed = await make_error_embed(e)
-            print("errror")
 
         finally:
             return embed
