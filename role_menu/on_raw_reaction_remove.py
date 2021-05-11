@@ -10,7 +10,7 @@ class On_raw_reaction_remove(commands.Cog):
     @commands.Cog.listener()
     async def on_raw_reaction_remove(self, payload):
 
-        error_channel = self.client.get_channel(719996916674592768)
+        error_channel = self.client.get_channel(797089674316480512)
         message_id = payload.message_id
 
         if message_id == 721461113866289252:
@@ -49,7 +49,7 @@ class On_raw_reaction_remove(commands.Cog):
 
     #------regeln-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-        error_channel = self.client.get_channel(719996916674592768)
+        error_channel = self.client.get_channel(797089674316480512)
         message_id = payload.message_id
 
         if message_id == 722547238840172675:
