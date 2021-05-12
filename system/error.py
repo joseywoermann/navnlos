@@ -4,7 +4,7 @@ from discord_slash import cog_ext, SlashContext
 from main import test_guilds, make_error_embed
 from discord_slash.utils.manage_commands import create_option
 
-class SlashError(commands.Cog):
+class Error(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -15,6 +15,11 @@ class SlashError(commands.Cog):
         embed = await make_error_embed(ex)
         await ctx.send(embed = embed)
 
+    @commands.Cog.listener()
+    async def on_command_error(self, ctx, ex):
+        embed = await make_error_embed(ex)
+        await ctx.send(embed = embed)
+
 
 def setup(client):
-    client.add_cog(SlashError(client))
+    client.add_cog(Error(client))

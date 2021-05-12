@@ -19,7 +19,7 @@ options = [
     )
 ]
 
-class ChnageNickname(commands.Cog):
+class ChangeNickname(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -28,14 +28,14 @@ class ChnageNickname(commands.Cog):
     @commands.has_permissions(manage_nicknames=True)
     @commands.guild_only()
     async def changenickname(self, ctx, member: discord.Member, *, newname):
-        embed = await ChnageNickname.make(self, ctx, member, newname)
+        embed = await ChangeNickname.make(self, ctx, member, newname)
         await ctx.reply(embed = embed)
 
     @cog_ext.cog_slash(name = "change-nickname", description = "Change a member's nickname.", options = options, guild_ids = test_guilds)
     @commands.has_permissions(manage_nicknames=True)
     @commands.guild_only()
     async def _changenickname(self, ctx: SlashContext, member: discord.Member, newname):
-        embed = await ChnageNickname.make(self, ctx, member, newname)
+        embed = await ChangeNickname.make(self, ctx, member, newname)
         await ctx.send(embed = embed)
 
     async def make(self, ctx, member: discord.Member, newname):
@@ -43,12 +43,9 @@ class ChnageNickname(commands.Cog):
         try:
             embed = discord.Embed(
                 title = discord.Embed.Empty,
-                description = discord.Embed.Empty,
+                description = f"**Changed nickname of {member.mention} to {newname}**.", # TODO: improve design
                 colour=discord.Color.dark_red()
             )
-            embed.set_footer(text = "$nickedit | @navnløs")
-            embed.set_author(name = f"Changed nickname of {member} to {newname}.")
-
             await member.edit(nick=newname)
 
 
@@ -60,4 +57,4 @@ class ChnageNickname(commands.Cog):
 
 
 def setup(client):
-    client.add_cog(ChnageNickname(client))
+    client.add_cog(ChangeNickname(client))

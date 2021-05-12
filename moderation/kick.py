@@ -40,14 +40,14 @@ class Kick(commands.Cog):
         await ctx.send(embed = embed)
 
 
-    async def make(self, ctx, member: discord.Member, reason):
+    async def make(self, ctx, member, reason):
         try:
             embed = discord.Embed(
                 title = "Kicked the following user:",
                 description = f"{member.mention}",
                 colour=discord.Color.dark_red()
             )
-            embed.set_footer(text = "$kick | @navnløs")
+            embed.set_footer(text = "/kick | @navnløs")
             await member.kick(reason=f"{reason} | kicked by {ctx.author}")
 
         except Exception as e:

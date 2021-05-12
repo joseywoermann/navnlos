@@ -6,6 +6,7 @@ import os
 import os.path
 import json
 from discord_slash import SlashCommand
+import random
 
 # CONFIGURATION
 logging.basicConfig(
@@ -31,9 +32,18 @@ statusmessages = ['navnlos.ml', '$help', 'nvnls.ml/support', '$info']
 statusmsg = cycle(statusmessages)
 
 """ a universal embed used in all try...except blocks"""
+
+error_msgs = [
+    "Something really bad happened!",
+    "That shouldn't have happened",
+    "So you've caused an error...",
+    "LOOK WHAT YOU HAVE DONE!!!",
+    "That didn't go so well..."
+]
+
 async def make_error_embed(exception):
     embed = discord.Embed(
-        title = "Something really bad happened!",
+        title = str(random.choice(error_msgs)),
         description = f"```js\n{exception}```",
         color = discord.Color.red()
     )

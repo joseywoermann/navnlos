@@ -23,8 +23,8 @@ class Clear(commands.Cog):
     @commands.command(aliases = ['c'])
     @commands.has_permissions(manage_messages=True)
     @commands.guild_only()
-    async def clear(self, ctx, amount_typed=1):
-        embed = await Clear.make(self, ctx, amount_typed)
+    async def clear(self, ctx, count=1):
+        embed = await Clear.make(self, ctx, count)
         await ctx.send(embed=embed)
 
 
