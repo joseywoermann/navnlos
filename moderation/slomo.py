@@ -42,7 +42,7 @@ class SlowMode(commands.Cog):
             await ctx.channel.edit(slowmode_delay=delay)
 
         except Exception as e:
-            embed = make_error_embed(e)
+            embed = await make_error_embed(e)
         finally:
             return embed
 

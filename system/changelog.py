@@ -1,5 +1,8 @@
 import discord
 from discord.ext import commands
+from discord_slash import cog_ext, SlashContext
+from main import test_guilds
+from discord_slash.utils.manage_commands import create_option
 import requests
 from bs4 import BeautifulSoup
 
@@ -13,7 +16,12 @@ class Changelog(commands.Cog):
     @commands.guild_only()
     async def changelog(self, ctx):
         async with ctx.channel.typing():
+            embed = await Changelog.make(self, ctx)
+        await ctx.reply(embed=embed)
 
+
+    async def make(self, ctx):
+        try:
             URL = "https://github.com/joseywoermann/navnlos/releases/"
             page = requests.get(URL)
             fetched_page = BeautifulSoup(page.content, 'html.parser')
@@ -32,11 +40,14 @@ class Changelog(commands.Cog):
             else:
                 version1_out = "No data."
 
-            changelog_embed = discord.Embed(title=f"Changelog for {version1_out}", color=0x75e8ee)
-            changelog_embed.add_field(name="Changes:", value=changelog1_out)
-            changelog_embed.set_footer(text = "$changelog | @navnløs")
+            embed = discord.Embed(title=f"Changelog for {version1_out}", color=0x75e8ee)
+            embed.add_field(name="Changes:", value=changelog1_out)
+            embed.set_footer(text = "$changelog | @navnløs")
 
-        await ctx.reply(embed=changelog_embed)
+        except Exception as e:
+            embed = await make_error_embed(e)
+        finally:
+            return embed
 
 def setup(client):
     client.add_cog(Changelog(client))

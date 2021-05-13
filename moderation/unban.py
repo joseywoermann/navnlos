@@ -47,7 +47,7 @@ class Unban(commands.Cog):
                     await ctx.guild.unban(user)
 
         except Exception as e:
-            embed = make_error_embed(e)
+            embed = await make_error_embed(e)
 
         finally:
             return embed

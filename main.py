@@ -37,14 +37,13 @@ error_msgs = [
     "Something really bad happened!",
     "That shouldn't have happened",
     "So you've caused an error...",
-    "LOOK WHAT YOU HAVE DONE!!!",
     "That didn't go so well..."
 ]
 
 async def make_error_embed(exception):
     embed = discord.Embed(
         title = str(random.choice(error_msgs)),
-        description = f"```js\n{exception}```",
+        description = f"```\n{exception}```",
         color = discord.Color.red()
     )
     return embed
