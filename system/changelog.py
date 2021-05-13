@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 from discord_slash import cog_ext, SlashContext
-from main import test_guilds
+from main import test_guilds, make_error_embed
 from discord_slash.utils.manage_commands import create_option
 import requests
 from bs4 import BeautifulSoup
@@ -18,6 +18,12 @@ class Changelog(commands.Cog):
         async with ctx.channel.typing():
             embed = await Changelog.make(self, ctx)
         await ctx.reply(embed=embed)
+
+    @cog_ext.cog_slash(name = "changelog", description = "Show the changes in the latest release.", guild_ids = test_guilds)
+    async def _changelog(self, ctx: SlashContext):
+        async with ctx.channel.typing():
+            embed = await Changelog.make(self, ctx)
+        await ctx.send(embed=embed)
 
 
     async def make(self, ctx):

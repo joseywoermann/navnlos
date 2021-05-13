@@ -1,5 +1,7 @@
 import discord
 from discord.ext import commands
+from discord_slash import cog_ext, SlashContext
+from main import test_guilds, make_error_embed
 
 class Support(commands.Cog):
 
@@ -7,12 +9,13 @@ class Support(commands.Cog):
         self.client = client
 
     @commands.command()
-    async def support(self, ctx, r=None):
+    async def support(self, ctx):
+        await ctx.reply("Join our official support server! https://discord.gg/52TbNHPBU9")
 
-        ping_embed = discord.Embed(title="Join the official support-server: https://discord.gg/52TbNHPBU9", colour=0x75e8ee)
-        ping_embed.set_footer(text = "$support | @navnløs")
+    @cog_ext.cog_slash(name = "support", description = "Do you need help with the bot?", guild_ids = test_guilds)
+    async def _support(self, ctx: SlashContext):
+        await ctx.send("**Join our official support server!** https://discord.gg/52TbNHPBU9")
 
-        await ctx.reply(content=None, embed=ping_embed)
 
 def setup(client):
     client.add_cog(Support(client))

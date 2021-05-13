@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import random
 from discord_slash import cog_ext, SlashContext
-from main import test_guilds
+from main import test_guilds, make_error_embed
 from discord_slash.utils.manage_commands import create_option
 
 

@@ -7,6 +7,18 @@ import os.path
 import json
 from discord_slash import SlashCommand
 import random
+import sentry_sdk
+
+settings = {}
+
+with open('settings.json','r') as file:
+    settings = json.load(file)
+
+# Sentry-stuff
+sentry_sdk.init(
+    settings["sentry_url"],
+    traces_sample_rate=1.0
+)
 
 # CONFIGURATION
 logging.basicConfig(
@@ -17,10 +29,7 @@ logging.basicConfig(
 
 intents = discord.Intents.all()
 
-settings = {}
 
-with open('settings.json','r') as file:
-    settings = json.load(file)
 
 test_guilds = settings["test_guilds"]
 

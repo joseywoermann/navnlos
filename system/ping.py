@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 from discord_slash import cog_ext, SlashContext
-from main import test_guilds
+from main import test_guilds, make_error_embed
 
 
 class Ping(commands.Cog):
@@ -26,7 +26,6 @@ class Ping(commands.Cog):
 
         embed = discord.Embed(title=f"Pong! {round(self.client.latency * 1000)} milliseconds", colour=0x75e8ee)
         embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
-        embed.set_footer(text = "$ping | @navnløs")
         return embed
 
 
