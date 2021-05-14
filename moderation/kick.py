@@ -24,14 +24,6 @@ class Kick(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command()
-    @commands.has_permissions(kick_members=True)
-    @commands.guild_only()
-    async def kick(self, ctx, person: discord.Member, *, reason=None):
-        embed = await Kick.make(self, ctx, person, reason)
-        await ctx.reply(embed = embed)
-
-
     @cog_ext.cog_slash(name = "kick", description = "Kick a member", options = options, guild_ids = test_guilds)
     @commands.has_permissions(kick_members=True)
     @commands.guild_only()

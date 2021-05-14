@@ -7,7 +7,7 @@ from discord_slash.utils.manage_commands import create_option
 options = [
     create_option(
         name = "user",
-        description = "Who do you want to unban?",
+        description = "Enter the user you want to unban. Example: jcw05#1331",
         option_type = 3,
         required = True
     )

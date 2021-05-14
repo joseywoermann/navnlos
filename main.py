@@ -30,7 +30,6 @@ logging.basicConfig(
 intents = discord.Intents.all()
 
 
-
 test_guilds = settings["test_guilds"]
 
 client = commands.Bot(command_prefix=settings["prefix"], intents = intents)
