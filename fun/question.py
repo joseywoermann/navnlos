@@ -20,13 +20,6 @@ class Question(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command()
-    @commands.guild_only()
-    async def question(self, ctx, *, question):
-
-        embed = Question.make(self, ctx, question)
-        await ctx.reply(content=None, embed=embed)
-
     @cog_ext.cog_slash(name = "question", description = "navnløs can answer your Yes/No questions.", options = options, guild_ids = test_guilds)
     async def _question(self, ctx: SlashContext, *, question):
         embed = Question.make(self, ctx, question)

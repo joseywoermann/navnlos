@@ -24,24 +24,12 @@ class AddRole(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(aliases = ["ar"])
-    @commands.has_permissions(manage_roles=True)
-    @commands.guild_only()
-    async def addrole(self, ctx, person: discord.Member, role: discord.Role):
-
-        embed = await AddRole.make(self, ctx, person, role)
-        await ctx.reply(embed = embed)
-
-
-
     @cog_ext.cog_slash(name = "addrole", description = "Add a role to a member", options = options, guild_ids = test_guilds)
     @commands.has_permissions(manage_roles=True)
     @commands.guild_only()
     async def _addrole(self, ctx: SlashContext, member, role):
         embed = await AddRole.make(self, ctx, member, role)
-
         await ctx.send(embed = embed)
-
 
 
     async def make(self, ctx, member: discord.Member, pRole: discord.Role):

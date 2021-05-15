@@ -20,14 +20,6 @@ class Clear(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(aliases = ['c'])
-    @commands.has_permissions(manage_messages=True)
-    @commands.guild_only()
-    async def clear(self, ctx, count=1):
-        embed = await Clear.make(self, ctx, count)
-        await ctx.send(embed=embed)
-
-
     @cog_ext.cog_slash(name = "clear", description = "Delete up to 2000 messages in this channel, while ignoring pinned messages.", options = options, guild_ids = test_guilds)
     @commands.has_permissions(manage_messages=True)
     @commands.guild_only()
@@ -46,7 +38,6 @@ class Clear(commands.Cog):
                     title=f'Deleted {len(deleted)-1} messages.',
                     color=discord.Color.dark_red()
                 )
-                embed.set_footer(text = "$clear | @navnløs")
 
         except Exception as e:
             embed = await make_error_embed(e)

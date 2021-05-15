@@ -24,14 +24,6 @@ class Ban(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command()
-    @commands.has_permissions(ban_members=True)
-    @commands.guild_only()
-    async def ban(self, ctx, person: discord.Member, *, reason=None):
-        embed = await Ban.make(self, ctx, person, reason)
-        await ctx.send(embed = embed)
-
-
     @cog_ext.cog_slash(name = "ban", description = "Bans a member", options = options, guild_ids = test_guilds)
     @commands.has_permissions(ban_members=True)
     @commands.guild_only()

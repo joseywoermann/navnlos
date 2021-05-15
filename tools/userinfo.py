@@ -19,8 +19,6 @@ class UserInfo(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-
-
     async def resolve_status(member):
         if str(member.status) == "online":
             person_status = "🟢 - ONLINE"

@@ -18,13 +18,6 @@ class Unban(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command()
-    @commands.has_permissions(ban_members=True)
-    @commands.guild_only()
-    async def unban(self, ctx, *, member):
-        embed = await Unban.make(self, ctx, member)
-        await ctx.reply(embed = embed)
-
     @cog_ext.cog_slash(name = "unban", description = "Remove the ban from a user.", options = options, guild_ids = test_guilds)
     @commands.has_permissions(ban_members=True)
     @commands.guild_only()

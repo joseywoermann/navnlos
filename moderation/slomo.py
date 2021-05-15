@@ -18,13 +18,6 @@ class SlowMode(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command()
-    @commands.has_permissions(manage_channels=True)
-    @commands.guild_only()
-    async def slowmode(self, ctx, delay):
-        embed = SlowMode.make(self, ctx, delay)
-        await ctx.reply(embed = embed)
-
     @cog_ext.cog_slash(name = "slowmode", description = "Enable slowmode in the current channel.", options = options, guild_ids = test_guilds)
     @commands.has_permissions(manage_messages=True)
     @commands.guild_only()

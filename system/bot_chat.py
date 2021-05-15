@@ -25,16 +25,20 @@ options = [
     )
 ]
 
+
+
 class BotChat(commands.Cog):
 
     def __init__(self, client):
         self.client = client
 
-
     @commands.command()
     @commands.is_owner()
     async def say(self, ctx, message, serverid = None, channelid = None):
-        await BotChat.make(self, ctx, message, int(serverid), int(channelid))
+        if serverid is None or channelid is None:
+            await BotChat.make(self, ctx, message, ctx.guild.id, ctx.channel.id)
+        else:
+            await BotChat.make(self, ctx, message, int(serverid), int(channelid))
 
 
     @cog_ext.cog_slash(name = "say", description = "Make the bot say stuff.", options = options, guild_ids = test_guilds)
@@ -52,11 +56,15 @@ class BotChat(commands.Cog):
             if serverid and channelid:
                 target = self.client.get_guild(int(serverid)).get_channel(int(channelid))
                 await target.send(message)
-                embed = discord.Embed(
-                    title = f"Success!",
-                    description = f"Sent **{message}** to **{target.mention}** on **{self.client.get_guild(int(serverid)).name}**."
-                )
-                await ctx.send(embed = embed)
+
+                if channelid == ctx.channel.id:
+                    pass
+                else:
+                    embed = discord.Embed(
+                        title = f"Success!",
+                        description = f"Sent **{message}** to **{target.mention}** on **{self.client.get_guild(int(serverid)).name}**."
+                    )
+                    await ctx.send(embed = embed)
 
             else:
                 await ctx.send(message)

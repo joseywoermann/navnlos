@@ -24,13 +24,6 @@ class ChangeNickname(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command()
-    @commands.has_permissions(manage_nicknames=True)
-    @commands.guild_only()
-    async def changenickname(self, ctx, member: discord.Member, *, newname):
-        embed = await ChangeNickname.make(self, ctx, member, newname)
-        await ctx.reply(embed = embed)
-
     @cog_ext.cog_slash(name = "change-nickname", description = "Change a member's nickname.", options = options, guild_ids = test_guilds)
     @commands.has_permissions(manage_nicknames=True)
     @commands.guild_only()

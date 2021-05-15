@@ -12,13 +12,6 @@ class Changelog(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(aliases = ['cl'])
-    @commands.guild_only()
-    async def changelog(self, ctx):
-        async with ctx.channel.typing():
-            embed = await Changelog.make(self, ctx)
-        await ctx.reply(embed=embed)
-
     @cog_ext.cog_slash(name = "changelog", description = "Show the changes in the latest release.", guild_ids = test_guilds)
     async def _changelog(self, ctx: SlashContext):
         async with ctx.channel.typing():

@@ -28,13 +28,6 @@ class BugReport(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command()
-    @commands.guild_only()
-    async def bugreport(self, ctx, pTitle, pBody = None):
-        async with ctx.channel.typing():
-            embed = BugReport.make(self, ctx, pTitle, pBody = None)
-            await ctx.reply(embed = embed)
-
     @cog_ext.cog_slash(name = "bugreport", description = "Something isn't working? Create a bugreport!", options = options, guild_ids = test_guilds)
     async def _bugreport(self, ctx: SlashContext, title, description = None):
 

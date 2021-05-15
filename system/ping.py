@@ -9,12 +9,6 @@ class Ping(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(aliases = ['p'])
-    async def ping(self, ctx, arg=None):
-
-        embed = Ping.make(self, ctx, arg)
-        await ctx.reply(embed = embed)
-
     @cog_ext.cog_slash(name = "ping", description = "Shows the latency of the bot.", guild_ids = test_guilds)
     async def _ping(self, ctx: SlashContext, arg = None):
 

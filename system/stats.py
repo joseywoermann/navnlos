@@ -9,13 +9,6 @@ class Info(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(aliases = ["stats"])
-    @commands.guild_only()
-    async def info(self, ctx):
-        embed = await Info.make(self, ctx)
-        await ctx.reply(embed=embed)
-
-
     @cog_ext.cog_slash(name = "stats", description = "Show statistics", guild_ids = test_guilds)
     async def _stats(self, ctx: SlashContext):
         embed = await Info.make(self, ctx)
