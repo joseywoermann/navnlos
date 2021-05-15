@@ -11,7 +11,6 @@ class Ping(commands.Cog):
 
     @cog_ext.cog_slash(name = "ping", description = "Shows the latency of the bot.", guild_ids = test_guilds)
     async def _ping(self, ctx: SlashContext, arg = None):
-
         embed = Ping.make(self, ctx, arg)
         await ctx.send(embed = embed)
 
