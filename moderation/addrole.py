@@ -24,7 +24,12 @@ class AddRole(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @cog_ext.cog_slash(name = "addrole", description = "Add a role to a member", options = options, guild_ids = test_guilds)
+    @cog_ext.cog_slash(
+        name = "addrole",
+        description = "Add a role to a member",
+        options = options,
+        guild_ids = test_guilds
+    )
     @commands.has_permissions(manage_roles=True)
     @commands.guild_only()
     async def _addrole(self, ctx: SlashContext, member, role):

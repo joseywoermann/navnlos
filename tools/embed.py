@@ -41,18 +41,7 @@ class Embed(commands.Cog):
 
     def __init__(self, client):
         self.client = client
-    """
-    @commands.command(aliases = ['embed'])
-    @commands.guild_only()
-    async def makeembed(self, ctx, title = discord.Embed.Empty, description = discord.Embed.Empty, author = discord.Embed.Empty, thumbnail = discord.Embed.Empty, image = discord.Embed.Empty):
 
-        repeat_embed = discord.Embed(description=str(text), color=discord.Color.gold())
-        repeat_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
-        repeat_embed.set_footer(text = "$embed | @navnløs")
-
-        await ctx.channel.purge(limit = 1)
-        await ctx.send(content=discord.Embed.Empty, embed=repeat_embed)
-    """
     @cog_ext.cog_slash(name = "makeembed", description = "Create and embed.", options = options, guild_ids = test_guilds)
     @commands.has_permissions(manage_messages=True)
     @commands.guild_only()

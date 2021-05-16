@@ -9,6 +9,7 @@ from discord_slash import SlashCommand
 import random
 import sentry_sdk
 
+
 settings = {}
 
 with open('settings.json','r') as file:
@@ -39,8 +40,8 @@ slash = SlashCommand(client, sync_commands = True)
 statusmessages = ['navnlos.ml', '$help', 'nvnls.ml/support', '$info']
 statusmsg = cycle(statusmessages)
 
-""" a universal embed used in all try...except blocks"""
 
+# a universal embed used in all try...except blocks
 error_msgs = [
     "Something really bad happened!",
     "That shouldn't have happened",
@@ -49,6 +50,7 @@ error_msgs = [
 ]
 
 async def make_error_embed(exception):
+    logging.warn(f"An error occured!\n{exception}")
     embed = discord.Embed(
         title = str(random.choice(error_msgs)),
         description = f"```\n{exception}```",
@@ -57,6 +59,9 @@ async def make_error_embed(exception):
     return embed
 # END OF CONFIGURATION STUFF
 
+
+
+
 @client.event
 async def on_ready():
     change_status.start()
@@ -64,17 +69,18 @@ async def on_ready():
 
 @tasks.loop(seconds=20)
 async def change_status():
-
+    newstatus = next(statusmsg)
     await client.change_presence(
         status=discord.Status.online,
         activity=discord.Activity(
             type=discord.ActivityType.listening,
-            name=next(statusmsg)
+            name= newstatus
         )
     )
+    #logging.info(f"Changed activity to \"{newstatus}\"")
 
 
-"""
+
 @client.command()
 @commands.is_owner()
 async def load(ctx, extension):
@@ -82,8 +88,11 @@ async def load(ctx, extension):
     try:
         client.load_extension(extension)
         await ctx.reply(f"Extension `{str(extension)}` loaded")
+        logging.info(f"Extension \"{str(extension)}\" loaded.")
+
     except Exception as e:
-        await ctx.reply(f"```{e}```")
+        embed = await make_error_embed(e)
+        await ctx.reply(embed = embed)
 
 @client.command()
 @commands.is_owner()
@@ -92,8 +101,11 @@ async def unload(ctx, extension):
     try:
         client.unload_extension(extension)
         await ctx.reply(f"Extension `{str(extension)}` unloaded")
+        logging.info(f"Extension \"{str(extension)}\" unloaded.")
+
     except Exception as e:
-        await ctx.reply(f"```{e}```")
+        embed = await make_error_embed(e)
+        await ctx.reply(embed = embed)
 
 @client.command()
 @commands.is_owner()
@@ -103,9 +115,12 @@ async def reload(ctx, extension):
         client.unload_extension(extension)
         client.load_extension(extension)
         await ctx.reply(f"Extension `{str(extension)}` reloaded")
+        logging.info(f"Extension \"{str(extension)}\" reloaded.")
+
     except Exception as e:
-        await ctx.reply(f"```{e}```")
-"""
+        embed = await make_error_embed(e)
+        await ctx.reply(embed = embed)
+
 
 # load all cogs
 for filename in os.listdir("./auto_publisher"):
@@ -155,6 +170,7 @@ for filename in os.listdir("./vc_role"):
 for filename in os.listdir("./log_system"):
     if filename.endswith(".py"):
         client.load_extension(f"log_system.{filename[:-3]}")
+
 
 if __name__ == "__main__":
     client.run(settings["discord"])

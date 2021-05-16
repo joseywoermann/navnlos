@@ -24,7 +24,12 @@ class RemoveRole(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @cog_ext.cog_slash(name = "removerole", description = "Remove a role from a member", options = options, guild_ids = test_guilds)
+    @cog_ext.cog_slash(
+        name = "removerole",
+        description = "Remove a role from a member",
+        options = options,
+        guild_ids = test_guilds
+    )
     @commands.has_permissions(manage_roles=True)
     @commands.guild_only()
     async def _removerole(self, ctx: SlashContext, member, role):

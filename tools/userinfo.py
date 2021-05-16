@@ -32,6 +32,7 @@ class UserInfo(commands.Cog):
             person_status = "Could not get the user's status information.\nPlease inform `jcw05#1331` or make a bugreport using `$bugreport`."
         return person_status
 
+    
     async def calculate_member_age(member):
         now = datetime.datetime.now()
         join_date = member.created_at
@@ -50,6 +51,9 @@ class UserInfo(commands.Cog):
     async def _userinfo(self, ctx: SlashContext, user: discord.Member = None):
         if user is None:
             user = ctx.author
+            print(user)
+        else:
+            print(user)
 
         embed = await UserInfo.make(self, ctx, user)
         await ctx.send(embed=embed)
@@ -79,7 +83,10 @@ class UserInfo(commands.Cog):
             embed.add_field(name="Member of the server for:", value=f"{server_join_age} hours")
 
             if rollen:
-                embed.add_field(name="Roles:", value=rollen)
+                if len(rollen) > 50:
+                    embed.add_field(name = "Roles:", value = "Too many to display")
+                else:
+                    embed.add_field(name="Roles:", value=rollen)
 
             if toprole:
                 embed.add_field(name="Highest role:", value=toprole)

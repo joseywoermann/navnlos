@@ -20,12 +20,6 @@ class Dice(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command()
-    @commands.guild_only()
-    async def dice(self, ctx, arg=6):
-        embed = await Dice.make(self, ctx, arg)
-        await ctx.reply(embed = embed)
-
     @cog_ext.cog_slash(name = "dice", description = "Generate a random number", options = options, guild_ids = test_guilds)
     async def _dice(self, ctx: SlashContext, limit = 6):
         async with ctx.channel.typing():

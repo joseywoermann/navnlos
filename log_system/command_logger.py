@@ -1,5 +1,8 @@
 import discord
 from discord.ext import commands
+from discord_slash import SlashContext
+import logging
+
 
 class CommandLogger(commands.Cog):
 
@@ -18,21 +21,25 @@ class CommandLogger(commands.Cog):
                 name=str(message.guild.id)
             )
 
-            log_embed = discord.Embed(
+            embed = discord.Embed(
                 title=message.content,
                 description=f"Channel: **{message.channel.mention}** Channel-ID: [{message.channel.id}]"
             )
 
-            log_embed.set_author(
+            embed.set_author(
                 name=f"{message.author} | {message.author.id}",
                 icon_url=message.author.avatar_url
             )
 
-            log_embed.set_footer(
+            embed.set_footer(
                 text=f"{message.created_at.strftime('%Y-%m-%d, %H:%M:%S')} UTC | Server: {str(message.channel.guild)}"
             )
 
-            await log_channel.send(content=None, embed=log_embed)
+            await log_channel.send(content=None, embed=embed)
+
+    @commands.Cog.listener()
+    async def on_slash_command(self, ctx: SlashContext):
+        logging.info(f"COMMAND_EXECUTION: {ctx.author} used /{ctx.command}")
 
 def setup(client):
     client.add_cog(CommandLogger(client))

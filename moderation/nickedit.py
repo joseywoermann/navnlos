@@ -24,7 +24,12 @@ class ChangeNickname(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @cog_ext.cog_slash(name = "change-nickname", description = "Change a member's nickname.", options = options, guild_ids = test_guilds)
+    @cog_ext.cog_slash(
+        name = "change-nickname",
+        description = "Change a member's nickname.",
+        options = options,
+        guild_ids = test_guilds
+    )
     @commands.has_permissions(manage_nicknames=True)
     @commands.guild_only()
     async def _changenickname(self, ctx: SlashContext, member: discord.Member, newname):
