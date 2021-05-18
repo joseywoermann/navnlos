@@ -28,7 +28,7 @@ class Wiki(commands.Cog):
         while ' ' in topic:
             topic = topic.replace(' ', '+')
 
-        await ctx.send("https://geizhals.eu/?fs=" + topic)
+        await ctx.send("https://wikipedia.org/w/index.php?search=" + topic)
 
 def setup(client):
     client.add_cog(Wiki(client))

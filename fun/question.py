@@ -33,7 +33,6 @@ class Question(commands.Cog):
     def make(self, ctx, question):
         response = ['Yes', 'No', 'Maybe', 'Likely', 'Probably not']
         embed = discord.Embed(title=str(random.choice(response)), color=0x75e8ee)
-        embed.set_footer(text = "$question | @navnløs")
         return embed
 
 def setup(client):

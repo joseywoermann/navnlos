@@ -46,7 +46,6 @@ class AddRole(commands.Cog):
                 description=f"The role {pRole.mention} has been added to {member.mention}",
                 color=discord.Color.dark_red()
             )
-            embed.set_footer(text = "$addrole | @navnløs")
             await member.add_roles(pRole)
 
         except Exception as e:

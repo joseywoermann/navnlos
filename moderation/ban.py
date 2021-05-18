@@ -44,7 +44,6 @@ class Ban(commands.Cog):
                 description = f"{member.mention}",
                 color=discord.Color.dark_red()
             )
-            embed.set_footer(text = "/ban | @navnløs")
             await member.ban(reason=f"{reason} | banned by {ctx.author}")
 
         except Exception as e:

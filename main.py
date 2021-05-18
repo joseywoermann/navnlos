@@ -37,7 +37,7 @@ client = commands.Bot(command_prefix=settings["prefix"], intents = intents)
 client.remove_command('help')
 slash = SlashCommand(client, sync_commands = True)
 
-statusmessages = ['navnlos.ml', '$help', 'nvnls.ml/support', '$info']
+statusmessages = ["Slash Copmmands", 'navnlos.ml', 'nvnls.ml/support']
 statusmsg = cycle(statusmessages)
 
 
@@ -50,13 +50,15 @@ error_msgs = [
 ]
 
 async def make_error_embed(exception):
-    logging.warn(f"An error occured!\n{exception}")
+    logging.warn(f"An error occured!\nERROR: {exception}")
     embed = discord.Embed(
         title = str(random.choice(error_msgs)),
         description = f"```\n{exception}```",
         color = discord.Color.red()
     )
+    embed.set_footer(text = "If you need help, join our support server! discord.gg/52TbNHPBU9")
     return embed
+
 # END OF CONFIGURATION STUFF
 
 
@@ -66,6 +68,8 @@ async def make_error_embed(exception):
 async def on_ready():
     change_status.start()
     logging.info("Bot is online.")
+    owner = client.get_user(586206645592391711)
+    await owner.send("Online!")
 
 @tasks.loop(seconds=20)
 async def change_status():

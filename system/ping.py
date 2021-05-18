@@ -10,15 +10,14 @@ class Ping(commands.Cog):
         self.client = client
 
     @cog_ext.cog_slash(name = "ping", description = "Shows the latency of the bot.", guild_ids = test_guilds)
-    async def _ping(self, ctx: SlashContext, arg = None):
-        embed = Ping.make(self, ctx, arg)
+    async def _ping(self, ctx: SlashContext):
+        embed = Ping.make(self, ctx)
         await ctx.send(embed = embed)
 
     # make the content
-    def make(self, ctx, arg):
+    def make(self, ctx):
 
         embed = discord.Embed(title=f"Pong! {round(self.client.latency * 1000)} milliseconds", colour=0x75e8ee)
-        embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
         return embed
 
 

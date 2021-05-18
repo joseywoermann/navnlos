@@ -20,13 +20,13 @@ class Info(commands.Cog):
             appinfo = await self.client.application_info()
             embed = discord.Embed(title="Information", color=0x75e8ee)
             embed.add_field(name = "Current version:", value = "`V 2.2.0`")
-            embed.add_field(name = "👑 Bot Owner:", value = f"{appinfo.owner.mention}")
-            embed.add_field(name = "📦 Used packages:", value = "`32`")
-            embed.add_field(name = "📃 Lines of code:", value = "`3146`")
+            embed.add_field(name = "Bot Owner:", value = f"{appinfo.owner.mention}")
+            embed.add_field(name = "Used packages:", value = "`32`")
+            embed.add_field(name = "Lines of code:", value = "`3146`")
             embed.add_field(name = "Commands:", value = f"`{len(self.client.commands)}`")
-            embed.add_field(name = "🖥️ Servers:", value = f"`{len(self.client.guilds)}`")
+            embed.add_field(name = "Servers:", value = f"`{len(self.client.guilds)}`")
             embed.add_field(name = "Users:", value = f"`{len(self.client.users)}`")
-            embed.add_field(name = "🗨️ Cached messages:", value = f"`{len(self.client.cached_messages)}`")
+            embed.add_field(name = "Cached messages:", value = f"`{len(self.client.cached_messages)}`")
             embed.set_thumbnail(url = "https://raw.githubusercontent.com/joseywoermann/navnlos/master/navnlos_icon_tr.PNG")
 
         except Exception as e:

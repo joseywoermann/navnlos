@@ -58,7 +58,6 @@ class BugReport(commands.Cog):
             )
 
         embed = discord.Embed(title = "Bugreport created!", description = "[All bugreports](https://github.com/joseywoermann/navnlos/issues)")
-        embed.set_footer(text = "$bugreport | @navnløs")
         logging.info(str(ctx.author) + " created an issue.")
         return embed
 

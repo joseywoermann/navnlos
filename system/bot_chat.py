@@ -35,6 +35,7 @@ class BotChat(commands.Cog):
     @commands.command()
     @commands.is_owner()
     async def say(self, ctx, message, serverid = None, channelid = None):
+        await ctx.message.delete()
         if serverid is None or channelid is None:
             await BotChat.make(self, ctx, message, ctx.guild.id, ctx.channel.id)
         else:
