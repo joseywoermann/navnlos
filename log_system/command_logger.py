@@ -43,7 +43,6 @@ class CommandLogger(commands.Cog):
 
         log_server = self.client.get_guild(737650747432501308)
 
-
         log_channel = discord.utils.get(
             log_server.text_channels,
             name=str(ctx.guild.id)
