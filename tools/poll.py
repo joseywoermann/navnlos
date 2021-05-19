@@ -107,57 +107,46 @@ class Poll(commands.Cog):
 
 
             if question:
-
                 while '_' in question:
                     question = question.replace('_',' ')
 
                 if response0:
-
                     while '_' in response0:
                         response0 = response0.replace('_',' ')
 
                     if response1:
-
                         while '_' in response1:
                             response1 = response1.replace('_',' ')
 
                         if response2:
-
                             while '_' in response2:
                                 response2 = response2.replace('_',' ')
 
                             if response3:
-
                                 while '_' in response3:
                                     response3 = response3.replace('_',' ')
 
                                 if response4:
-
                                     while '_' in response4:
                                         response4 = response4.replace('_',' ')
 
                                     if response5:
-
                                         while '_' in response5:
                                             response5 = response5.replace('_',' ')
 
                                         if response6:
-
                                             while '_' in response6:
                                                 response6 = response6.replace('_',' ')
 
                                             if response7:
-
                                                 while '_' in response7:
                                                     response7 = response7.replace('_',' ')
 
                                                 if response8:
-
                                                     while '_' in response8:
                                                         response8 = response8.replace('_',' ')
 
                                                     poll_embed = discord.Embed(title=str(question), description=f"\n\n  :one: {str(response0)} \n:two: {str(response1)} \n:three: {str(response2)} \n:four: {str(response3)} \n:five: {str(response4)} \n:six: {str(response5)} \n:seven: {str(response6)} \n:eight: {str(response7)} \n:nine: {str(response8)}", color=0x75e8ee)
-
                                                     msg = await ctx.send(content=None, embed=poll_embed)
 
                                                     await msg.add_reaction(emote_one)
@@ -171,9 +160,7 @@ class Poll(commands.Cog):
                                                     await msg.add_reaction(emote_nine)
 
                                                 else:
-
                                                     poll_embed = discord.Embed(title=str(question), description=f"\n\n  :one: {str(response0)} \n:two: {str(response1)} \n:three: {str(response2)} \n:four: {str(response3)} \n:five: {str(response4)} \n:six: {str(response5)} \n:seven: {str(response6)} \n:eight: {str(response7)}", color=0x75e8ee)
-
                                                     msg = await ctx.send(content=None, embed=poll_embed)
 
                                                     await msg.add_reaction(emote_one)
@@ -186,9 +173,7 @@ class Poll(commands.Cog):
                                                     await msg.add_reaction(emote_eight)
 
                                             else:
-
                                                 poll_embed = discord.Embed(title=str(question), description=f"\n\n  :one: {str(response0)} \n:two: {str(response1)} \n:three: {str(response2)} \n:four: {str(response3)} \n:five: {str(response4)} \n:six: {str(response5)} \n:seven: {str(response6)} ", color=0x75e8ee)
-
                                                 msg = await ctx.send(content=None, embed=poll_embed)
 
                                                 await msg.add_reaction(emote_one)
@@ -200,9 +185,7 @@ class Poll(commands.Cog):
                                                 await msg.add_reaction(emote_seven)
 
                                         else:
-
                                             poll_embed = discord.Embed(title=str(question), description=f"\n\n  :one: {str(response0)} \n:two: {str(response1)} \n:three: {str(response2)} \n:four: {str(response3)} \n:five: {str(response4)} \n:six: {str(response5)}", color=0x75e8ee)
-
                                             msg = await ctx.send(content=None, embed=poll_embed)
 
                                             await msg.add_reaction(emote_one)
@@ -213,9 +196,7 @@ class Poll(commands.Cog):
                                             await msg.add_reaction(emote_six)
 
                                     else:
-
                                         poll_embed = discord.Embed(title=str(question), description=f"\n\n  :one: {str(response0)} \n:two: {str(response1)} \n:three: {str(response2)} \n:four: {str(response3)} \n:five: {str(response4)}", color=0x75e8ee)
-
                                         msg = await ctx.send(content=None, embed=poll_embed)
 
                                         await msg.add_reaction(emote_one)
@@ -225,9 +206,7 @@ class Poll(commands.Cog):
                                         await msg.add_reaction(emote_five)
 
                                 else:
-
                                     poll_embed = discord.Embed(title=str(question), description=f"\n\n  :one: {str(response0)} \n:two: {str(response1)} \n:three: {str(response2)} \n:four: {str(response3)}", color=0x75e8ee)
-
                                     msg = await ctx.send(content=None, embed=poll_embed)
 
                                     await msg.add_reaction(emote_one)
@@ -237,9 +216,7 @@ class Poll(commands.Cog):
 
 
                             else:
-
                                 poll_embed = discord.Embed(title=str(question), description=f"\n\n  :one: {str(response0)} \n:two: {str(response1)} \n:three: {str(response2)}", color=0x75e8ee)
-
                                 msg = await ctx.send(content=None, embed=poll_embed)
 
                                 await msg.add_reaction(emote_one)
@@ -247,9 +224,7 @@ class Poll(commands.Cog):
                                 await msg.add_reaction(emote_three)
 
                         else:
-
                             poll_embed = discord.Embed(title=str(question), description=f"\n\n  :one: {str(response0)} \n:two: {str(response1)} ", color=0x75e8ee)
-
                             msg = await ctx.send(content=None, embed=poll_embed)
 
                             await msg.add_reaction(emote_one)

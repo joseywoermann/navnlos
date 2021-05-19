@@ -37,7 +37,7 @@ client = commands.Bot(command_prefix=settings["prefix"], intents = intents)
 client.remove_command('help')
 slash = SlashCommand(client, sync_commands = True)
 
-statusmessages = ["Slash Copmmands", 'navnlos.ml', 'nvnls.ml/support']
+statusmessages = ["Slash Commands", 'navnlos.ml', 'nvnls.ml/support']
 statusmsg = cycle(statusmessages)
 
 

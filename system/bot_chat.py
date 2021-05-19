@@ -42,7 +42,7 @@ class BotChat(commands.Cog):
             await BotChat.make(self, ctx, message, int(serverid), int(channelid))
 
 
-    @cog_ext.cog_slash(name = "say", description = "Make the bot say stuff.", options = options, guild_ids = test_guilds)
+    @cog_ext.cog_slash(name = "say", description = "[Only for devs] Make the bot say stuff.", options = options, guild_ids = test_guilds)
     @commands.is_owner()
     @commands.guild_only()
     async def _say(self, ctx: SlashContext, message, serverid = None, channelid = None):

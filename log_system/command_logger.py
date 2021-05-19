@@ -41,5 +41,30 @@ class CommandLogger(commands.Cog):
     async def on_slash_command(self, ctx: SlashContext):
         logging.info(f"COMMAND_EXECUTION: {ctx.author} used /{ctx.command}")
 
+        log_server = self.client.get_guild(737650747432501308)
+
+
+        log_channel = discord.utils.get(
+            log_server.text_channels,
+            name=str(ctx.guild.id)
+        )
+
+        embed = discord.Embed(
+            title=f"/{ctx.command}",
+            description=f"Channel: **{ctx.channel.mention}** Channel-ID: [{ctx.channel.id}]"
+        )
+
+        embed.set_author(
+            name=f"{ctx.author} | {ctx.author.id}",
+            icon_url=ctx.author.avatar_url
+        )
+
+        embed.set_footer(
+            #text=f"{ctx.created_at.strftime('%Y-%m-%d, %H:%M:%S')} UTC | Server: {str(ctx.channel.guild)}"
+            text=f"Server: {str(ctx.channel.guild)}"
+        )
+
+        await log_channel.send(content=None, embed=embed)
+
 def setup(client):
     client.add_cog(CommandLogger(client))
