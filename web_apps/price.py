@@ -17,7 +17,12 @@ class Price(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @cog_ext.cog_slash(name = "price", description = "Use this as a shortcut to get current prices of a product.", options = options, guild_ids = test_guilds)
+    @cog_ext.cog_slash(
+        name = "price",
+        description = "Use this as a shortcut to get current prices of a product.",
+        options = options,
+        #guild_ids = test_guilds
+    )
     async def _price(self, ctx: SlashContext, product):
 
         while ' ' in product:

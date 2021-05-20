@@ -18,7 +18,12 @@ class ChannelEdit(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @cog_ext.cog_slash(name = "channeledit", description = "Change the name of this channel", options = options, guild_ids = test_guilds)
+    @cog_ext.cog_slash(
+        name = "channeledit",
+        description = "Change the name of this channel",
+        options = options,
+        #guild_ids = test_guilds
+    )
     @commands.has_permissions(manage_channels=True)
     @commands.guild_only()
     async def _channeledit(self, ctx: SlashContext, name):

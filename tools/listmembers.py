@@ -18,7 +18,12 @@ class HasRole(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @cog_ext.cog_slash(name = "hasrole", description = "List all members with this role", options = options, guild_ids = test_guilds)
+    @cog_ext.cog_slash(
+        name = "hasrole",
+        description = "List all members with this role",
+        options = options,
+        #guild_ids = test_guilds
+    )
     async def _hasrole(self, ctx: SlashContext, role):
         embed = await HasRole.make(self, ctx, role)
         await ctx.send(embed = embed)

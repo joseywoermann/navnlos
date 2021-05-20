@@ -76,7 +76,7 @@ class Poll(commands.Cog):
         name = "poll",
         description = "Create a poll",
         options = options,
-        guild_ids = test_guilds
+        #guild_ids = test_guilds
     )
     @commands.guild_only()
     async def _poll(
@@ -244,6 +244,6 @@ class Poll(commands.Cog):
         except Exception as e:
             embed = make_error_embed(e)
             await ctx.send(embed = embed)
-            
+
 def setup(client):
     client.add_cog(Poll(client))

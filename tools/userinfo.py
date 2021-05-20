@@ -32,7 +32,7 @@ class UserInfo(commands.Cog):
             person_status = "Could not get the user's status information.\nPlease inform `jcw05#1331` or make a bugreport using `$bugreport`."
         return person_status
 
-    
+
     async def calculate_member_age(member):
         now = datetime.datetime.now()
         join_date = member.created_at
@@ -47,7 +47,12 @@ class UserInfo(commands.Cog):
         server_join_age_final = str(server_join_age)[:-7]
         return server_join_age_final
 
-    @cog_ext.cog_slash(name = "whois", description = "Get information about a user", options = options, guild_ids = test_guilds)
+    @cog_ext.cog_slash(
+        name = "whois",
+        description = "Get information about a user",
+        options = options,
+        #guild_ids = test_guilds
+    )
     async def _userinfo(self, ctx: SlashContext, user: discord.Member = None):
         if user is None:
             user = ctx.author

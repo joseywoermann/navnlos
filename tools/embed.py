@@ -42,10 +42,23 @@ class Embed(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @cog_ext.cog_slash(name = "makeembed", description = "Create and embed.", options = options, guild_ids = test_guilds)
+    @cog_ext.cog_slash(
+        name = "makeembed",
+        description = "Create and embed.",
+        options = options,
+        #guild_ids = test_guilds
+    )
     @commands.has_permissions(manage_messages=True)
     @commands.guild_only()
-    async def _makeembed(self, ctx: SlashContext, title = discord.Embed.Empty, description = discord.Embed.Empty, author = discord.Embed.Empty, thumbnail = discord.Embed.Empty, image = discord.Embed.Empty):
+    async def _makeembed(
+        self,
+        ctx: SlashContext,
+        title = discord.Embed.Empty,
+        description = discord.Embed.Empty,
+        author = discord.Embed.Empty,
+        thumbnail = discord.Embed.Empty,
+        image = discord.Embed.Empty
+    ):
         embed = await Embed.make(self, ctx, title, description, author, thumbnail, image)
         await ctx.send(embed=embed)
 

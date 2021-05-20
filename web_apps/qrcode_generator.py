@@ -23,7 +23,7 @@ class QRcode(commands.Cog):
         name = "qrcode",
         description = "Generate a QR-code from a URL",
         options = options,
-        guild_ids = test_guilds
+        #guild_ids = test_guilds
     )
     async def _qr(self, ctx: SlashContext, url):
         await QRcode.make(self, ctx, url)

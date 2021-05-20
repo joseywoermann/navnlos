@@ -20,7 +20,12 @@ class URLShort(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @cog_ext.cog_slash(name = "shorturl", description = "Makes a long URL short.", options = options, guild_ids = test_guilds)
+    @cog_ext.cog_slash(
+        name = "shorturl",
+        description = "Makes a long URL short.",
+        options = options,
+        #guild_ids = test_guilds
+    )
     async def short(self, ctx: SlashContext, url):
         embed = await URLShort.make(self, ctx, url)
         await ctx.send(embed = embed)

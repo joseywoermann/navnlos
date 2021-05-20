@@ -22,7 +22,7 @@ class Unban(commands.Cog):
         name = "unban",
         description = "Remove the ban from a user.",
         options = options,
-        guild_ids = test_guilds
+        #guild_ids = test_guilds
     )
     @commands.has_permissions(ban_members=True)
     @commands.guild_only()

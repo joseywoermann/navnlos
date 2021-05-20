@@ -28,7 +28,7 @@ class ChangeNickname(commands.Cog):
         name = "change-nickname",
         description = "Change a member's nickname.",
         options = options,
-        guild_ids = test_guilds
+        #guild_ids = test_guilds
     )
     @commands.has_permissions(manage_nicknames=True)
     @commands.guild_only()

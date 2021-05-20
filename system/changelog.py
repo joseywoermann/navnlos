@@ -12,7 +12,11 @@ class Changelog(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @cog_ext.cog_slash(name = "changelog", description = "Show the changes in the latest release.", guild_ids = test_guilds)
+    @cog_ext.cog_slash(
+        name = "changelog",
+        description = "Show the changes in the latest release.",
+        #guild_ids = test_guilds
+    )
     async def _changelog(self, ctx: SlashContext):
         async with ctx.channel.typing():
             embed = await Changelog.make(self, ctx)

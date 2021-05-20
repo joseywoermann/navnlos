@@ -8,7 +8,11 @@ class Invite(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @cog_ext.cog_slash(name = "invite", description = "Add me to your server!", guild_ids = test_guilds)
+    @cog_ext.cog_slash(
+        name = "invite",
+        description = "Add me to your server!",
+        #guild_ids = test_guilds
+    )
     async def _invite(self, ctx: SlashContext):
         embed = await Invite.make(self, ctx)
         await ctx.send(content=None, embed=embed)

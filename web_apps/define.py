@@ -20,7 +20,12 @@ class Define(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @cog_ext.cog_slash(name = "define", description = "Look up a word on urbandictionary.com", options = options, guild_ids = test_guilds)
+    @cog_ext.cog_slash(
+        name = "define",
+        description = "Look up a word on urbandictionary.com",
+        options = options,
+        #guild_ids = test_guilds
+    )
     async def _define(self, ctx: SlashContext, query):
         embed = await Define.make(self, ctx, query)
         await ctx.send(content=None, embed=embed)
@@ -50,7 +55,7 @@ class Define(commands.Cog):
 
         except Exception as e:
             embed = make_error_embed(e)
-        
+
         finally:
             return embed
 

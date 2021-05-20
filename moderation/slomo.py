@@ -22,7 +22,7 @@ class SlowMode(commands.Cog):
         name = "slowmode",
         description = "Enable slowmode in the current channel.",
         options = options,
-        guild_ids = test_guilds
+        #guild_ids = test_guilds
     )
     @commands.has_permissions(manage_messages=True)
     @commands.guild_only()

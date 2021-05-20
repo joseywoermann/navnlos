@@ -21,7 +21,7 @@ class Wiki(commands.Cog):
         name = "wikipedia",
         description = "Use this as a shortcut to get to the Wikipedia article.",
         options = options,
-        guild_ids = test_guilds
+        #guild_ids = test_guilds
     )
     async def _wikipedia(self, ctx: SlashContext, topic):
 

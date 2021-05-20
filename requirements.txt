@@ -9,3 +9,4 @@ qrcode[pil]
 psutil
 PyGitHub
 discord-py-slash-command
+sentry-sdk

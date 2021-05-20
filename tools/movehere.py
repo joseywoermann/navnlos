@@ -20,7 +20,12 @@ class MoveHere(commands.Cog):
     """
     TODO: FIX PERMISSION CHECK
     """
-    @cog_ext.cog_slash(name = "move", description = "Move a member into your voicechannel", options = options, guild_ids = test_guilds)
+    @cog_ext.cog_slash(
+        name = "move",
+        description = "Move a member into your voicechannel",
+        options = options,
+        #guild_ids = test_guilds
+    )
     @commands.has_permissions(manage_messages = True)
     async def _move(self, ctx: SlashContext, member: discord.Member):
         embed = await MoveHere.make(self, ctx, member)

@@ -8,7 +8,11 @@ class Support(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @cog_ext.cog_slash(name = "support", description = "Do you need help with the bot?", guild_ids = test_guilds)
+    @cog_ext.cog_slash(
+        name = "support",
+        description = "Do you need help with the bot?",
+        #guild_ids = test_guilds
+    )
     async def _support(self, ctx: SlashContext):
         await ctx.send("**Join our official support server!** https://discord.gg/52TbNHPBU9")
 

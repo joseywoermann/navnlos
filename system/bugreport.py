@@ -28,7 +28,12 @@ class BugReport(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @cog_ext.cog_slash(name = "bugreport", description = "Something isn't working? Create a bugreport!", options = options, guild_ids = test_guilds)
+    @cog_ext.cog_slash(
+        name = "bugreport",
+        description = "Something isn't working? Create a bugreport!",
+        options = options,
+        #guild_ids = test_guilds
+    )
     async def _bugreport(self, ctx: SlashContext, title, description = None):
 
         embed = BugReport.make(self, ctx, title, description)

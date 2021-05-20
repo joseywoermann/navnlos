@@ -20,7 +20,12 @@ class Clear(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @cog_ext.cog_slash(name = "clear", description = "Delete up to 2000 messages in this channel, while ignoring pinned messages.", options = options, guild_ids = test_guilds)
+    @cog_ext.cog_slash(
+        name = "clear",
+        description = "Delete up to 2000 messages in this channel, while ignoring pinned messages.",
+        options = options,
+        #guild_ids = test_guilds
+    )
     @commands.has_permissions(manage_messages=True)
     @commands.guild_only()
     async def _clear(self, ctx: SlashContext, count = 1):

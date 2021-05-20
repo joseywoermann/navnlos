@@ -24,7 +24,7 @@ class Question(commands.Cog):
         name = "question",
         description = "navnløs can answer your Yes/No questions.",
         options = options,
-        guild_ids = test_guilds
+        #guild_ids = test_guilds
     )
     async def _question(self, ctx: SlashContext, *, question):
         embed = Question.make(self, ctx, question)

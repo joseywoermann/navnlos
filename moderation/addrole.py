@@ -28,7 +28,7 @@ class AddRole(commands.Cog):
         name = "addrole",
         description = "Add a role to a member",
         options = options,
-        guild_ids = test_guilds
+        #guild_ids = test_guilds
     )
     @commands.has_permissions(manage_roles=True)
     @commands.guild_only()

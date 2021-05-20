@@ -28,7 +28,7 @@ class Ban(commands.Cog):
         name = "ban",
         description = "Bans a member",
         options = options,
-        guild_ids = test_guilds
+        #guild_ids = test_guilds
     )
     @commands.has_permissions(ban_members=True)
     @commands.guild_only()

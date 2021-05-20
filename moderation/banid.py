@@ -25,7 +25,12 @@ class BanID(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @cog_ext.cog_slash(name = "banid", description = "Bans a member by ID", options = options, guild_ids = test_guilds)
+    @cog_ext.cog_slash(
+        name = "banid",
+        description = "Bans a member by ID",
+        options = options,
+        #guild_ids = test_guilds
+    )
     @commands.has_permissions(ban_members=True)
     @commands.guild_only()
     async def _banid(self, ctx: SlashContext, id, reason = None):

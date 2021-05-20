@@ -9,7 +9,11 @@ class Info(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @cog_ext.cog_slash(name = "stats", description = "Show statistics", guild_ids = test_guilds)
+    @cog_ext.cog_slash(
+        name = "stats",
+        description = "Show statistics",
+        #guild_ids = test_guilds
+    )
     async def _stats(self, ctx: SlashContext):
         embed = await Info.make(self, ctx)
         await ctx.send(embed=embed)
