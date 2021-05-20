@@ -22,7 +22,7 @@ class Clear(commands.Cog):
 
     @cog_ext.cog_slash(
         name = "clear",
-        description = "Delete up to 2000 messages in this channel, while ignoring pinned messages.",
+        description = "Delete up to 1000 messages in this channel, while ignoring pinned messages.",
         options = options,
         #guild_ids = test_guilds
     )
@@ -35,7 +35,7 @@ class Clear(commands.Cog):
 
     async def make(self, ctx, amount_typed):
         try:
-            if amount_typed <= 2000:
+            if amount_typed <= 1000:
                 amount = amount_typed + 1
 
                 deleted = await ctx.channel.purge(limit=amount, check=lambda msg: not msg.pinned)
@@ -43,6 +43,8 @@ class Clear(commands.Cog):
                     title=f'Deleted {len(deleted)-1} messages.',
                     color=discord.Color.dark_red()
                 )
+            else:
+                embed = await make_error_embed("You can only delete up to 1000 messages at once!")
 
         except Exception as e:
             embed = await make_error_embed(e)

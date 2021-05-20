@@ -82,13 +82,14 @@ class UserInfo(commands.Cog):
             embed = discord.Embed(title=str(person), color = 0x75e8ee)
             embed.add_field(name="Server join date: ", value=person.joined_at.strftime("%d.%m.%Y at %H:%M:%S"))
             embed.add_field(name="Account created on: ", value=person.created_at.strftime("%d.%m.%Y at %H:%M:%S"))
+            #embed.add_field(name="Status", value=person_status)
             embed.add_field(name="Status", value=person_status)
             embed.add_field(name="ID", value=str(person.id))
             embed.add_field(name="Account-age:", value=f"{account_age} hours")
             embed.add_field(name="Member of the server for:", value=f"{server_join_age} hours")
 
             if rollen:
-                if len(rollen) > 50:
+                if len(rollen) >= 1024:
                     embed.add_field(name = "Roles:", value = "Too many to display")
                 else:
                     embed.add_field(name="Roles:", value=rollen)
