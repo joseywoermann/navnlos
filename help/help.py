@@ -198,7 +198,7 @@ class Help(commands.Cog):
         """
         embed = discord.Embed(
             title = "Slash Commands are here!",
-            description = "Support fot the regular commands has been dropped, please use Slash Commands from now on."
+            description = "Support for the regular commands has been dropped, please use Slash Commands from now on."
         )
         await ctx.reply(embed = embed)
 
