@@ -80,5 +80,17 @@ class Embed(commands.Cog):
         finally:
             return embed
 
+
+    @commands.command()
+    @commands.guild_only()
+    @commands.is_owner()
+    async def announcement(self, ctx, *, text):
+
+        repeat_embed = discord.Embed(description=str(text), color=discord.Color.gold())
+        repeat_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
+
+        await ctx.channel.purge(limit = 1)
+        await ctx.send(content=None, embed=repeat_embed)
+
 def setup(client):
     client.add_cog(Embed(client))
