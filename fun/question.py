@@ -32,7 +32,7 @@ class Question(commands.Cog):
 
     def make(self, ctx, question):
         response = ['Yes', 'No', 'Maybe', 'Likely', 'Probably not']
-        embed = discord.Embed(title=str(random.choice(response)), color=0x75e8ee)
+        embed = discord.Embed(title=str(random.choice(response)), description = f"You asked: \"{str(question)}\"", color=0x75e8ee)
         return embed
 
 def setup(client):
