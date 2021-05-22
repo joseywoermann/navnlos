@@ -135,10 +135,6 @@ for filename in os.listdir("./fun"):
     if filename.endswith(".py"):
         client.load_extension(f"fun.{filename[:-3]}")
 
-for filename in os.listdir("./help"):
-    if filename.endswith(".py"):
-        client.load_extension(f"help.{filename[:-3]}")
-
 for filename in os.listdir("./member_actions"):
     if filename.endswith(".py"):
         client.load_extension(f"member_actions.{filename[:-3]}")
@@ -159,14 +155,6 @@ for filename in os.listdir("./tools"):
     if filename.endswith(".py"):
         client.load_extension(f"tools.{filename[:-3]}")
 
-for filename in os.listdir("./web_apps"):
-    if filename.endswith(".py"):
-        client.load_extension(f"web_apps.{filename[:-3]}")
-"""
-for filename in os.listdir("./filter"):
-    if filename.endswith(".py"):
-        client.load_extension(f"filter.{filename[:-3]}")
-"""
 for filename in os.listdir("./vc_role"):
     if filename.endswith(".py"):
         client.load_extension(f"vc_role.{filename[:-3]}")
