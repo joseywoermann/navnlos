@@ -28,7 +28,7 @@ You need to...
    "shortio": "YOUR SHORT.IO TOKEN HERE",
    "prefix": "$"
    "sentry_url": "YOUR SENTRY URL HERE",
-	"test_guilds": []
+   "test_guilds": []
 }
 ```
 * If you want to use the `/bugreport` feature, you will need to create a GitHub "personal access token"
