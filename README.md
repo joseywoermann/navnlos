@@ -27,10 +27,12 @@ You need to...
    "github": "YOUR GITHUB P-A-T HERE",
    "shortio": "YOUR SHORT.IO TOKEN HERE",
    "prefix": "$"
+   "sentry_url": "YOUR SENTRY URL HERE",
+   "test_guilds": []
 }
 ```
-* If you want to use the `$bugreport` feature, you will need to create a GitHub "personal access token"
-* If you want to use the `$shorturl` feature, you will need to create a [short.io](https://short.io/) API-key
+* If you want to use the `/bugreport` feature, you will need to create a GitHub "personal access token"
+* If you want to use the `/shorturl` feature, you will need to create a [short.io](https://short.io/) API-key
 * That should be it!
 
 ##### Basic setup and start
