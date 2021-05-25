@@ -13,9 +13,8 @@ class Hello(commands.Cog):
 
         if message.content.lower() in words:
             number = random.randint(0, 5)
-
             if number == 5:
                 await message.channel.send("https://tenor.com/view/penguin-hello-hi-heythere-cutie-gif-3950966")
-                
+
 def setup(client):
     client.add_cog(Hello(client))

@@ -1,45 +1,51 @@
 import discord
 from discord.ext import commands
+from discord_slash import cog_ext, SlashContext
+from main import test_guilds, make_error_embed
+from discord_slash.utils.manage_commands import create_option
 
-class Invite(commands.Cog):
+options = [
+    create_option(
+        name = "role",
+        description = "Select a role.",
+        option_type = 8,
+        required = True
+    )
+]
+
+class HasRole(commands.Cog):
 
     def __init__(self, client):
         self.client = client
 
-    @commands.command()
-    @commands.guild_only()
-    async def hasrole(self, ctx, *, role_name_or_id):
+    @cog_ext.cog_slash(
+        name = "hasrole",
+        description = "List all members with this role",
+        options = options,
+        #guild_ids = test_guilds
+    )
+    async def _hasrole(self, ctx: SlashContext, role):
+        embed = await HasRole.make(self, ctx, role)
+        await ctx.send(embed = embed)
 
-        async with ctx.channel.typing():
+
+    async def make(self, ctx, role):
+        try:
             server = ctx.guild
-
-            # If role_name_or_id is a mention, make it to a role-name
-            if role_name_or_id.startswith("<@&") and role_name_or_id.endswith(">"):
-                role_name_or_id = role_name_or_id.replace('<@&', '')
-                role_name_or_id = role_name_or_id.replace('>', '')
-
-            target_role = discord.utils.find(lambda r: r.name == str(role_name_or_id), server.roles)
-
-            # if an ID is specified, check for IDs
-            if target_role is None:
-                try:
-                    target_role = discord.utils.find(lambda r: r.id == int(role_name_or_id), server.roles)
-                except:
-                    pass
-
-            # role not found
-            if target_role is None:
-                embed = discord.Embed(title = f"Specified role \"{role_name_or_id}\" not found:")
-                await ctx.reply(content = None, embed = embed)
-
+            members = []
+            for member in server.members:
+                if role in member.roles:
+                    members.append('{}'.format(member.mention))
+            if int(len(members)) > 75:
+                embed = discord.Embed(title = "Users with this role:", description = "Too many members to display.")
             else:
-                members = []
-                for member in server.members:
-                    if target_role in member.roles:
-                        members.append('{}'.format(member.mention))
-
                 embed = discord.Embed(title = "Users with this role:", description = ',\n'.join(members))
-                await ctx.reply(content = None, embed = embed)
+
+        except Exception as e:
+            embed = await make_error_embed(e)
+
+        finally:
+            return embed
 
 def setup(client):
-    client.add_cog(Invite(client))
+    client.add_cog(HasRole(client))

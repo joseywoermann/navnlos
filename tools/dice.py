@@ -1,22 +1,46 @@
 import discord
 from discord.ext import commands
+from discord_slash import cog_ext, SlashContext
+from main import test_guilds, make_error_embed
+from discord_slash.utils.manage_commands import create_option
 import random
+
+
+options = [
+    create_option(
+        name = "limit",
+        description = "The upper limit of the range.",
+        option_type = 4,
+        required = False
+    )
+]
 
 class Dice(commands.Cog):
 
     def __init__(self, client):
         self.client = client
 
-    @commands.command()
-    @commands.guild_only()
-    async def dice(self, ctx, arg=6):
+    @cog_ext.cog_slash(
+        name = "dice",
+        description = "Generate a random number",
+        options = options,
+        #guild_ids = test_guilds
+    )
+    async def _dice(self, ctx: SlashContext, limit = 6):
+        embed = await Dice.make(self, ctx, limit)
+        await ctx.send(embed=embed)
 
-        dice_result = random.randint(1, arg)
-        dice_embed = discord.Embed(title=f"Random number between 1 and {arg}:\n\n=> {dice_result}", color=0x75e8ee)
-        dice_embed.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
-        dice_embed.set_footer(text = "$dice | @navnløs")
+    async def make(self, ctx, limit):
+        try:
+            number = random.randint(1, limit)
+            embed = discord.Embed(
+                title = number
+            )
+        except Exception as e:
+            embed = await make_error_embed(e)
+        finally:
+            return embed
 
-        await ctx.reply(content=None, embed=dice_embed)
 
 def setup(client):
     client.add_cog(Dice(client))

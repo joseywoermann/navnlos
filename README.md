@@ -5,27 +5,14 @@
 
 [Join the support-server!](https://discord.gg/52TbNHPBU9)
 
-## A multi purpose Discord bot.
+# A multi purpose Discord bot.
 
 navnløs is a Discord bot designed to be modular and feature rich.
 
-# Features
-
-#### Moderation
-
-* User-management
-* Role-management
-* server management
+## Better documentation coming soon-ish™
 
 
-
-#### Automatic actions
-
-* member counter (requires a channel named `Members:` which the bot can modify)
-* automatically publish messages in announcement-channels (currently in development)
-
-
-# Hosting navnløs yourself
+## Hosting navnløs yourself
 
 ##### Requirements
 
@@ -36,19 +23,21 @@ You need to...
 * create a file called `settings.json` with the following structure in the root directory:
 ```
 {
-	"discord": "YOUR DISCORD BOT TOKEN HERE",
-	"github": "YOUR GITHUB P-A-T HERE",
-	"shortio": "YOUR SHORT.IO TOKEN HERE",
-	"prefix": "$"
+   "discord": "YOUR DISCORD BOT TOKEN HERE",
+   "github": "YOUR GITHUB P-A-T HERE",
+   "shortio": "YOUR SHORT.IO TOKEN HERE",
+   "prefix": "$"
+   "sentry_url": "YOUR SENTRY URL HERE",
+   "test_guilds": []
 }
 ```
-* If you want to use the `$bugreport` feature, you will need to create a GitHub "personal access token"
-* If you want to use the `$shorturl` feature, you will need to create a [short.io](https://short.io/) API-key
+* If you want to use the `/bugreport` feature, you will need to create a GitHub "personal access token"
+* If you want to use the `/shorturl` feature, you will need to create a [short.io](https://short.io/) API-key
 * That should be it!
 
 ##### Basic setup and start
 
 * open a command line tool
-* execute the command `.venv\Scripts\activate.bat`
-* execute the command `python main.py`
+* (execute `.venv\Scripts\activate.bat`)
+* execute `python main.py`
 * Now the bot should be running!

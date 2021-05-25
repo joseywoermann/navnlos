@@ -1,30 +1,57 @@
 import discord
 from discord.ext import commands
+from discord_slash import cog_ext, SlashContext
+from main import test_guilds, make_error_embed
+from discord_slash.utils.manage_commands import create_option
 
+options = [
+    create_option(
+        name = "member",
+        description = "Which member do you want to remove the role from?",
+        option_type = 6,
+        required = True
+    ),
+    create_option(
+        name = "role",
+        description = "Which role do you want to remove?",
+        option_type = 8,
+        required = True
+    )
+
+]
 class RemoveRole(commands.Cog):
 
     def __init__(self, client):
         self.client = client
 
-    @commands.command(aliases = ["rr"])
+    @cog_ext.cog_slash(
+        name = "removerole",
+        description = "Remove a role from a member",
+        options = options,
+        #guild_ids = test_guilds
+    )
     @commands.has_permissions(manage_roles=True)
     @commands.guild_only()
-    async def removerole(self, ctx, person: discord.Member, *, role_name):
+    async def _removerole(self, ctx: SlashContext, member, role):
+        embed = await RemoveRole.make(self, ctx, member, role)
+        await ctx.send(embed = embed)
 
-        guild = ctx.message.guild
-        role = discord.utils.get(guild.roles, name=role_name)
-        removerole_embed = discord.Embed(
-            title=" ",
-            description=f"The role {role.mention} has been removed from {person.mention}",
-            color=discord.Color.dark_red()
-        )
-        removerole_embed.set_footer(text = "$removerole | @navnløs")
 
+    async def make(self, ctx, member: discord.Member, pRole: discord.Role):
         try:
-            await person.remove_roles(role)
-            await ctx.reply(content=None, embed=removerole_embed)
-        except:
-            print("error")
+            guild = ctx.guild
+
+            embed = discord.Embed(
+                title=" ",
+                description=f"The role {pRole.mention} has been removed from {member.mention}",
+                color=discord.Color.dark_red()
+            )
+            await member.add_roles(pRole)
+
+        except Exception as e:
+            embed = await make_error_embed(e)
+        finally:
+            return embed
 
 
 def setup(client):

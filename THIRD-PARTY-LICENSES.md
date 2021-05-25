@@ -444,21 +444,21 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 Original text and license from the pyqrnative package where this was forked
 from (http://code.google.com/p/pyqrnative):
 
-#Ported from the Javascript library by Sam Curren
-#
-#QRCode for Javascript
-#http://d-project.googlecode.com/svn/trunk/misc/qrcode/js/qrcode.js
-#
-#Copyright (c) 2009 Kazuhiko Arase
-#
-#URL: http://www.d-project.com/
-#
-#Licensed under the MIT license:
-#   http://www.opensource.org/licenses/mit-license.php
-#
-# The word "QR Code" is registered trademark of
-# DENSO WAVE INCORPORATED
-#   http://www.denso-wave.com/qrcode/faqpatent-e.html
+### Ported from the Javascript library by Sam Curren
+
+### QRCode for Javascript
+### http://d-project.googlecode.com/svn/trunk/misc/qrcode/js/qrcode.js
+
+### Copyright (c) 2009 Kazuhiko Arase
+
+### URL: http://www.d-project.com/
+
+### Licensed under the MIT license:
+###   http://www.opensource.org/licenses/mit-license.php
+###
+### The word "QR Code" is registered trademark of
+### DENSO WAVE INCORPORATED
+###   http://www.denso-wave.com/qrcode/faqpatent-e.html
 
 # [psutil](https://github.com/giampaolo/psutil)
 
