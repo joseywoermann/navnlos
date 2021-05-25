@@ -10,3 +10,4 @@ psutil
 PyGitHub
 discord-py-slash-command
 sentry-sdk
+statcord.py

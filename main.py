@@ -40,7 +40,6 @@ slash = SlashCommand(client, sync_commands = True)
 statusmessages = ["Slash Commands", 'navnlos.ml', 'nvnls.ml/support']
 statusmsg = cycle(statusmessages)
 
-
 # a universal embed used in all try...except blocks
 error_msgs = [
     "Something really bad happened!",

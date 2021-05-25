@@ -30,7 +30,7 @@ class Clear(commands.Cog):
     @commands.guild_only()
     async def _clear(self, ctx: SlashContext, count = 1):
         embed = await Clear.make(self, ctx, count)
-        await ctx.send(embed=embed)
+        await ctx.send(embed=embed, hidden=True)
 
 
     async def make(self, ctx, amount_typed):
