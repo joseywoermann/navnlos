@@ -18,7 +18,7 @@ class Error(commands.Cog):
 
     @commands.Cog.listener()
     async def on_command_error(self, ctx, ex):
-        
+
         if not isinstance(ex, commands.CommandNotFound):
             embed = await make_error_embed(ex)
             await ctx.send(embed = embed)
