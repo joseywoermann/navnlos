@@ -21,10 +21,6 @@ options = [
                 value="dog"
             ),
             create_choice(
-                name="red panda",
-                value="red panda"
-            ),
-            create_choice(
                 name="panda",
                 value="panda"
             ),
@@ -37,62 +33,33 @@ options = [
 ]
 
 
-class AnimalPhoto(commands.Cog):
+class AnimalFact(commands.Cog):
 
     def __init__(self, client):
         self.client = client
 
     @cog_ext.cog_subcommand(
         base="animal",
-        name="photo",
+        name="fact",
         options=options,
         guild_ids=test_guilds
     )
     async def animal_AnimalPhoto(self, ctx: SlashContext, species):
-        embed = await AnimalPhoto.make(self, ctx, species)
+        embed = await AnimalFact.make(self, ctx, species)
         await ctx.send(embed=embed)
 
     async def make(self, ctx, species):
         try:
-            if species == "cat":
-                url = "https://api.thecatapi.com/v1/images/search"
 
-            if species == "dog":
-                url = "https://dog.ceo/api/breeds/image/random"
-
-            if species == "red panda":
-                url = "https://some-random-api.ml/img/red_panda"
-
-            if species == "panda":
-                url = "https://some-random-api.ml/img/panda"
-
-            if species == "koala":
-                url = "https://some-random-api.ml/img/koala"
-
-            res = requests.get(url)
+            res = requests.get(f"https://some-random-api.ml/facts/{species}")
             data = res.json()
 
             embed = discord.Embed(
-                title="Here you go!",
+                title="Did you know that...",
+                description=data["fact"],
                 color=0x75e8ee
             )
-
-            if species == "cat":
-                embed.set_image(url=data[0]["url"])
-
-            if species == "dog":
-                embed.set_image(url=data["message"])
-
-            if species == "red panda":
-                embed.set_image(url=data["link"])
-
-            if species == "panda":
-                embed.set_image(url=data["link"])
-
-            if species == "koala":
-                embed.set_image(url=data["link"])
-
-            embed.set_footer(text="images provided by some-random-api.ml")
+            embed.set_footer(text="data provided by some-random-api.ml")
 
         except Exception as e:
             embed = make_error_embed(e)
@@ -101,4 +68,4 @@ class AnimalPhoto(commands.Cog):
 
 
 def setup(client):
-    client.add_cog(AnimalPhoto(client))
+    client.add_cog(AnimalFact(client))

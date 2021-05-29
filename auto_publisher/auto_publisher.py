@@ -1,6 +1,7 @@
 from discord.ext import commands
 from time import sleep
 
+
 class AutoPublisher(commands.Cog):
 
     def __init__(self, client):
