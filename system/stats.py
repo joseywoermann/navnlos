@@ -27,7 +27,7 @@ class Info(commands.Cog):
             embed.add_field(name = "Bot Owner:", value = f"{appinfo.owner.mention}")
             embed.add_field(name = "Used packages:", value = "`32`")
             embed.add_field(name = "Lines of code:", value = "`3396`")
-            embed.add_field(name = "Commands:", value = f"`{len(self.client.commands)}`")
+            embed.add_field(name = "Commands:", value = f"`{len(slash.commands)}`")
             embed.add_field(name = "Servers:", value = f"`{len(self.client.guilds)}`")
             embed.add_field(name = "Users:", value = f"`{len(self.client.users)}`")
             embed.add_field(name = "Cached messages:", value = f"`{len(self.client.cached_messages)}`")
