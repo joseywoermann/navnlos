@@ -2,9 +2,10 @@ import discord
 from discord.ext import commands
 import logging
 import json
+import os
 from github import Github
 from discord_slash import cog_ext, SlashContext
-from main import test_guilds, make_error_embed
+from main import test_guilds, make_error_embed, config
 from discord_slash.utils.manage_commands import create_option
 
 
@@ -41,12 +42,8 @@ class BugReport(commands.Cog):
 
 
     def make(self, ctx, pTitle, pBody):
-        settings = {}
-
-        with open('settings.json','r') as file:
-            settings = json.load(file)
-
-        g = Github(settings["github"])
+    
+        g = Github(config["GITHUB_TOKEN"])
         repo = g.get_repo("joseywoermann/navnlos")
 
         if pBody:

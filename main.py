@@ -7,17 +7,14 @@ import os.path
 import json
 from discord_slash import SlashCommand
 import random
+from dotenv import dotenv_values
 import sentry_sdk
 
+config = dotenv_values(".env")
 
-settings = {}
-
-with open('settings.json','r') as file:
-    settings = json.load(file)
-
-# Sentry-stuff
+# Sentry-stuff  
 sentry_sdk.init(
-    settings["sentry_url"],
+    config["SENTRY_URL"],
     traces_sample_rate=1.0
 )
 
@@ -31,9 +28,9 @@ logging.basicConfig(
 intents = discord.Intents.all()
 
 
-test_guilds = settings["test_guilds"]
+test_guilds = [ 707243781946343425 ]
 
-client = commands.Bot(command_prefix=settings["prefix"], intents = intents)
+client = commands.Bot(command_prefix="-", intents = intents)
 client.remove_command('help')
 slash = SlashCommand(client, sync_commands = True)
 
@@ -164,4 +161,4 @@ for filename in os.listdir("./log_system"):
 
 
 if __name__ == "__main__":
-    client.run(settings["discord"])
+    client.run(config["DISCORD_TOKEN"])
