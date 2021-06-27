@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 from discord_slash import cog_ext, SlashContext
-from main import test_guilds, make_error_embed
+from main import test_guilds, make_error_embed, slash
 from discord_slash.utils.manage_commands import create_option
 import requests
 
@@ -36,6 +36,7 @@ class Info(commands.Cog):
                     channels_amount = channels_amount + 1
 
             appinfo = await self.client.application_info()
+
             embed = discord.Embed(title="Information", color=0x75E8EE)
             embed.add_field(name="Current version:", value="`V 3.0.0`")
             embed.add_field(name="Bot Owner:", value=f"{appinfo.owner.mention}")
@@ -47,6 +48,7 @@ class Info(commands.Cog):
             embed.add_field(name="Cached messages:", value=f"`{len(self.client.cached_messages)}`")
             embed.add_field(name="Most popular command:", value = f"`{await Info.getMostPopularCommand()}`")
             embed.set_thumbnail(url="https://raw.githubusercontent.com/joseywoermann/navnlos/master/assets/icon.PNG")
+
 
         except Exception as e:
             embed = await make_error_embed(e)

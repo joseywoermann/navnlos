@@ -46,7 +46,7 @@ class RemoveRole(commands.Cog):
                 description=f"The role {pRole.mention} has been removed from {member.mention}",
                 color=discord.Color.dark_red()
             )
-            await member.add_roles(pRole)
+            await member.remove_roles(pRole)
 
         except Exception as e:
             embed = await make_error_embed(e)
