@@ -11,3 +11,4 @@ PyGitHub
 discord-py-slash-command
 sentry-sdk
 betterstatcord.py
+python-dotenv

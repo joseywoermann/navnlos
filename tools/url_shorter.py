@@ -2,8 +2,9 @@ import discord
 from discord.ext import commands
 import requests
 import json
+import os
 from discord_slash import cog_ext, SlashContext
-from main import test_guilds, make_error_embed
+from main import test_guilds, make_error_embed, config
 from discord_slash.utils.manage_commands import create_option
 
 options = [
@@ -32,16 +33,12 @@ class URLShort(commands.Cog):
 
     async def make(self, ctx, url):
         try:
-            settings = {}
-
-            with open('settings.json','r') as file:
-                settings = json.load(file)
 
             res = requests.post('https://api.short.io/links', {
                   'domain': 'nvnls.ml',
                   'originalURL': url,
             }, headers = {
-                  'authorization': settings["shortio"]
+                  'authorization': config["SHORTIO_TOKEN"]
             }, json=True)
 
             res.raise_for_status()
