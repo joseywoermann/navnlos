@@ -46,7 +46,7 @@ class AnimalPhoto(commands.Cog):
         base="animal",
         name="photo",
         options=options,
-        guild_ids=test_guilds
+        #guild_ids=test_guilds
     )
     async def animal_AnimalPhoto(self, ctx: SlashContext, species):
         embed = await AnimalPhoto.make(self, ctx, species)

@@ -19,7 +19,9 @@ class Info(commands.Cog):
         
 
     @cog_ext.cog_slash(
-        name="info", description="Show statistics", guild_ids=test_guilds
+        name="info",
+        description="Show statistics",
+        #guild_ids=test_guilds
     )
     async def _info(self, ctx: SlashContext):
         embed = await Info.make(self, ctx)

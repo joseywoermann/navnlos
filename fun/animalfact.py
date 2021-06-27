@@ -42,7 +42,7 @@ class AnimalFact(commands.Cog):
         base="animal",
         name="fact",
         options=options,
-        guild_ids=test_guilds
+        #guild_ids=test_guilds
     )
     async def animal_AnimalPhoto(self, ctx: SlashContext, species):
         embed = await AnimalFact.make(self, ctx, species)
