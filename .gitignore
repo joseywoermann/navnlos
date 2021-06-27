@@ -3,6 +3,6 @@ __pycache__
 settings.json
 
 .venv/
-
+.env
 /auto_publisher
 /role_menu
