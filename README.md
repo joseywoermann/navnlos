@@ -29,6 +29,7 @@ You need to...
    "prefix": "$"
    "sentry_url": "YOUR SENTRY URL HERE",
    "test_guilds": []
+   "statcordkey": "YOUR STATCORD KEY HERE"
 }
 ```
 * If you want to use the `/bugreport` feature, you will need to create a GitHub "personal access token"

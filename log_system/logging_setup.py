@@ -24,9 +24,9 @@ class LoggingSetup(commands.Cog):
         if channel is None:
             channel = await category.create_text_channel(
                 str(guild.id),
-                reason = f"Log-Channel for \"{guild.name}\"."
+                reason = f"Log-Channel for **{guild.name}**."
             )
-            await channel.send(f"This is now the logging-channel for \"{guild.name}\".")
+            await channel.send(f"Log-Channel for **{guild.name}**.")
 
 
 def setup(client):

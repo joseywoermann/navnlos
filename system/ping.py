@@ -20,7 +20,6 @@ class Ping(commands.Cog):
 
     # make the content
     def make(self, ctx):
-
         embed = discord.Embed(title=f"Pong! {round(self.client.latency * 1000)} milliseconds", colour=0x75e8ee)
         return embed
 

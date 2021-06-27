@@ -1,6 +1,7 @@
 from discord.ext import commands
 import random
 
+
 class Hello(commands.Cog):
 
     def __init__(self, client):
@@ -9,12 +10,18 @@ class Hello(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
 
-        words = ["hello", "hallo", "hi", "hey"]
+        words = [
+            "hello",
+            "hallo",
+            "hi",
+            "hey"
+        ]
 
         if message.content.lower() in words:
-            number = random.randint(0, 5)
+            number = random.randint(0, 100)
             if number == 5:
                 await message.channel.send("https://tenor.com/view/penguin-hello-hi-heythere-cutie-gif-3950966")
+
 
 def setup(client):
     client.add_cog(Hello(client))
