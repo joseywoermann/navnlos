@@ -13,27 +13,27 @@ import sentry_sdk
 # TOKEN stuff
 config = dotenv_values(".env")
 
-if config["DISCORD_TOKEN"] == None:
+if "DISCORD_TOKEN" not in config:
     DISCORD_TOKEN = os.environ["DISCORD_TOKEN"]
 else:
     DISCORD_TOKEN = config["DISCORD_TOKEN"]
 
-if config["GITHUB_TOKEN"] == None:
+if "GITHUB_TOKEN" not in config:
     GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
 else:
     GITHUB_TOKEN = config["GITHUB_TOKEN"]
 
-if config["SHORTIO_TOKEN"] == None:
+if "SHORTIO_TOKEN" not in config:
     SHORTIO_TOKEN = os.environ["SHORTIO_TOKEN"]
 else:
     SHORTIO_TOKEN = config["SHORTIO_TOKEN"]
 
-if config["SENTRY_URL"] == None:
+if "SENTRY_URL" not in config:
     SENTRY_URL = os.environ["SENTRY_URL"]
 else:
     SENTRY_URL = config["SENTRY_URL"]
 
-if config["STATCORD_TOKEN"] == None:
+if "STATCORD_TOKEN" not in config:
     STATCORD_TOKEN = os.environ["STATCORD_TOKEN"]
 else:
     STATCORD_TOKEN = config["STATCORD_TOKEN"]
