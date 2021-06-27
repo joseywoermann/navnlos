@@ -5,7 +5,7 @@ import json
 import os
 from github import Github
 from discord_slash import cog_ext, SlashContext
-from main import test_guilds, make_error_embed, config
+from main import test_guilds, make_error_embed, GITHUB_TOKEN
 from discord_slash.utils.manage_commands import create_option
 
 
@@ -43,7 +43,7 @@ class BugReport(commands.Cog):
 
     def make(self, ctx, pTitle, pBody):
     
-        g = Github(config["GITHUB_TOKEN"])
+        g = Github(GITHUB_TOKEN)
         repo = g.get_repo("joseywoermann/navnlos")
 
         if pBody:

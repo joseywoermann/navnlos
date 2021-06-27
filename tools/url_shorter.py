@@ -4,7 +4,7 @@ import requests
 import json
 import os
 from discord_slash import cog_ext, SlashContext
-from main import test_guilds, make_error_embed, config
+from main import test_guilds, make_error_embed, SHORTIO_TOKEN
 from discord_slash.utils.manage_commands import create_option
 
 options = [
@@ -38,7 +38,7 @@ class URLShort(commands.Cog):
                   'domain': 'nvnls.ml',
                   'originalURL': url,
             }, headers = {
-                  'authorization': config["SHORTIO_TOKEN"]
+                  'authorization': SHORTIO_TOKEN
             }, json=True)
 
             res.raise_for_status()
