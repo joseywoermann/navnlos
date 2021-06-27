@@ -10,13 +10,36 @@ import random
 from dotenv import dotenv_values
 import sentry_sdk
 
+# TOKEN stuff
 config = dotenv_values(".env")
 
+if config["DISCORD_TOKEN"] == None:
+    DISCORD_TOKEN = os.environ["DISCORD_TOKEN"]
+else:
+    DISCORD_TOKEN = config["DISCORD_TOKEN"]
+
+if config["GITHUB_TOKEN"] == None:
+    GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
+else:
+    GITHUB_TOKEN = config["GITHUB_TOKEN"]
+
+if config["SHORTIO_TOKEN"] == None:
+    SHORTIO_TOKEN = os.environ["SHORTIO_TOKEN"]
+else:
+    SHORTIO_TOKEN = config["SHORTIO_TOKEN"]
+
+if config["SENTRY_URL"] == None:
+    SENTRY_URL = os.environ["SENTRY_URL"]
+else:
+    SENTRY_URL = config["SENTRY_URL"]
+
+if config["STATCORD_TOKEN"] == None:
+    STATCORD_TOKEN = os.environ["STATCORD_TOKEN"]
+else:
+    STATCORD_TOKEN = config["STATCORD_TOKEN"]
+
 # Sentry-stuff  
-sentry_sdk.init(
-    config["SENTRY_URL"],
-    traces_sample_rate=1.0
-)
+sentry_sdk.init(SENTRY_URL, traces_sample_rate=1.0)
 
 # CONFIGURATION
 logging.basicConfig(
@@ -28,7 +51,7 @@ logging.basicConfig(
 intents = discord.Intents.all()
 
 
-test_guilds = [ 707243781946343425 ]
+test_guilds = [707243781946343425]
 
 client = commands.Bot(command_prefix="-", intents = intents)
 client.remove_command('help')
@@ -161,4 +184,4 @@ for filename in os.listdir("./log_system"):
 
 
 if __name__ == "__main__":
-    client.run(config["DISCORD_TOKEN"])
+    client.run(DISCORD_TOKEN)
