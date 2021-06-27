@@ -9,7 +9,7 @@ from discord_slash import SlashCommand
 import random
 from dotenv import dotenv_values
 import sentry_sdk
-
+#test
 # TOKEN stuff
 config = dotenv_values(".env")
 
