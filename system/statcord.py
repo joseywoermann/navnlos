@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 from discord_slash import cog_ext, SlashContext
-from main import test_guilds, make_error_embed, config
+from main import test_guilds, make_error_embed, STATCORD_TOKEN
 from discord_slash.utils.manage_commands import create_option
 import json
 import os
@@ -14,7 +14,7 @@ class MyStatcordCog(commands.Cog):
         self.client = client
         self.statcord_client = StatcordClient(
                 client,
-                str(config["STATCORD_TOKEN"]),
+                str(STATCORD_TOKEN),
                 self.custom_graph_1
             )
 
