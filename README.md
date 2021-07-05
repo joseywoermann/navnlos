@@ -6,8 +6,6 @@
 
 # A multi purpose Discord bot.
 
-navnløs is a Discord bot designed to be modular and feature rich.
-
 ## Better documentation coming soon-ish™
 
 ## Hosting navnløs yourself
