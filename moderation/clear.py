@@ -29,6 +29,7 @@ class Clear(commands.Cog):
     @commands.has_permissions(manage_messages=True)
     @commands.guild_only()
     async def _clear(self, ctx: SlashContext, count = 1):
+        await ctx.defer()
         embed = await Clear.make(self, ctx, count)
         await ctx.send(embed=embed, hidden=True)
 
