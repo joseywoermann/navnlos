@@ -38,7 +38,7 @@ class Info(commands.Cog):
             appinfo = await self.client.application_info()
 
             embed = discord.Embed(title="Information", color=0x75E8EE)
-            embed.add_field(name="Current version:", value="`V 3.0.0`")
+            embed.add_field(name="Current version:", value="`V 3.0.2`")
             embed.add_field(name="Bot Owner:", value=f"{appinfo.owner.mention}")
             embed.add_field(name="Written in:", value="`discord.py`")
             embed.add_field(name="Commands:", value=f"`{len(self.client.commands)}`")
