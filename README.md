@@ -1,12 +1,8 @@
 ![](https://github.com/joseywoermann/navnlos/blob/master/assets/navnlos.PNG)
 
-![](https://badgen.net/github/release/joseywoermann/navnlos/stable?color=black) ![](https://badgen.net/github/last-commit/joseywoermann/navnlos?color=black) [![CodeFactor](https://www.codefactor.io/repository/github/joseywoermann/navnlos/badge)](https://www.codefactor.io/repository/github/joseywoermann/navnlos)
-
 [Join the support-server!](https://discord.gg/52TbNHPBU9)
 
 # A multi purpose Discord bot.
-
-## Better documentation coming soon-ish™
 
 ## Hosting navnløs yourself
 
@@ -14,7 +10,7 @@
 
 You need to...
 
--   have Python 3.5.3 or newer installed
+-   have Python installed
 -   install all dependencies by doing `pip install -r requirements.txt` in the bot's root directory (you may want to do this in a virtual environment)
 -   create a bot on [this website](https://discord.com/developers/applications/)
 -   create a file called `.env` with the following structure in the root directory:
