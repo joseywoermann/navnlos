@@ -41,7 +41,7 @@ class Info(commands.Cog):
             embed.add_field(name="Current version:", value="`V 3.0.2`")
             embed.add_field(name="Bot Owner:", value=f"{appinfo.owner.mention}")
             embed.add_field(name="Written in:", value="`discord.py`")
-            embed.add_field(name="Commands:", value=f"`{len(self.client.commands)}`")
+            embed.add_field(name="Commands:", value=f"`{len(slash.commands)}`")
             embed.add_field(name="Servers:", value=f"`{len(self.client.guilds)}`")
             embed.add_field(name="Channels:", value=f"`{channels_amount}`")
             embed.add_field(name="Users:", value=f"`{len(self.client.users)}`")
